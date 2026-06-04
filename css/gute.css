@@ -1,0 +1,184 @@
+/* ─────────────────────────────────────────
+   GUTE FOOD CO — Shared Stylesheet
+   gute.css
+   ───────────────────────────────────────── */
+
+/* ─── DESIGN TOKENS ─── */
+:root {
+    --parchment:    #F0E6D0;
+    --cream:        #FAF5EC;
+    --dark:         #160A04;
+    --chocolate:    #2C1208;
+    --choc-shell:   #1A0802;
+    --blueberry:    #1A0D2B;
+    --berry:        #6B3080;
+    --berry-pink:   #C26090;
+    --berry-light:  #D4A0BC;
+    --stamp:        #B02020;
+    --grain:        #C8A46A;
+    --grain-light:  #E8D4A8;
+    --date-warm:    #C4862A;
+    --glp-green:    #2A5C3A;
+    --glp-light:    #4A8C5C;
+
+    /* Text tokens */
+    --text-body:  #3D2010;
+    --text-mid:   #5C3820;
+    --text-soft:  #8A6448;
+    --text-ghost: #B09070;
+    --border:     rgba(22,10,4,0.1);
+}
+
+/* ─── RESET ─── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    background: var(--parchment);
+    color: var(--text-body);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+}
+
+/* Film-grain overlay */
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: multiply;
+}
+
+/* ─── NAV ─── */
+nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 3rem;
+}
+.nav-logo {
+    font-family: 'Courier Prime', monospace;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.4em;
+    color: var(--parchment);
+    text-decoration: none;
+    transition: color 0.4s;
+}
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+}
+.nav-link {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--parchment);
+    text-decoration: none;
+    opacity: 0.6;
+    transition: color 0.4s, opacity 0.3s;
+}
+.nav-link:hover { opacity: 1; }
+.nav-cta {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--parchment);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(240,230,208,0.4);
+    padding-bottom: 2px;
+    transition: color 0.4s, border-color 0.4s;
+}
+
+/* ─── MARQUEE ─── */
+.banner-strip {
+    background: var(--stamp);
+    padding: 0.9rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.banner-inner {
+    display: inline-flex;
+    gap: 2.5rem;
+    animation: marquee 28s linear infinite;
+}
+.banner-item {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--parchment);
+    flex-shrink: 0;
+}
+
+/* ─── FOOTER ─── */
+footer {
+    background: var(--chocolate);
+    padding: 3.5rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    border-top: 1px solid rgba(200,164,106,0.1);
+}
+.footer-logo {
+    font-family: 'Courier Prime', monospace;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.4em;
+    color: var(--stamp);
+    margin-bottom: 0.3rem;
+}
+.footer-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--grain-light);
+    opacity: 0.45;
+}
+.footer-right {
+    text-align: right;
+    font-family: 'Courier Prime', monospace;
+}
+.footer-domain {
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    color: var(--grain);
+    opacity: 0.3;
+    margin-bottom: 0.28rem;
+}
+.footer-copy {
+    font-size: 0.5rem;
+    letter-spacing: 0.12em;
+    color: var(--text-ghost);
+    opacity: 0.35;
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp  { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
+@keyframes pulse   { 0%,100%{opacity:.28;} 50%{opacity:.72;} }
+@keyframes marquee { from{transform:translateX(0);} to{transform:translateX(-50%);} }
+
+/* ─── SCROLL REVEAL ─── */
+.reveal { opacity:0; transform:translateY(24px); transition: opacity .85s ease, transform .85s ease; }
+.reveal.in { opacity:1; transform:translateY(0); }
+.d1 { transition-delay:.12s; }
+.d2 { transition-delay:.24s; }
+
+/* ─── RESPONSIVE NAV ─── */
+@media (max-width:900px) {
+    nav { padding:1.25rem 1.5rem; }
+    footer { flex-direction:column; align-items:flex-start; padding:3rem 1.5rem; }
+    .footer-right { text-align:left; }
+}

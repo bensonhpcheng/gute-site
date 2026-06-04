@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingredients — GUTE Food Co.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Courier+Prime:wght@400;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/gute.css">
+    <style>
+        /* Override nav for blueberry-background hero */
+        nav { background: linear-gradient(to bottom, rgba(22,10,4,0.2), transparent); }
+        .nav-link.active { opacity: 1; border-bottom: 1px solid rgba(240,230,208,0.5); padding-bottom: 2px; }
+
+        /* ─── PAGE HERO ─── */
+        .page-hero {
+            min-height: 62vh;
+            background: var(--blueberry);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 8rem 3rem 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .page-hero::before {
+            content: '';
+            position: absolute; inset: 0;
+            background:
+                radial-gradient(ellipse 55% 55% at 8% 85%, rgba(107,48,128,0.28) 0%, transparent 65%),
+                radial-gradient(ellipse 40% 35% at 92% 12%, rgba(42,92,58,0.2) 0%, transparent 55%);
+        }
+        .page-hero-inner { max-width: 900px; position: relative; }
+        .page-eyebrow { font-family: 'Courier Prime', monospace; font-size: 0.6rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--grain); opacity: 0.65; margin-bottom: 1.5rem; animation: fadeUp 0.8s ease both; }
+        .page-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 7vw, 6.5rem); font-weight: 300; color: var(--parchment); line-height: 1.0; margin-bottom: 2rem; animation: fadeUp 0.8s ease 0.1s both; }
+        .page-title em { font-style: italic; color: var(--berry-pink); }
+        .page-lead { font-size: clamp(1rem, 1.8vw, 1.15rem); color: var(--grain-light); opacity: 0.72; max-width: 600px; line-height: 1.75; animation: fadeUp 0.8s ease 0.2s both; font-weight: 400; }
+
+        /* ─── CONTENT ─── */
+        .content-wrap { max-width: 860px; margin: 0 auto; padding: 7rem 3rem; }
+
+        .section-stamp { font-family: 'Courier Prime', monospace; font-size: 0.56rem; letter-spacing: 0.45em; text-transform: uppercase; color: var(--stamp); margin-bottom: 2.25rem; display: flex; align-items: center; gap: 1rem; }
+        .section-stamp::after { content: ''; flex: 1; height: 1px; background: var(--border); max-width: 100px; }
+
+        /* ─── FDA DEFINITION ─── */
+        .fda-section { margin-bottom: 6rem; }
+
+        .fda-definition { background: var(--cream); border: 1px solid var(--border); border-left: 3px solid var(--stamp); border-radius: 0 4px 4px 0; padding: 2.5rem; margin-bottom: 2rem; }
+        .fda-label { font-family: 'Courier Prime', monospace; font-size: 0.54rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--stamp); margin-bottom: 0.75rem; }
+        .fda-quote { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 400; color: var(--dark); line-height: 1.7; margin-bottom: 1rem; }
+        .fda-source { font-family: 'Courier Prime', monospace; font-size: 0.5rem; letter-spacing: 0.15em; color: var(--text-ghost); }
+
+        .fda-explainer { font-size: 0.95rem; color: var(--text-mid); line-height: 1.85; }
+        .fda-explainer p + p { margin-top: 1rem; }
+        .fda-explainer strong { color: var(--dark); font-weight: 500; }
+
+        .fiber-types { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 2rem; }
+        .fiber-type-card { background: var(--cream); border: 1px solid var(--border); border-radius: 4px; padding: 2rem; }
+        .fiber-type-badge { font-family: 'Courier Prime', monospace; font-size: 0.5rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--stamp); border: 1px solid rgba(176,32,32,0.2); padding: 0.2rem 0.6rem; border-radius: 2px; display: inline-block; margin-bottom: 0.85rem; }
+        .fiber-type-name { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 400; color: var(--dark); margin-bottom: 0.6rem; }
+        .fiber-type-desc { font-size: 0.86rem; color: var(--text-mid); line-height: 1.72; }
+
+        /* ─── FIBER STACK ─── */
+        .fiber-stack-section { margin-bottom: 6rem; }
+
+        .fiber-count-callout { display: flex; align-items: center; gap: 2.5rem; padding: 2.5rem; background: var(--chocolate); border-radius: 4px; margin-bottom: 2.5rem; }
+        .fiber-big-num { font-family: 'Cormorant Garamond', serif; font-size: 6rem; font-weight: 300; color: var(--stamp); line-height: 1; flex-shrink: 0; }
+        .fiber-big-label { font-family: 'Courier Prime', monospace; font-size: 0.56rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--grain); opacity: 0.55; margin-bottom: 0.4rem; }
+        .fiber-big-desc { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.2rem; color: var(--parchment); line-height: 1.45; }
+
+        .fiber-subsection-label { font-family: 'Courier Prime', monospace; font-size: 0.54rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--text-soft); margin-bottom: 1rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--border); }
+
+        .fiber-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 1px; }
+        .fiber-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+
+        .fiber-card { background: var(--cream); padding: 2rem; }
+        .fiber-card.featured { background: #FDF8F0; }
+
+        .fiber-num { font-family: 'Courier Prime', monospace; font-size: 0.5rem; letter-spacing: 0.28em; color: var(--stamp); margin-bottom: 0.45rem; }
+        .fiber-name { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 400; color: var(--dark); margin-bottom: 0.2rem; }
+        .fiber-source { font-family: 'Courier Prime', monospace; font-size: 0.5rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-soft); margin-bottom: 0.85rem; }
+        .fiber-benefit { font-size: 0.85rem; color: var(--text-mid); line-height: 1.7; }
+        .fiber-fda-tag { display: inline-block; margin-top: 0.85rem; font-family: 'Courier Prime', monospace; font-size: 0.46rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.18rem 0.5rem; border-radius: 2px; }
+        .fda-approved { color: var(--stamp); border: 1px solid rgba(176,32,32,0.22); }
+        .fda-natural { color: var(--text-soft); border: 1px solid var(--border); }
+
+        .natural-fibers { background: var(--parchment); border: 1px solid var(--border); border-radius: 4px; padding: 1.75rem 2rem; margin-top: 1.25rem; }
+        .natural-label { font-family: 'Courier Prime', monospace; font-size: 0.54rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--text-soft); margin-bottom: 1rem; }
+        .natural-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .natural-tag { font-size: 0.85rem; color: var(--text-mid); background: var(--cream); border: 1px solid var(--border); padding: 0.35rem 0.85rem; border-radius: 2px; }
+
+        /* ─── GLP-1 ─── */
+        .glp-section { margin-bottom: 6rem; }
+
+        .glp-hero { background: var(--glp-green); border-radius: 4px; padding: 3.5rem 3rem; margin-bottom: 1.25rem; position: relative; overflow: hidden; }
+        .glp-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 70% at 90% 50%, rgba(74,140,92,0.3) 0%, transparent 65%); }
+        .glp-tag { font-family: 'Courier Prime', monospace; font-size: 0.54rem; letter-spacing: 0.35em; text-transform: uppercase; color: rgba(232,245,236,0.58); margin-bottom: 1rem; position: relative; }
+        .glp-headline { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 300; color: #E8F5EC; line-height: 1.2; margin-bottom: 1.25rem; position: relative; }
+        .glp-headline em { font-style: italic; color: #A8DFB4; }
+        .glp-sub { font-size: 0.95rem; color: rgba(232,245,236,0.62); line-height: 1.75; max-width: 540px; position: relative; }
+
+        .glp-explainer { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 1.25rem; }
+        .glp-card { background: var(--cream); border: 1px solid var(--border); border-top: 2px solid var(--glp-light); border-radius: 0 0 4px 4px; padding: 2rem; }
+        .glp-card-label { font-family: 'Courier Prime', monospace; font-size: 0.52rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--glp-green); margin-bottom: 0.65rem; }
+        .glp-card-title { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400; color: var(--dark); margin-bottom: 0.65rem; }
+        .glp-card-text { font-size: 0.86rem; color: var(--text-mid); line-height: 1.72; }
+        .glp-card-text strong { color: var(--dark); font-weight: 500; }
+
+        .glp-disclaimer { font-family: 'Courier Prime', monospace; font-size: 0.5rem; letter-spacing: 0.12em; color: var(--text-ghost); line-height: 1.7; padding: 1rem 1.25rem; border: 1px solid var(--border); border-radius: 2px; }
+
+        /* ─── CTA ─── */
+        .ingredients-cta { background: var(--dark); border-radius: 4px; padding: 4rem 3rem; text-align: center; }
+        .cta-eyebrow { font-family: 'Courier Prime', monospace; font-size: 0.56rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--stamp); margin-bottom: 1.25rem; }
+        .cta-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 300; color: var(--parchment); margin-bottom: 2rem; line-height: 1.2; }
+        .cta-title em { font-style: italic; color: var(--berry-pink); }
+        .cta-btn { display: inline-block; font-family: 'Courier Prime', monospace; font-size: 0.68rem; letter-spacing: 0.32em; text-transform: uppercase; color: var(--parchment); background: var(--stamp); text-decoration: none; padding: 1rem 2.5rem; border-radius: 2px; transition: background 0.25s; }
+        .cta-btn:hover { background: #8C1818; }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 860px) {
+            .nav-links { gap: 1.5rem; }
+            .page-hero { padding: 7rem 1.5rem 4rem; }
+            .content-wrap { padding: 5rem 1.5rem; }
+            .fiber-types, .fiber-grid-3, .fiber-grid-2, .glp-explainer { grid-template-columns: 1fr; }
+            .fiber-count-callout { flex-direction: column; gap: 1rem; }
+            .fiber-big-num { font-size: 4.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <a href="index.html" class="nav-logo" id="navLogo">GUTE</a>
+    <div class="nav-links">
+        <a href="story.html" class="nav-link" id="navLink1">Our Story</a>
+        <a href="ingredients.html" class="nav-link active" id="navLink2">Ingredients</a>
+        <a href="index.html#reserve" class="nav-cta" id="navCta">Reserve Yours →</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+    <div class="page-hero-inner">
+        <p class="page-eyebrow">Ingredients / The Science</p>
+        <h1 class="page-title">Eight fibers.<br><em>Every one earns its spot.</em></h1>
+        <p class="page-lead">Most bars treat fiber as a number to put on a label. We treat it as the reason the bar exists — and we can tell you exactly what each one does.</p>
+    </div>
+</section>
+
+<div class="content-wrap">
+
+    <!-- FDA DEFINITION -->
+    <div class="fda-section reveal">
+        <p class="section-stamp">What the FDA Says / Dietary Fiber Defined</p>
+
+        <div class="fda-definition">
+            <p class="fda-label">FDA Definition — 21 CFR 101.9</p>
+            <p class="fda-quote">"Dietary fiber consists of non-digestible soluble and insoluble carbohydrates (with 3 or more monomeric units) and lignin that are intrinsic and intact in plants; and isolated or synthetic non-digestible carbohydrates determined by FDA to have physiological effects that are beneficial to human health."</p>
+            <p class="fda-source">Source: U.S. Food &amp; Drug Administration, 21 CFR §101.9</p>
+        </div>
+
+        <div class="fda-explainer">
+            <p>The FDA draws a clear line between two kinds of dietary fiber. The first are fibers <strong>naturally intact inside whole plant foods</strong> — grains, legumes, seeds, fruits. These count automatically because they exist in their native state and haven't been stripped from their food matrix.</p>
+            <p>The second category is where things get more rigorous. <strong>Isolated or added fibers</strong> must be individually reviewed and approved by the FDA — each one has to demonstrate a specific, beneficial physiological effect on human health before it qualifies. Not all fiber-like ingredients make the cut. The ones that do have documented evidence behind them: improved gut bacteria, reduced cholesterol, better blood glucose response, or improved laxation.</p>
+            <p>GUTE 001 contains <strong>three FDA-approved isolated fibers</strong> as deliberate additions to the formula, plus <strong>five more dietary fibers</strong> from the naturally intact sources in the grain, seed, and fruit layers of the bar.</p>
+        </div>
+
+        <div class="fiber-types">
+            <div class="fiber-type-card">
+                <span class="fiber-type-badge">Category 1</span>
+                <h3 class="fiber-type-name">Naturally Intact Fibers</h3>
+                <p class="fiber-type-desc">Fiber that exists within the cell walls of whole plant ingredients. Automatically recognized as dietary fiber because it's in its native, unprocessed form. GUTE 001 gets this from oat bran, green banana flour, sprouted lentil flour, flax, chia, and blueberry powder.</p>
+            </div>
+            <div class="fiber-type-card">
+                <span class="fiber-type-badge">Category 2</span>
+                <h3 class="fiber-type-name">FDA-Approved Isolated Fibers</h3>
+                <p class="fiber-type-desc">Non-digestible carbohydrates that have been extracted and individually reviewed by the FDA for beneficial health effects. GUTE 001 deliberately adds three: Inulin (from chicory root), Acacia Fiber (gum arabic), and Soluble Tapioca Fiber (resistant dextrin). Each is in the formula because of what it does — not as a label strategy.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- FIBER STACK -->
+    <div class="fiber-stack-section reveal">
+        <p class="section-stamp">Our Fiber Stack / GUTE 001</p>
+
+        <div class="fiber-count-callout">
+            <div class="fiber-big-num">8+</div>
+            <div>
+                <p class="fiber-big-label">Distinct dietary fibers per serving</p>
+                <p class="fiber-big-desc">Three deliberately added. Five from naturally intact plant sources. Most bars list one — usually psyllium or chicory root, listed last.</p>
+            </div>
+        </div>
+
+        <p class="fiber-subsection-label">The three added fibers — FDA-approved isolated</p>
+        <div class="fiber-grid-3">
+            <div class="fiber-card featured">
+                <p class="fiber-num">01 — Added / Isolated</p>
+                <h3 class="fiber-name">Inulin</h3>
+                <p class="fiber-source">Sprout Living Organic — Chicory Root</p>
+                <p class="fiber-benefit">A fructan-type prebiotic that feeds Bifidobacteria and Lactobacillus — two of the most studied beneficial gut bacteria. Fermentation produces short-chain fatty acids (SCFAs), particularly butyrate, which supports colon cell health and immune signaling. One of the most researched prebiotic fibers in existence.</p>
+                <span class="fiber-fda-tag fda-approved">FDA Recognized — Inulin-type Fructans</span>
+            </div>
+            <div class="fiber-card featured">
+                <p class="fiber-num">02 — Added / Isolated</p>
+                <h3 class="fiber-name">Acacia Fiber</h3>
+                <p class="fiber-source">Nutricost Organic — Acacia Tree (Gum Arabic)</p>
+                <p class="fiber-benefit">Also known as gum arabic — a soluble prebiotic with one of the most gentle fermentation profiles of any fiber. Well-tolerated at higher doses without the GI discomfort that inulin can cause at scale. Documented to increase Bifidobacteria counts and support gut lining integrity. FDA's list of approved isolated fibers includes it by name.</p>
+                <span class="fiber-fda-tag fda-approved">FDA Recognized — Gum Arabic / Acacia Gum</span>
+            </div>
+            <div class="fiber-card featured">
+                <p class="fiber-num">03 — Added / Isolated</p>
+                <h3 class="fiber-name">Soluble Tapioca Fiber</h3>
+                <p class="fiber-source">Renew Life Organic Clear Prebiotic Fiber</p>
+                <p class="fiber-benefit">A soluble resistant dextrin derived from tapioca starch — not to be confused with regular tapioca starch, which is a digestible carbohydrate. The resistant dextrin form resists digestion in the small intestine and reaches the colon intact, where it acts as a prebiotic substrate. FDA-recognized under the resistant dextrin category. Chosen here for its heat stability during baking and clean flavor profile.</p>
+                <span class="fiber-fda-tag fda-approved">FDA Recognized — Resistant Dextrin</span>
+            </div>
+        </div>
+
+        <p class="fiber-subsection-label" style="margin-top:2rem;">The five naturally intact fibers — from whole food sources</p>
+        <div class="fiber-grid-2">
+            <div class="fiber-card">
+                <p class="fiber-num">04 — Naturally Intact</p>
+                <h3 class="fiber-name">Oat Beta-Glucan</h3>
+                <p class="fiber-source">Bob's Red Mill — Oat Bran + Oat Flour</p>
+                <p class="fiber-benefit">Beta-glucan from oats is one of two fibers in the entire US food supply that carries an FDA-authorized health claim — specifically for reducing the risk of coronary heart disease. It's a highly viscous soluble fiber that slows gastric emptying, blunts post-meal glucose spikes, and has more published research behind it than almost any other dietary fiber.</p>
+                <span class="fiber-fda-tag fda-approved">FDA Health Claim — Beta-Glucan / Heart Disease Risk Reduction</span>
+            </div>
+            <div class="fiber-card">
+                <p class="fiber-num">05 — Naturally Intact</p>
+                <h3 class="fiber-name">Resistant Starch RS2</h3>
+                <p class="fiber-source">Let's Do Organic — Green Banana Flour</p>
+                <p class="fiber-benefit">Unripe banana flour is naturally rich in Type 2 resistant starch — a fiber the FDA recognizes under the high amylose starch category. RS2 bypasses digestion in the small intestine and arrives intact in the colon, where it feeds a diverse range of gut bacteria and generates butyrate — a short-chain fatty acid critical for gut lining health and colon cell function.</p>
+                <span class="fiber-fda-tag fda-approved">FDA Recognized — High Amylose Starch (RS2)</span>
+            </div>
+            <div class="fiber-card">
+                <p class="fiber-num">06 — Naturally Intact</p>
+                <h3 class="fiber-name">Sprouted Lentil Fiber</h3>
+                <p class="fiber-source">Pure Living — Sprouted Lentil Flour</p>
+                <p class="fiber-benefit">Lentils are naturally high in dietary fiber, primarily resistant starch and cell wall polysaccharides. Sprouting partially breaks down phytic acid and enzyme inhibitors, improving both digestibility and mineral bioavailability. The fiber profile here is distinct from the grain-based sources — a different prebiotic substrate that feeds different gut bacteria populations.</p>
+                <span class="fiber-fda-tag fda-natural">Naturally Occurring — Intact Plant Fiber</span>
+            </div>
+            <div class="fiber-card">
+                <p class="fiber-num">07 — Naturally Intact</p>
+                <h3 class="fiber-name">Flax + Chia Fiber</h3>
+                <p class="fiber-source">365 WFM Organic Flaxseed / Vitacost Organic Chia</p>
+                <p class="fiber-benefit">Both seeds provide a mix of soluble and insoluble fiber alongside plant-based omega-3 fatty acids (ALA). Flax contains mucilaginous fiber that supports gut transit. Chia forms a gel matrix in water — its soluble fraction slows digestion and extends satiety. Together they contribute structural binding to the core while delivering functional fiber from two distinct seed sources.</p>
+                <span class="fiber-fda-tag fda-natural">Naturally Occurring — Intact Plant Fiber</span>
+            </div>
+        </div>
+
+        <div class="natural-fibers reveal">
+            <p class="natural-label">Additional naturally occurring fiber sources in GUTE 001</p>
+            <div class="natural-tags">
+                <span class="natural-tag">Blueberry Powder</span>
+                <span class="natural-tag">Teff Flour</span>
+                <span class="natural-tag">Amaranth</span>
+                <span class="natural-tag">Quinoa</span>
+                <span class="natural-tag">Millet</span>
+                <span class="natural-tag">Sorghum</span>
+                <span class="natural-tag">Psyllium Husk</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- GLP-1 -->
+    <div class="glp-section reveal">
+        <p class="section-stamp">GLP-1 Friendly / Make Every Bite Count</p>
+
+        <div class="glp-hero">
+            <p class="glp-tag">Satiety Science / GLP-1</p>
+            <h2 class="glp-headline">Your body makes its own<br><em>satiety signal.</em> Feed it.</h2>
+            <p class="glp-sub">GLP-1 (glucagon-like peptide-1) is a hormone your gut produces naturally in response to eating — particularly fermentable fiber. It signals fullness, supports healthy blood glucose, and slows gastric emptying. The pharmaceutical industry built a category around mimicking it. We built a bar around supporting it naturally.</p>
+        </div>
+
+        <div class="glp-explainer">
+            <div class="glp-card">
+                <p class="glp-card-label">How Fiber Connects</p>
+                <h3 class="glp-card-title">Fermentation → SCFAs → GLP-1</h3>
+                <p class="glp-card-text">When prebiotic and fermentable fibers reach your colon, gut bacteria ferment them into <strong>short-chain fatty acids (SCFAs)</strong> — primarily butyrate, propionate, and acetate. These SCFAs bind to receptors on L-cells in the gut lining, triggering GLP-1 secretion. A well-fed, diverse microbiome produces more consistent GLP-1 from the food you already eat.</p>
+            </div>
+            <div class="glp-card">
+                <p class="glp-card-label">What GUTE Contributes</p>
+                <h3 class="glp-card-title">Multiple Fermentation Pathways</h3>
+                <p class="glp-card-text">GUTE 001 contains <strong>Inulin, Acacia, and Soluble Tapioca Fiber</strong> — three distinct prebiotic substrates that feed different bacterial populations — alongside <strong>Resistant Starch RS2</strong> from green banana flour and <strong>beta-glucan</strong> from oat bran. Diversity of fiber type matters because gut bacteria specialize in different substrates. Feeding more types means feeding more of the microbiome.</p>
+            </div>
+        </div>
+
+        <p class="glp-disclaimer">These statements have not been evaluated by the Food and Drug Administration. GUTE 001 is not intended to diagnose, treat, cure, or prevent any disease. The relationship between dietary fiber, gut fermentation, and GLP-1 secretion is supported by peer-reviewed research. Individual results vary based on existing gut microbiome composition, overall diet, and other factors.</p>
+    </div>
+
+    <!-- CTA -->
+    <div class="ingredients-cta reveal">
+        <p class="cta-eyebrow">Reserve / First Batch</p>
+        <h2 class="cta-title">You've read the science.<br><em>Try the bar.</em></h2>
+        <a href="index.html#reserve" class="cta-btn">Join the Waitlist →</a>
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div>
+        <div class="footer-logo">GUTE</div>
+        <div class="footer-tagline">Good food. No filler.</div>
+    </div>
+    <div class="footer-right">
+        <div class="footer-domain">gutefoodco.com</div>
+        <div class="footer-copy">© 2026 GUTE FOOD CO. — All rights reserved.</div>
+    </div>
+</footer>
+
+<script src="js/gute.js"></script>
+</body>
+</html>

@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GUTE — Good Food. No Filler.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Courier+Prime:wght@400;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/gute.css">
+    <style>
+        /* ─── HERO ─── */
+        .hero {
+            min-height: 100vh;
+            background: var(--chocolate);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            padding: 6rem 2rem 5rem;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 65% 55% at 18% 74%, rgba(107,48,128,0.3) 0%, transparent 65%),
+                radial-gradient(ellipse 40% 35% at 84% 16%, rgba(158,107,26,0.15) 0%, transparent 55%);
+        }
+        .hero-eyebrow {
+            font-family: 'Courier Prime', monospace;
+            font-size: 0.62rem;
+            letter-spacing: 0.5em;
+            text-transform: uppercase;
+            color: var(--grain);
+            opacity: 0.75;
+            margin-bottom: 2.5rem;
+            position: relative;
+            animation: fadeUp 0.9s ease both;
+        }
+        .hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(6rem, 20vw, 18rem);
+            font-weight: 300;
+            color: var(--parchment);
+            line-height: 0.82;
+            letter-spacing: -0.02em;
+            position: relative;
+            animation: fadeUp 0.9s ease 0.1s both;
+        }
+        .hero-title .accent { font-style: italic; color: var(--berry-pink); }
+        .hero-divider {
+            width: 1px;
+            height: 38px;
+            background: linear-gradient(to bottom, rgba(200,164,106,0.75), transparent);
+            margin: 2.5rem auto;
+            position: relative;
+            animation: fadeUp 0.9s ease 0.2s both;
+        }
+        .hero-sub {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            color: var(--grain-light);
+            position: relative;
+            animation: fadeUp 0.9s ease 0.3s both;
+            line-height: 1.55;
+        }
+        .hero-batch {
+            font-family: 'Courier Prime', monospace;
+            font-size: 0.58rem;
+            letter-spacing: 0.35em;
+            color: var(--stamp);
+            margin-top: 2.5rem;
+            position: relative;
+            animation: fadeUp 0.9s ease 0.45s both;
+        }
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.7rem;
+            animation: fadeUp 0.9s ease 1s both;
+        }
+        .scroll-indicator span {
+            font-family: 'Courier Prime', monospace;
+            font-size: 0.52rem;
+            letter-spacing: 0.35em;
+            color: var(--grain);
+            opacity: 0.5;
+            text-transform: uppercase;
+        }
+        .scroll-line {
+            width: 1px;
+            height: 34px;
+            background: linear-gradient(to bottom, rgba(200,164,106,0.55), transparent);
+            animation: pulse 2.2s ease-in-out infinite;
+        }
+
+        /* ─── PRODUCT SECTION ─── */
+        .product-section { background: var(--cream); padding: 9rem 3rem; }
+        .product-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        /* BAR CROSS-SECTION */
+        .bar-wrap { display: flex; gap: 2.5rem; align-items: flex-start; flex-shrink: 0; }
+        .bar-art {
+            width: 160px; height: 500px; border-radius: 28px;
+            background: linear-gradient(170deg, #2A1006 0%, #1A0802 50%, #220E05 100%);
+            position: relative; overflow: hidden;
+            box-shadow:
+                0 60px 100px rgba(22,10,4,0.42),
+                0 10px 28px rgba(22,10,4,0.26),
+                inset 0 1px 0 rgba(255,255,255,0.05),
+                inset 0 -1px 0 rgba(0,0,0,0.3);
+        }
+        .bar-berry-layer {
+            position: absolute; inset: 16px; border-radius: 14px;
+            background: linear-gradient(145deg, #9B3EA8 0%, #C86898 40%, #A03070 70%, #7A2858 100%);
+        }
+        .bar-core {
+            position: absolute; left: 24px; right: 24px; top: 24px; bottom: 24px; border-radius: 8px;
+            background: linear-gradient(168deg, #EDD8A8 0%, #D4A85C 28%, #C09040 55%, #A87030 78%, #906020 100%);
+            box-shadow: inset 0 3px 12px rgba(0,0,0,0.18), inset 0 -2px 8px rgba(0,0,0,0.12);
+        }
+        .bar-grain-lines {
+            position: absolute; left: 24px; right: 24px; top: 24px; bottom: 24px; border-radius: 8px;
+            background-image:
+                repeating-linear-gradient(0deg, transparent, transparent 9px, rgba(80,45,10,0.1) 9px, rgba(80,45,10,0.1) 10px),
+                repeating-linear-gradient(90deg, transparent, transparent 18px, rgba(80,45,10,0.04) 18px, rgba(80,45,10,0.04) 19px);
+        }
+        .bar-shine {
+            position: absolute; top: 0; left: 8%; width: 16%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent);
+            border-radius: 28px; pointer-events: none;
+        }
+        .bar-edge-gloss {
+            position: absolute; inset: 0; border-radius: 28px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.06) 0%, transparent 30%, transparent 70%, rgba(0,0,0,0.15) 100%);
+            pointer-events: none;
+        }
+
+        /* Bar legend */
+        .bar-legend { display: flex; flex-direction: column; gap: 2.2rem; padding-top: 1.5rem; }
+        .legend-dot-row { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 0.3rem; }
+        .ldot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+        .ldot-choco { background: linear-gradient(135deg, #2A1006, #1A0802); border: 1.5px solid rgba(200,164,106,0.5); box-shadow: inset 0 1px 2px rgba(255,255,255,0.1); }
+        .ldot-berry { background: linear-gradient(135deg, #C86898, #9B3EA8); }
+        .ldot-grain { background: linear-gradient(135deg, #EDD8A8, #C09040); }
+        .legend-label { font-family: 'Courier Prime', monospace; font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-soft); font-weight: 700; }
+        .legend-detail { font-size: 0.84rem; color: var(--text-mid); padding-left: 1.65rem; line-height: 1.55; }
+
+        /* Product info */
+        .product-sku { font-family: 'Courier Prime', monospace; font-size: 0.6rem; letter-spacing: 0.38em; color: var(--stamp); margin-bottom: 1.25rem; }
+        .product-headline { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.6rem, 4.5vw, 4rem); font-weight: 300; line-height: 1.05; color: var(--dark); margin-bottom: 0.75rem; }
+        .product-headline em { font-style: italic; color: var(--berry); }
+        .product-hook { font-size: 1.05rem; color: var(--text-mid); margin-bottom: 2.75rem; line-height: 1.65; max-width: 400px; font-weight: 400; }
+        .selling-points { display: flex; flex-direction: column; margin-bottom: 2.5rem; }
+        .sp-row { display: grid; grid-template-columns: 90px 1fr; gap: 1.25rem; align-items: baseline; padding: 1.1rem 0; border-top: 1px solid rgba(22,10,4,0.09); }
+        .sp-row:last-child { border-bottom: 1px solid rgba(22,10,4,0.09); }
+        .sp-tag { font-family: 'Courier Prime', monospace; font-size: 0.54rem; letter-spacing: 0.18em; color: var(--stamp); text-transform: uppercase; white-space: nowrap; padding-top: 2px; font-weight: 700; }
+        .sp-text { font-size: 0.92rem; color: var(--text-body); line-height: 1.55; font-weight: 400; }
+        .sp-text strong { font-weight: 600; color: var(--dark); }
+        .sp-text .aside { color: var(--text-soft); font-size: 0.82rem; }
+        .product-serving { font-family: 'Courier Prime', monospace; font-size: 0.58rem; letter-spacing: 0.2em; color: var(--text-ghost); }
+
+        /* ─── TWO TIERS ─── */
+        .tiers-section { background: var(--blueberry); padding: 8rem 3rem; }
+        .tiers-inner { max-width: 1100px; margin: 0 auto; }
+        .tiers-eyebrow { font-family: 'Courier Prime', monospace; font-size: 0.6rem; letter-spacing: 0.45em; text-transform: uppercase; color: var(--berry-light); opacity: 0.55; margin-bottom: 0.9rem; }
+        .tiers-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 300; line-height: 1.15; color: var(--parchment); margin-bottom: 3.5rem; }
+        .tiers-title em { font-style: italic; color: var(--berry-pink); }
+        .tiers-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+        .tier-card { border-radius: 4px; overflow: hidden; }
+        .tier-card.main { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); }
+        .tier-card.prem { background: rgba(158,107,26,0.11); border: 1px solid rgba(196,134,42,0.32); }
+        .tier-top { padding: 2.5rem 2.5rem 2rem; border-bottom: 1px solid rgba(255,255,255,0.07); }
+        .tier-pill { font-family: 'Courier Prime', monospace; font-size: 0.52rem; letter-spacing: 0.35em; text-transform: uppercase; padding: 0.28rem 0.7rem; border-radius: 2px; display: inline-block; margin-bottom: 1.5rem; }
+        .tier-card.main .tier-pill { background: rgba(255,255,255,0.09); color: var(--berry-light); }
+        .tier-card.prem .tier-pill { background: rgba(158,107,26,0.28); color: var(--date-warm); border: 1px solid rgba(196,134,42,0.3); }
+        .tier-sku { font-family: 'Courier Prime', monospace; font-size: 0.55rem; letter-spacing: 0.28em; margin-bottom: 0.55rem; }
+        .tier-card.main .tier-sku { color: var(--berry-light); opacity: 0.45; }
+        .tier-card.prem .tier-sku { color: var(--date-warm); opacity: 0.5; }
+        .tier-name { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.75rem, 2.8vw, 2.5rem); font-weight: 300; line-height: 1.1; margin-bottom: 1rem; }
+        .tier-card.main .tier-name { color: var(--parchment); }
+        .tier-card.prem .tier-name { color: var(--grain-light); }
+        .tier-card.main .tier-name em { font-style: italic; color: var(--berry-pink); }
+        .tier-card.prem .tier-name em { font-style: italic; color: var(--date-warm); }
+        .tier-oneliner { font-size: 0.92rem; line-height: 1.7; font-weight: 400; }
+        .tier-card.main .tier-oneliner { color: rgba(240,230,208,0.62); }
+        .tier-card.prem .tier-oneliner { color: rgba(232,212,168,0.65); }
+        .tier-bottom { padding: 1.75rem 2.5rem 2.25rem; }
+        .tier-attrs { display: flex; flex-direction: column; gap: 0.85rem; }
+        .tier-attr { display: flex; align-items: center; gap: 0.9rem; }
+        .adot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
+        .tier-card.main .adot { background: var(--berry-pink); }
+        .tier-card.prem .adot { background: var(--date-warm); }
+        .atext { font-family: 'Courier Prime', monospace; font-size: 0.62rem; letter-spacing: 0.13em; text-transform: uppercase; }
+        .tier-card.main .atext { color: rgba(240,230,208,0.55); }
+        .tier-card.prem .atext { color: rgba(196,134,42,0.65); }
+
+        /* ─── FORM ─── */
+        .form-section { background: var(--dark); padding: 8rem 3rem; }
+        .form-inner { max-width: 540px; margin: 0 auto; }
+        .form-eyebrow { font-family: 'Courier Prime', monospace; font-size: 0.6rem; letter-spacing: 0.45em; text-transform: uppercase; color: var(--stamp); margin-bottom: 1rem; }
+        .form-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 300; line-height: 1.1; color: var(--parchment); margin-bottom: 0.9rem; }
+        .form-title em { font-style: italic; color: var(--berry-pink); }
+        .form-sub { font-size: 0.92rem; color: rgba(240,230,208,0.55); line-height: 1.75; margin-bottom: 3rem; }
+        .form-group { margin-bottom: 1.4rem; }
+        .form-group label { display: block; font-family: 'Courier Prime', monospace; font-size: 0.58rem; letter-spacing: 0.28em; color: rgba(240,230,208,0.45); text-transform: uppercase; margin-bottom: 0.6rem; }
+        .form-group input, .form-group select { width: 100%; padding: 1rem 1.2rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(240,230,208,0.12); border-radius: 2px; font-family: 'DM Sans', sans-serif; font-size: 0.95rem; color: var(--parchment); outline: none; transition: border-color 0.22s; -webkit-appearance: none; }
+        .form-group input::placeholder { color: rgba(240,230,208,0.22); }
+        .form-group input:focus, .form-group select:focus { border-color: var(--stamp); }
+        .form-group select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23B09070' stroke-width='1.4' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1.1rem center; background-color: rgba(255,255,255,0.04); cursor: pointer; }
+        .form-group select option { background: #2C1208; color: var(--parchment); }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .radio-grid { display: grid; gap: 0.55rem; }
+        .radio-grid.c2 { grid-template-columns: 1fr 1fr; }
+        .radio-grid.c3 { grid-template-columns: repeat(3, 1fr); }
+        .ropt input[type="radio"] { display: none; }
+        .ropt label { display: block; padding: 0.9rem 0.5rem; border: 1px solid rgba(240,230,208,0.09); border-radius: 2px; text-align: center; cursor: pointer; font-family: 'Courier Prime', monospace; font-size: 0.6rem; letter-spacing: 0.12em; color: rgba(240,230,208,0.4); transition: all 0.18s; margin: 0; line-height: 1.65; }
+        .ropt input:checked + label { border-color: var(--stamp); color: var(--parchment); background: rgba(176,32,32,0.1); }
+        .ropt label:hover { border-color: rgba(240,230,208,0.22); color: rgba(240,230,208,0.65); }
+        .ropt.gold input:checked + label { border-color: var(--date-warm); color: var(--grain-light); background: rgba(158,107,26,0.12); }
+        .submit-btn { width: 100%; padding: 1.2rem; background: var(--stamp); color: var(--parchment); border: none; border-radius: 2px; font-family: 'Courier Prime', monospace; font-size: 0.7rem; letter-spacing: 0.32em; text-transform: uppercase; cursor: pointer; margin-top: 2rem; transition: background 0.28s; }
+        .submit-btn:hover { background: #8C1818; }
+        .submit-btn:disabled { opacity: 0.38; cursor: not-allowed; }
+        .form-note { font-family: 'Courier Prime', monospace; font-size: 0.5rem; letter-spacing: 0.14em; color: rgba(240,230,208,0.25); text-align: center; margin-top: 0.9rem; }
+        #successState { display: none; text-align: center; padding: 3rem 0; }
+        #successState.on { display: block; }
+        .success-stamp { font-family: 'Courier Prime', monospace; font-size: 0.58rem; letter-spacing: 0.4em; color: var(--stamp); margin-bottom: 1.5rem; }
+        .success-title { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 300; font-style: italic; color: var(--parchment); margin-bottom: 0.9rem; }
+        .success-body { font-size: 0.92rem; color: rgba(240,230,208,0.5); line-height: 1.8; max-width: 360px; margin: 0 auto; }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width:900px) {
+            .product-inner { grid-template-columns:1fr; gap:3.5rem; }
+            .bar-wrap { justify-content:center; }
+            .bar-art { width:120px; height:375px; border-radius:21px; }
+            .bar-berry-layer { inset:12px; border-radius:10px; }
+            .bar-core { left:18px; right:18px; top:18px; bottom:18px; border-radius:6px; }
+            .bar-grain-lines { left:18px; right:18px; top:18px; bottom:18px; border-radius:6px; }
+            .product-section, .tiers-section, .form-section { padding:5rem 1.5rem; }
+            .tiers-grid { grid-template-columns:1fr; }
+            .form-row { grid-template-columns:1fr; }
+            .radio-grid.c3 { grid-template-columns:1fr 1fr; }
+        }
+        @media (max-width:480px) {
+            .radio-grid.c2, .radio-grid.c3 { grid-template-columns:1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <a href="index.html" class="nav-logo" id="navLogo">GUTE</a>
+    <div class="nav-links">
+        <a href="story.html" class="nav-link" id="navLink1">Our Story</a>
+        <a href="ingredients.html" class="nav-link" id="navLink2">Ingredients</a>
+        <a href="#reserve" class="nav-cta" id="navCta">Reserve Yours →</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <p class="hero-eyebrow">Batch N°001 — Est. 2026 — Small Batch</p>
+    <h1 class="hero-title">GU<span class="accent">TE</span></h1>
+    <div class="hero-divider"></div>
+    <p class="hero-sub">Built for people who flip it over.<br>Ancient grains. Real blueberry. Dark chocolate.</p>
+    <p class="hero-batch">GUTE 001 — Dark Chocolate + Blueberry — Two Varieties — Hand-Stamped</p>
+    <div class="scroll-indicator">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+    </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="banner-strip" aria-hidden="true">
+    <div class="banner-inner">
+        <span class="banner-item">Five Ancient Grains</span>
+        <span class="banner-item">•</span>
+        <span class="banner-item">Dual Plant Protein</span>
+        <span class="banner-item">•</span>
+        <span class="banner-item">Triple Prebiotic Fiber</span>
+        <span class="banner-item">•</span>
+        <span class="banner-item">Real Blueberry Coat</span>
+        <span class="banner-item">•</span>
+        <span class="banner-item">Green Banana Flour</span>
+        <span class="banner-item">•</span>
+        <span class="banner-item">Sprouted Lentil</span>
+        <span class="banner-item">•</span>
+        <span class="banner-item">No Filler Ingredients</span>
+        <span class="banner-item">•</span>
+        <span class="banner-item">No Refined Sugar Option</span>
+        <span class="banner-item">•</span>
+        <span class="banner-item">Hand-Stamped</span>
+        <span class="banner-item">•</span>
+        <span class="banner-item">Small Batch</span>
+        <span class="banner-item">•</span>
+        <span class="banner-item">Five Ancient Grains</span>
+        <span class="banner-item">•</span>
+        <span class="banner-item">Dual Plant Protein</span>
+        <span class="banner-item">•</span>
+        <span class="banner-item">Triple Prebiotic Fiber</span>
+        <span class="banner-item">•</span>
+        <span class="banner-item">Real Blueberry Coat</span>
+        <span class="banner-item">•</span>
+        <span class="banner-item">Green Banana Flour</span>
+        <span class="banner-item">•</span>
+        <span class="banner-item">Sprouted Lentil</span>
+        <span class="banner-item">•</span>
+        <span class="banner-item">No Filler Ingredients</span>
+        <span class="banner-item">•</span>
+        <span class="banner-item">No Refined Sugar Option</span>
+        <span class="banner-item">•</span>
+        <span class="banner-item">Hand-Stamped</span>
+        <span class="banner-item">•</span>
+        <span class="banner-item">Small Batch</span>
+        <span class="banner-item">•</span>
+    </div>
+</div>
+
+<!-- PRODUCT -->
+<section class="product-section">
+    <div class="product-inner">
+
+        <!-- BAR ART -->
+        <div class="bar-wrap reveal">
+            <div class="bar-art">
+                <div class="bar-berry-layer"></div>
+                <div class="bar-core"></div>
+                <div class="bar-grain-lines"></div>
+                <div class="bar-shine"></div>
+                <div class="bar-edge-gloss"></div>
+            </div>
+            <div class="bar-legend">
+                <div class="legend-item">
+                    <div class="legend-dot-row">
+                        <div class="ldot ldot-choco"></div>
+                        <span class="legend-label">Chocolate Shell</span>
+                    </div>
+                    <div class="legend-detail">Dark chocolate enrobe.<br>Two varieties.</div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-dot-row">
+                        <div class="ldot ldot-berry"></div>
+                        <span class="legend-label">Blueberry Coat</span>
+                    </div>
+                    <div class="legend-detail">Whole blueberry<br>powder — real fruit.</div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-dot-row">
+                        <div class="ldot ldot-grain"></div>
+                        <span class="legend-label">Ancient Grain Core</span>
+                    </div>
+                    <div class="legend-detail">Five grains, dual<br>protein, triple fiber.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- INFO -->
+        <div class="reveal d1">
+            <p class="product-sku">GUTE — 001 / Dark Chocolate + Blueberry</p>
+            <h2 class="product-headline">Flip it over.<br><em>Read every word.</em></h2>
+            <p class="product-hook">Most bars don't survive that test. Every ingredient in GUTE 001 is there because it pulls its weight — not because it's cheap, and not to pad the label.</p>
+
+            <div class="selling-points">
+                <div class="sp-row">
+                    <span class="sp-tag">Grain Blend</span>
+                    <span class="sp-text"><strong>Five ancient grains</strong> — Teff, Millet, Sorghum, Quinoa, Amaranth. <span class="aside">Most bars pick one. We use five.</span></span>
+                </div>
+                <div class="sp-row">
+                    <span class="sp-tag">Protein</span>
+                    <span class="sp-text"><strong>Pea + Rice protein</strong> together — a more complete amino acid profile than either alone. <span class="aside">Not a single isolated powder.</span></span>
+                </div>
+                <div class="sp-row">
+                    <span class="sp-tag">Fiber</span>
+                    <span class="sp-text"><strong>Three prebiotic fibers</strong> — Inulin, Acacia, Tapioca. <span class="aside">Your gut sees all three differently. That's the point.</span></span>
+                </div>
+                <div class="sp-row">
+                    <span class="sp-tag">RS2 Starch</span>
+                    <span class="sp-text"><strong>Green Banana Flour</strong> — naturally rich in resistant starch. <span class="aside">The ingredient you've never seen in a bar before.</span></span>
+                </div>
+                <div class="sp-row">
+                    <span class="sp-tag">Sprouted</span>
+                    <span class="sp-text"><strong>Sprouted Lentil Flour</strong> — better mineral absorption, easier digestion. <span class="aside">Sprouting does what processing can't.</span></span>
+                </div>
+                <div class="sp-row">
+                    <span class="sp-tag">Fruit Coat</span>
+                    <span class="sp-text"><strong>Whole blueberry powder</strong> dusted on the core before enrobing. <span class="aside">That vivid ring isn't food coloring.</span></span>
+                </div>
+            </div>
+
+            <p class="product-serving">2 sticks per serving &nbsp;·&nbsp; approx. 40g &nbsp;·&nbsp; every ingredient earns its spot</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- TWO TIERS -->
+<section class="tiers-section">
+    <div class="tiers-inner">
+        <div class="reveal">
+            <p class="tiers-eyebrow">The Lineup / GUTE 001</p>
+            <h2 class="tiers-title">Same core.<br><em>Two chocolates.</em></h2>
+        </div>
+        <div class="tiers-grid">
+            <div class="tier-card main reveal">
+                <div class="tier-top">
+                    <span class="tier-pill">Mainline</span>
+                    <p class="tier-sku">GUTE — 001 — R &amp; BB</p>
+                    <h3 class="tier-name">Dark Chocolate<br>+ <em>Blueberry</em></h3>
+                    <p class="tier-oneliner">The everyday bar. Quality dark chocolate over a blueberry-dusted ancient grain core. Cleaner than anything next to it — and it doesn't need to announce it.</p>
+                </div>
+                <div class="tier-bottom">
+                    <div class="tier-attrs">
+                        <div class="tier-attr"><div class="adot"></div><span class="atext">Dark Chocolate Shell</span></div>
+                        <div class="tier-attr"><div class="adot"></div><span class="atext">Whole Blueberry Powder Coat</span></div>
+                        <div class="tier-attr"><div class="adot"></div><span class="atext">Five Ancient Grains + Dual Plant Protein</span></div>
+                        <div class="tier-attr"><div class="adot"></div><span class="atext">Triple Prebiotic Fiber</span></div>
+                        <div class="tier-attr"><div class="adot"></div><span class="atext">No Artificial Flavors or Colors</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tier-card prem reveal d1">
+                <div class="tier-top">
+                    <span class="tier-pill">Premium</span>
+                    <p class="tier-sku">GUTE — 001 — D &amp; BB</p>
+                    <h3 class="tier-name">Date Chocolate<br>+ <em>Blueberry</em></h3>
+                    <p class="tier-oneliner">No refined sugar. Anywhere in the bar. Date-sweetened dark chocolate is richer, more complex, and takes cane sugar completely out of the picture — core to coat.</p>
+                </div>
+                <div class="tier-bottom">
+                    <div class="tier-attrs">
+                        <div class="tier-attr"><div class="adot"></div><span class="atext">Date-Sweetened Chocolate Shell</span></div>
+                        <div class="tier-attr"><div class="adot"></div><span class="atext">Zero Refined Sugar — Entire Bar</span></div>
+                        <div class="tier-attr"><div class="adot"></div><span class="atext">Whole Blueberry Powder Coat</span></div>
+                        <div class="tier-attr"><div class="adot"></div><span class="atext">Same Ancient Grain Core</span></div>
+                        <div class="tier-attr"><div class="adot"></div><span class="atext">Cane Sugar Free — Core to Coat</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FORM -->
+<section class="form-section" id="reserve">
+    <div class="form-inner">
+        <div class="reveal">
+            <p class="form-eyebrow">Reserve / First Batch</p>
+            <h2 class="form-title">Get in<br><em>early.</em></h2>
+            <p class="form-sub">GUTE 001 is in development. Join the waitlist — first access, farmers market locations, and your pre-order window before we go wide.</p>
+        </div>
+
+        <form id="guteForm" class="reveal d1" novalidate>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="fname">First Name</label>
+                    <input type="text" id="fname" name="fname" placeholder="Your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="zip">Zip Code</label>
+                    <input type="text" id="zip" name="zip" placeholder="10001" maxlength="5" inputmode="numeric">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="you@email.com" required>
+            </div>
+            <div class="form-group">
+                <label>Which would you try first?</label>
+                <div class="radio-grid c2">
+                    <div class="ropt">
+                        <input type="radio" name="variant" id="v-r" value="R&BB — Dark Chocolate" checked>
+                        <label for="v-r">Dark Chocolate<br><span style="font-size:0.5rem;opacity:0.55;">R &amp; BB — Mainline</span></label>
+                    </div>
+                    <div class="ropt gold">
+                        <input type="radio" name="variant" id="v-d" value="D&BB — Date Chocolate">
+                        <label for="v-d">Date Chocolate<br><span style="font-size:0.5rem;opacity:0.55;">D &amp; BB — No Refined Sugar</span></label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Format interest?</label>
+                <div class="radio-grid c3">
+                    <div class="ropt"><input type="radio" name="format" id="f-bar" value="The Bar" checked><label for="f-bar">The Bar</label></div>
+                    <div class="ropt"><input type="radio" name="format" id="f-pow" value="Mix Powder"><label for="f-pow">Mix Powder</label></div>
+                    <div class="ropt"><input type="radio" name="format" id="f-both" value="Both"><label for="f-both">Both</label></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Would you pre-order?</label>
+                <div class="radio-grid c3">
+                    <div class="ropt"><input type="radio" name="preorder" id="p-yes" value="Yes" checked><label for="p-yes">Yes, definitely</label></div>
+                    <div class="ropt"><input type="radio" name="preorder" id="p-maybe" value="Maybe"><label for="p-maybe">Maybe</label></div>
+                    <div class="ropt"><input type="radio" name="preorder" id="p-browse" value="Just browsing"><label for="p-browse">Just browsing</label></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="source">How'd you find us?</label>
+                <select id="source" name="source">
+                    <option value="">Select one</option>
+                    <option value="Farmers Market">Farmers Market</option>
+                    <option value="Social Media">Social Media</option>
+                    <option value="Friend / Word of mouth">Friend / Word of mouth</option>
+                    <option value="Web Search">Web Search</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <button type="submit" class="submit-btn" id="submitBtn">Join the Waitlist →</button>
+            <p class="form-note">No spam. Batch updates and your pre-order window only.</p>
+        </form>
+
+        <div id="successState">
+            <p class="success-stamp">CONFIRMED — YOU'RE ON THE LIST</p>
+            <h3 class="success-title">Good things coming.</h3>
+            <p class="success-body">Batch updates, farmers market locations, and your pre-order window — we'll be in touch. Tell a friend who reads labels.</p>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div>
+        <div class="footer-logo">GUTE</div>
+        <div class="footer-tagline">Good food. No filler.</div>
+    </div>
+    <div class="footer-right">
+        <div class="footer-domain">gutefoodco.com</div>
+        <div class="footer-copy">© 2026 GUTE FOOD CO. — All rights reserved.</div>
+    </div>
+</footer>
+
+<script src="js/gute.js"></script>
+</body>
+</html>
