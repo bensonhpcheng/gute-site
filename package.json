@@ -1,0 +1,13 @@
+{
+  "name": "gute-site",
+  "version": "1.0.0",
+  "description": "GUTE Food Co. — Good food. No filler.",
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve",
+    "dev": "eleventy --serve --incremental"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}

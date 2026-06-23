@@ -7,5 +7,11 @@ Thumbs.db
 .vscode/
 .idea/
 
+# 11ty build output
+_site/
+
+# Node
+node_modules/
+
 # Logs
 *.log

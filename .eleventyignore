@@ -1,0 +1,8 @@
+# Ignore old static HTML files — replaced by .njk templates
+index.html
+story.html
+ingredients.html
+
+# Ignore build output and dependencies
+_site/
+node_modules/

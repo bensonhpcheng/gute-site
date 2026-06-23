@@ -91,24 +91,24 @@ fi
 echo "🚀  Pushing to origin/$BRANCH..."
 git push -u origin $BRANCH 2>/dev/null || echo "✅  Already up to date."
 
-# ── 8. Enable GitHub Pages ────────────────────────────────
-echo "🌍  Enabling GitHub Pages (branch: $BRANCH, folder: /)..."
+# ── 8. Enable GitHub Pages (via GitHub Actions) ───────────
+echo "🌍  Enabling GitHub Pages (source: GitHub Actions)..."
 gh api \
   --method POST \
   -H "Accept: application/vnd.github+json" \
   "/repos/$GITHUB_USER/$REPO_NAME/pages" \
-  -f "source[branch]=$BRANCH" \
-  -f "source[path]=/" \
+  -f "build_type=workflow" \
   2>/dev/null && echo "✅  GitHub Pages enabled." \
-  || echo "ℹ️   Pages may already be enabled or needs a moment — check:"
+  || echo "ℹ️   Pages may already be enabled — the Actions workflow will handle deployment."
 
 echo ""
 echo "══════════════════════════════════════"
 echo "  ✅  All done!"
 echo ""
-echo "  Repo:  https://github.com/$GITHUB_USER/$REPO_NAME"
-echo "  Site:  https://$GITHUB_USER.github.io/$REPO_NAME"
-echo "  (GitHub Pages takes ~60 seconds to go live on first deploy)"
+echo "  Repo:    https://github.com/$GITHUB_USER/$REPO_NAME"
+echo "  Actions: https://github.com/$GITHUB_USER/$REPO_NAME/actions"
+echo "  Site:    https://$GITHUB_USER.github.io/$REPO_NAME"
+echo "  (GitHub Actions builds 11ty and deploys — ~90s on first push)"
 echo ""
 echo "  NEXT STEP: Wire up Google Sheets form backend"
 echo "  → See google-apps-script/Code.gs for instructions"

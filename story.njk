@@ -1,0 +1,184 @@
+---
+title: Our Story — GUTE Food Co.
+activePage: story
+permalink: /story.html
+---
+{% extends "base.njk" %}
+
+{% block styles %}
+<style>
+    nav { background: linear-gradient(to bottom, rgba(22,10,4,0.2), transparent); }
+    .nav-link.active { opacity: 1; border-bottom: 1px solid rgba(240,230,208,0.5); padding-bottom: 2px; }
+
+    .page-hero { min-height: 68vh; background: var(--chocolate); display: flex; flex-direction: column; justify-content: flex-end; padding: 8rem 3rem 5rem; position: relative; overflow: hidden; }
+    .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 55% 60% at 10% 80%, rgba(107,48,128,0.22) 0%, transparent 65%), radial-gradient(ellipse 35% 40% at 90% 10%, rgba(176,32,32,0.1) 0%, transparent 55%); }
+    .page-hero-inner { max-width: 820px; position: relative; }
+    .page-eyebrow { font-family: 'Courier Prime', monospace; font-size: 0.6rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--grain); opacity: 0.68; margin-bottom: 1.75rem; animation: fadeUp 0.8s ease both; }
+    .page-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 7vw, 6rem); font-weight: 300; color: var(--parchment); line-height: 1.05; margin-bottom: 2rem; animation: fadeUp 0.8s ease 0.1s both; }
+    .page-title em { font-style: italic; color: var(--berry-pink); }
+    .page-lead { font-size: clamp(1rem, 1.8vw, 1.15rem); color: var(--grain-light); opacity: 0.72; max-width: 560px; line-height: 1.75; animation: fadeUp 0.8s ease 0.2s both; font-weight: 400; }
+
+    .content-wrap { max-width: 760px; margin: 0 auto; padding: 7rem 3rem; }
+    .section-stamp { font-family: 'Courier Prime', monospace; font-size: 0.56rem; letter-spacing: 0.45em; text-transform: uppercase; color: var(--stamp); margin-bottom: 2.25rem; display: flex; align-items: center; gap: 1rem; }
+    .section-stamp::after { content: ''; flex: 1; height: 1px; background: var(--border); max-width: 100px; }
+    .prose { font-size: 1.05rem; color: var(--text-body); line-height: 2.0; font-weight: 400; }
+    .prose p + p { margin-top: 1.6rem; }
+    .prose strong { font-weight: 600; color: var(--dark); }
+    .problem-block { margin-bottom: 5.5rem; }
+    .pull-line { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 300; color: var(--dark); line-height: 1.35; margin: 3.5rem 0; padding-left: 1.75rem; border-left: 3px solid var(--stamp); }
+    .pull-line em { font-style: italic; color: var(--berry-pink); }
+    .founders-block { margin-bottom: 5.5rem; }
+    .founders-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin: 2.5rem 0; }
+    .founder-card { background: var(--cream); border: 1px solid var(--border); border-radius: 4px; padding: 2.25rem 2rem; }
+    .founder-initial { font-family: 'Cormorant Garamond', serif; font-size: 4rem; font-weight: 300; color: var(--stamp); opacity: 0.18; line-height: 1; margin-bottom: 0.4rem; }
+    .founder-name { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 400; color: var(--dark); margin-bottom: 0.2rem; }
+    .founder-role { font-family: 'Courier Prime', monospace; font-size: 0.52rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--stamp); margin-bottom: 1.25rem; }
+    .founder-certs { display: flex; flex-wrap: wrap; gap: 0.38rem; margin-bottom: 1.25rem; }
+    .cert { font-family: 'Courier Prime', monospace; font-size: 0.5rem; letter-spacing: 0.12em; color: var(--text-soft); border: 1px solid var(--border); padding: 0.2rem 0.5rem; border-radius: 2px; }
+    .founder-bio { font-size: 0.9rem; color: var(--text-mid); line-height: 1.78; }
+    .experience-bar { display: flex; align-items: center; gap: 2.5rem; padding: 2rem 2.5rem; background: var(--chocolate); border-radius: 4px; margin-top: 1.25rem; }
+    .exp-num { font-family: 'Cormorant Garamond', serif; font-size: 4.5rem; font-weight: 300; color: var(--stamp); line-height: 1; flex-shrink: 0; }
+    .exp-label { font-family: 'Courier Prime', monospace; font-size: 0.56rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--grain); opacity: 0.55; margin-bottom: 0.4rem; }
+    .exp-desc { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.15rem; color: var(--parchment); line-height: 1.5; }
+    .name-block { margin-bottom: 5.5rem; }
+    .name-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin: 2.5rem 0; }
+    .name-card { border-radius: 4px; padding: 2.25rem 2rem; }
+    .name-card.dark { background: var(--blueberry); border: 1px solid rgba(255,255,255,0.07); }
+    .name-card.light { background: var(--cream); border: 1px solid var(--border); }
+    .name-word { font-family: 'Cormorant Garamond', serif; font-size: 3.2rem; font-weight: 300; line-height: 1; margin-bottom: 0.4rem; }
+    .name-card.dark .name-word { color: var(--parchment); }
+    .name-card.light .name-word { color: var(--dark); }
+    .name-card.light .name-word em { font-style: normal; color: var(--stamp); }
+    .name-sub { font-family: 'Courier Prime', monospace; font-size: 0.54rem; letter-spacing: 0.28em; text-transform: uppercase; margin-bottom: 1.1rem; }
+    .name-card.dark .name-sub { color: var(--grain); opacity: 0.55; }
+    .name-card.light .name-sub { color: var(--stamp); }
+    .name-desc { font-size: 0.9rem; line-height: 1.75; }
+    .name-card.dark .name-desc { color: rgba(240,230,208,0.58); }
+    .name-card.light .name-desc { color: var(--text-mid); }
+    .verbatim { margin: 3.5rem 0; padding: 2.75rem 2.5rem; background: var(--dark); border-radius: 4px; }
+    .verbatim blockquote { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 300; color: var(--parchment); line-height: 1.5; margin-bottom: 1rem; }
+    .verbatim cite { font-family: 'Courier Prime', monospace; font-size: 0.54rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--grain); opacity: 0.5; font-style: normal; }
+    .product-block { margin-bottom: 5.5rem; }
+    .good-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin: 2.5rem 0 3rem; }
+    .good-cell { background: var(--cream); padding: 1.75rem; }
+    .good-word { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 300; color: var(--dark); margin-bottom: 0.35rem; }
+    .good-word em { font-style: italic; color: var(--stamp); }
+    .good-detail { font-size: 0.85rem; color: var(--text-mid); line-height: 1.68; }
+    .bridge { display: flex; align-items: center; justify-content: space-between; gap: 2rem; padding: 2.5rem; background: var(--chocolate); border-radius: 4px; }
+    .bridge-label { font-family: 'Courier Prime', monospace; font-size: 0.54rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--grain); opacity: 0.55; margin-bottom: 0.5rem; }
+    .bridge-headline { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 300; color: var(--parchment); line-height: 1.3; }
+    .bridge-headline em { font-style: italic; color: var(--berry-pink); }
+    .bridge-link { font-family: 'Courier Prime', monospace; font-size: 0.65rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--parchment); background: var(--stamp); text-decoration: none; padding: 0.85rem 1.75rem; border-radius: 2px; white-space: nowrap; transition: background 0.25s; flex-shrink: 0; }
+    .bridge-link:hover { background: #8C1818; }
+    .story-cta { background: var(--dark); border-radius: 4px; padding: 4rem 3rem; text-align: center; }
+    .cta-eyebrow { font-family: 'Courier Prime', monospace; font-size: 0.56rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--stamp); margin-bottom: 1.25rem; }
+    .cta-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 300; color: var(--parchment); line-height: 1.2; margin-bottom: 2rem; }
+    .cta-title em { font-style: italic; color: var(--berry-pink); }
+    .cta-btn { display: inline-block; font-family: 'Courier Prime', monospace; font-size: 0.68rem; letter-spacing: 0.32em; text-transform: uppercase; color: var(--parchment); background: var(--stamp); text-decoration: none; padding: 1rem 2.5rem; border-radius: 2px; transition: background 0.25s; }
+    .cta-btn:hover { background: #8C1818; }
+
+    @media (max-width: 820px) {
+        .nav-links { gap: 1.5rem; }
+        .page-hero { padding: 7rem 1.5rem 4rem; }
+        .content-wrap { padding: 5rem 1.5rem; }
+        .founders-grid, .name-grid, .good-grid { grid-template-columns: 1fr; }
+        .experience-bar { flex-direction: column; text-align: center; gap: 1rem; }
+        .bridge { flex-direction: column; }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <div class="page-hero-inner">
+        <p class="page-eyebrow">Our Story / Why GUTE</p>
+        <h1 class="page-title">We're the ones who<br><em>flip it over.</em></h1>
+        <p class="page-lead">Hard to pronounce ingredients. No time to look them up at the aisle. We felt that — and we also happened to know exactly what those ingredients were.</p>
+    </div>
+</section>
+
+<div class="content-wrap">
+    <div class="problem-block reveal">
+        <p class="section-stamp">The Problem</p>
+        <div class="prose">
+            <p>You're at the shopping aisle. You're craving something. You pick up a bar, flip it over — and the ingredient list is a paragraph of things you can't pronounce. Who has time to look all that up while you're just trying to grab a snack?</p>
+            <p>We know that feeling. Except we also spent <strong>20 years working in food</strong> — reading labels, tracing supply chains, writing food safety plans. We know what those ingredients are. We know why they're in there. And a lot of the time, the answer isn't a good one.</p>
+            <p>That's the thing about being a food safety professional. You stop being able to eat without thinking about it. We found ourselves turning over our favorite snacks and not loving what we found — and eventually deciding to do something about it.</p>
+        </div>
+        <div class="pull-line">We wanted to make a product <em>for people like us.</em><br>The ones who flip it over.</div>
+    </div>
+
+    <div class="founders-block reveal">
+        <p class="section-stamp">Who We Are</p>
+        <div class="prose"><p>We're Li and Benson — two health-conscious foodies with a combined 20 years in the food industry, a shared obsession with what's actually in our food, and apparently the same idea at the same time.</p></div>
+        <div class="founders-grid">
+            <div class="founder-card">
+                <div class="founder-initial">L</div>
+                <h3 class="founder-name">Li</h3>
+                <p class="founder-role">Co-Founder</p>
+                <div class="founder-certs"><span class="cert">SQF Practitioner</span><span class="cert">HACCP Certified</span><span class="cert">PCQI</span><span class="cert">FSVP</span></div>
+                <p class="founder-bio">Background in nutrition science, food science, and food safety. The combination that lets you see both sides of a label — what it says, and what it means. Passionate about food that's genuinely good for you, not just marketed that way.</p>
+            </div>
+            <div class="founder-card">
+                <div class="founder-initial">B</div>
+                <h3 class="founder-name">Benson</h3>
+                <p class="founder-role">Co-Founder</p>
+                <div class="founder-certs"><span class="cert">SQF Practitioner</span><span class="cert">HACCP Certified</span><span class="cert">PCQI</span><span class="cert">FSVP</span></div>
+                <p class="founder-bio">Studied environmental science, stumbled into food safety, and never left. The systems thinking that comes from environmental work maps perfectly onto food — traceability, upstream impact, what's actually in things and where it came from.</p>
+            </div>
+        </div>
+        <div class="experience-bar">
+            <div class="exp-num">20</div>
+            <div><p class="exp-label">Combined years in food</p><p class="exp-desc">Enough time to know what's worth eating — and what we'd rather build ourselves.</p></div>
+        </div>
+    </div>
+
+    <div class="name-block reveal">
+        <p class="section-stamp">Why GUTE</p>
+        <div class="prose"><p>We wanted a name that meant something. Not a made-up word or a lifestyle-coded acronym — something that actually said what we were trying to do.</p></div>
+        <div class="name-grid">
+            <div class="name-card dark">
+                <div class="name-word">Gute</div>
+                <p class="name-sub">German — "Good"</p>
+                <p class="name-desc">Good ingredients. Good process. Good for you. Good for the planet. One word that covers the whole thing — and signals quality without having to explain itself.</p>
+            </div>
+            <div class="name-card light">
+                <div class="name-word"><em>Gut</em>e</div>
+                <p class="name-sub">The function — Gut Health</p>
+                <p class="name-desc">Gut is right there in the name. That wasn't an accident. Our product is designed from the core up to be good for your gut — real fiber, real ingredients, nothing your body has to fight through to get to the good stuff.</p>
+            </div>
+        </div>
+        <div class="verbatim">
+            <blockquote>"Gute is German for good. Good ingredients, good process, good for your gut, good for the planet. It's all the same word — and yeah, gut is right there in it. That wasn't an accident."</blockquote>
+            <cite>— Li &amp; Benson</cite>
+        </div>
+    </div>
+
+    <div class="product-block reveal">
+        <p class="section-stamp">What We Built</p>
+        <div class="prose">
+            <p>GUTE 001 is where we started. A functional snack bar built on an ancient grain and plant protein core, dusted in whole blueberry powder, finished in dark chocolate. Every ingredient is there because it earns its spot — not because it's cheap, not to hit a number on the label, and not because a flavor house recommended it.</p>
+            <p>We're a small batch operation. Every bar is hand-stamped. That's not a constraint we're working around — it's how we keep the standard honest while we're getting started.</p>
+        </div>
+        <div class="good-grid">
+            <div class="good-cell"><div class="good-word">Good <em>ingredients.</em></div><p class="good-detail">Five ancient grains, dual plant protein, eight-plus dietary fibers. Every one verified by two people who know what they're looking at.</p></div>
+            <div class="good-cell"><div class="good-word">Good <em>process.</em></div><p class="good-detail">HACCP-certified, food safety planned, hand-stamped in small batches. We built the product the same way we'd audit anyone else's.</p></div>
+            <div class="good-cell"><div class="good-word">Good for <em>your gut.</em></div><p class="good-detail">Real prebiotic fiber from multiple sources. Resistant starch. Sprouted lentil. The kind of fiber stack that actually does something.</p></div>
+            <div class="good-cell"><div class="good-word">Good for <em>the planet.</em></div><p class="good-detail">Plant-based ingredients, minimal packaging, intentional sourcing. Not a marketing claim — a starting point we hold ourselves to.</p></div>
+        </div>
+        <div class="bridge">
+            <div class="bridge-text">
+                <p class="bridge-label">Want to see exactly what's in it?</p>
+                <p class="bridge-headline">Eight FDA-recognized fibers.<br><em>All of them explained.</em></p>
+            </div>
+            <a href="/ingredients.html" class="bridge-link">See the Ingredients →</a>
+        </div>
+    </div>
+
+    <div class="story-cta reveal">
+        <p class="cta-eyebrow">Reserve / First Batch</p>
+        <h2 class="cta-title">You've read the story.<br><em>Try the bar.</em></h2>
+        <a href="/#reserve" class="cta-btn">Join the Waitlist →</a>
+    </div>
+</div>
+{% endblock %}
