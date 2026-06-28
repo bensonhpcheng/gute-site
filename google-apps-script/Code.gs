@@ -23,8 +23,9 @@ const COLUMNS = [
   'First Name',
   'Email',
   'Zip Code',
-  'Variant',
-  'Format',
+  'Chocolate Variety',
+  'Flavor Interest',
+  'Merch Interest',
   'Pre-Order Intent',
   'How They Found Us',
 ];
@@ -40,7 +41,8 @@ function doPost(e) {
       data.email       || '',
       data.zip         || '',
       data.variant     || '',
-      data.format      || '',
+      data.flavors     || '',
+      data.merch       || '',
       data.preorder    || '',
       data.source      || '',
     ]);
@@ -64,7 +66,7 @@ function doGet() {
 }
 
 function getOrCreateSheet() {
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const ss = SpreadsheetApp.openById('1tM2ijmlkSNwzbySytGK9mFs1aWdkFCRh6SCKoiqpAEo');
   let sheet = ss.getSheetByName(SHEET_NAME);
 
   if (!sheet) {

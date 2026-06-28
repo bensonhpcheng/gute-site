@@ -225,11 +225,14 @@ permalink: /index.html
     .radio-grid { display: grid; gap: 0.55rem; }
     .radio-grid.c2 { grid-template-columns: 1fr 1fr; }
     .radio-grid.c3 { grid-template-columns: repeat(3, 1fr); }
-    .ropt input[type="radio"] { display: none; }
+    .ropt input[type="radio"], .ropt input[type="checkbox"] { display: none; }
     .ropt label { display: block; padding: 0.9rem 0.5rem; border: 1px solid rgba(240,230,208,0.09); border-radius: 2px; text-align: center; cursor: pointer; font-family: 'Courier Prime', monospace; font-size: 0.6rem; letter-spacing: 0.12em; color: rgba(240,230,208,0.4); transition: all 0.18s; margin: 0; line-height: 1.65; }
     .ropt input:checked + label { border-color: var(--stamp); color: var(--parchment); background: rgba(176,32,32,0.1); }
     .ropt label:hover { border-color: rgba(240,230,208,0.22); color: rgba(240,230,208,0.65); }
     .ropt.gold input:checked + label { border-color: var(--date-warm); color: var(--grain-light); background: rgba(158,107,26,0.12); }
+    .claims-grid { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 1.6rem; }
+    .claim { font-family: 'Courier Prime', monospace; font-size: 0.5rem; letter-spacing: 0.14em; text-transform: uppercase; padding: 0.32rem 0.65rem; border: 1px solid rgba(22,10,4,0.15); border-radius: 2px; color: var(--text-mid); background: rgba(22,10,4,0.04); white-space: nowrap; }
+    .claim.prem { border-color: rgba(158,107,26,0.35); color: #8C6010; background: rgba(158,107,26,0.07); }
     .submit-btn { width: 100%; padding: 1.2rem; background: var(--stamp); color: var(--parchment); border: none; border-radius: 2px; font-family: 'Courier Prime', monospace; font-size: 0.7rem; letter-spacing: 0.32em; text-transform: uppercase; cursor: pointer; margin-top: 2rem; transition: background 0.28s; }
     .submit-btn:hover { background: #8C1818; }
     .submit-btn:disabled { opacity: 0.38; cursor: not-allowed; }
@@ -265,8 +268,8 @@ permalink: /index.html
     <p class="hero-eyebrow">Batch N°001 — Est. 2026 — Small Batch</p>
     <h1 class="hero-title">GU<span class="accent">TE</span></h1>
     <div class="hero-divider"></div>
-    <p class="hero-sub">Built for people who flip it over.<br>Ancient grains. Real blueberry. Dark chocolate.</p>
-    <p class="hero-batch">GUTE 001 — Dark Chocolate + Blueberry — Two Varieties — Hand-Stamped</p>
+    <p class="hero-sub">Built for people who flip it over.<br>Ancient grains. Real fruit. Dark chocolate.</p>
+    <p class="hero-batch">GUTE Crunch — Lemon · Blueberry · Cranberry — Belgium or Premium — Hand-Stamped</p>
     <div class="scroll-indicator">
         <span>Scroll</span>
         <div class="scroll-line"></div>
@@ -276,23 +279,31 @@ permalink: /index.html
 <!-- MARQUEE -->
 <div class="banner-strip" aria-hidden="true">
     <div class="banner-inner">
-        <span class="banner-item">Five Ancient Grains</span><span class="banner-item">•</span>
-        <span class="banner-item">Dual Plant Protein</span><span class="banner-item">•</span>
-        <span class="banner-item">Triple Prebiotic Fiber</span><span class="banner-item">•</span>
-        <span class="banner-item">Real Blueberry Coat</span><span class="banner-item">•</span>
-        <span class="banner-item">Green Banana Flour</span><span class="banner-item">•</span>
-        <span class="banner-item">Sprouted Lentil</span><span class="banner-item">•</span>
-        <span class="banner-item">No Filler Ingredients</span><span class="banner-item">•</span>
+        <span class="banner-item">10g Fiber</span><span class="banner-item">•</span>
+        <span class="banner-item">6g Plant Protein</span><span class="banner-item">•</span>
+        <span class="banner-item">7 Ancient Grains &amp; Seeds</span><span class="banner-item">•</span>
+        <span class="banner-item">Real Blueberry</span><span class="banner-item">•</span>
+        <span class="banner-item">Gluten Free</span><span class="banner-item">•</span>
+        <span class="banner-item">Vegan</span><span class="banner-item">•</span>
+        <span class="banner-item">Low-FODMAP</span><span class="banner-item">•</span>
+        <span class="banner-item">GLP-1 Friendly</span><span class="banner-item">•</span>
+        <span class="banner-item">Keto Friendly</span><span class="banner-item">•</span>
+        <span class="banner-item">Baked Not Fried</span><span class="banner-item">•</span>
+        <span class="banner-item">No Artificial Anything</span><span class="banner-item">•</span>
         <span class="banner-item">No Refined Sugar Option</span><span class="banner-item">•</span>
         <span class="banner-item">Hand-Stamped</span><span class="banner-item">•</span>
         <span class="banner-item">Small Batch</span><span class="banner-item">•</span>
-        <span class="banner-item">Five Ancient Grains</span><span class="banner-item">•</span>
-        <span class="banner-item">Dual Plant Protein</span><span class="banner-item">•</span>
-        <span class="banner-item">Triple Prebiotic Fiber</span><span class="banner-item">•</span>
-        <span class="banner-item">Real Blueberry Coat</span><span class="banner-item">•</span>
-        <span class="banner-item">Green Banana Flour</span><span class="banner-item">•</span>
-        <span class="banner-item">Sprouted Lentil</span><span class="banner-item">•</span>
-        <span class="banner-item">No Filler Ingredients</span><span class="banner-item">•</span>
+        <span class="banner-item">10g Fiber</span><span class="banner-item">•</span>
+        <span class="banner-item">6g Plant Protein</span><span class="banner-item">•</span>
+        <span class="banner-item">7 Ancient Grains &amp; Seeds</span><span class="banner-item">•</span>
+        <span class="banner-item">Real Blueberry</span><span class="banner-item">•</span>
+        <span class="banner-item">Gluten Free</span><span class="banner-item">•</span>
+        <span class="banner-item">Vegan</span><span class="banner-item">•</span>
+        <span class="banner-item">Low-FODMAP</span><span class="banner-item">•</span>
+        <span class="banner-item">GLP-1 Friendly</span><span class="banner-item">•</span>
+        <span class="banner-item">Keto Friendly</span><span class="banner-item">•</span>
+        <span class="banner-item">Baked Not Fried</span><span class="banner-item">•</span>
+        <span class="banner-item">No Artificial Anything</span><span class="banner-item">•</span>
         <span class="banner-item">No Refined Sugar Option</span><span class="banner-item">•</span>
         <span class="banner-item">Hand-Stamped</span><span class="banner-item">•</span>
         <span class="banner-item">Small Batch</span><span class="banner-item">•</span>
@@ -321,21 +332,34 @@ permalink: /index.html
                 </div>
                 <div class="legend-item">
                     <div class="legend-dot-row"><div class="ldot ldot-grain"></div><span class="legend-label">Ancient Grain Core</span></div>
-                    <div class="legend-detail">Five grains, dual<br>protein, triple fiber.</div>
+                    <div class="legend-detail">Oat, Millet, Sorghum,<br>Quinoa, Teff.</div>
                 </div>
             </div>
         </div>
         <div class="reveal d1">
-            <p class="product-sku">GUTE — 001 / Dark Chocolate + Blueberry</p>
+            <p class="product-sku">GUTE Crunch — 001 / Lemon · Blueberry · Cranberry</p>
             <h2 class="product-headline">Flip it over.<br><em>Read every word.</em></h2>
             <p class="product-hook">Most bars don't survive that test. Every ingredient in GUTE 001 is there because it pulls its weight — not because it's cheap, and not to pad the label.</p>
             <div class="selling-points">
-                <div class="sp-row"><span class="sp-tag">Grain Blend</span><span class="sp-text"><strong>Five ancient grains</strong> — Teff, Millet, Sorghum, Quinoa, Amaranth. <span class="aside">Most bars pick one. We use five.</span></span></div>
-                <div class="sp-row"><span class="sp-tag">Protein</span><span class="sp-text"><strong>Pea + Rice protein</strong> together — a more complete amino acid profile than either alone. <span class="aside">Not a single isolated powder.</span></span></div>
-                <div class="sp-row"><span class="sp-tag">Fiber</span><span class="sp-text"><strong>Three prebiotic fibers</strong> — Inulin, Acacia, Tapioca. <span class="aside">Your gut sees all three differently. That's the point.</span></span></div>
+                <div class="sp-row"><span class="sp-tag">10g Fiber</span><span class="sp-text"><strong>Five fiber types</strong> — Oat Bran, Green Banana, Tapioca, Psyllium, Flaxseed. <span class="aside">Most bars give you 3g from one source.</span></span></div>
+                <div class="sp-row"><span class="sp-tag">6g Protein</span><span class="sp-text"><strong>Pea + Rice protein</strong> together — a more complete amino acid profile than either alone. <span class="aside">Not a single isolated powder.</span></span></div>
+                <div class="sp-row"><span class="sp-tag">7 Grains</span><span class="sp-text"><strong>Seven ancient grains &amp; seeds</strong> — Oat, Millet, Sorghum, Quinoa, Teff, Chia, Flax. <span class="aside">Most bars pick one. We use seven.</span></span></div>
+                <div class="sp-row"><span class="sp-tag">Real Fruit</span><span class="sp-text"><strong>Freeze-dried blueberry powder</strong> dusted on the core before enrobing. <span class="aside">Not flavoring. Not extract. Actual blueberry.</span></span></div>
                 <div class="sp-row"><span class="sp-tag">RS2 Starch</span><span class="sp-text"><strong>Green Banana Flour</strong> — naturally rich in resistant starch. <span class="aside">The ingredient you've never seen in a bar before.</span></span></div>
-                <div class="sp-row"><span class="sp-tag">Sprouted</span><span class="sp-text"><strong>Sprouted Lentil Flour</strong> — better mineral absorption, easier digestion. <span class="aside">Sprouting does what processing can't.</span></span></div>
-                <div class="sp-row"><span class="sp-tag">Fruit Coat</span><span class="sp-text"><strong>Whole blueberry powder</strong> dusted on the core before enrobing. <span class="aside">That vivid ring isn't food coloring.</span></span></div>
+            </div>
+            <div class="claims-grid">
+                <span class="claim">Gluten Free</span>
+                <span class="claim">Organic Ingredients</span>
+                <span class="claim">Vegan</span>
+                <span class="claim">Baked Not Fried</span>
+                <span class="claim">Low-FODMAP</span>
+                <span class="claim">GLP-1 Friendly</span>
+                <span class="claim">Keto Friendly</span>
+                <span class="claim">No Artificial Flavors</span>
+                <span class="claim">No Artificial Colors</span>
+                <span class="claim">No Artificial Preservatives</span>
+                <span class="claim prem">No Sugar Added — Premium</span>
+                <span class="claim prem">Allergen Free — Premium</span>
             </div>
             <p class="product-serving">2 sticks per serving &nbsp;·&nbsp; approx. 40g &nbsp;·&nbsp; every ingredient earns its spot</p>
         </div>
@@ -346,40 +370,40 @@ permalink: /index.html
 <section class="tiers-section">
     <div class="tiers-inner">
         <div class="reveal">
-            <p class="tiers-eyebrow">The Lineup / GUTE 001</p>
+            <p class="tiers-eyebrow">The Lineup / GUTE Crunch 001</p>
             <h2 class="tiers-title">Same core.<br><em>Two chocolates.</em></h2>
         </div>
         <div class="tiers-grid">
             <div class="tier-card main reveal">
                 <div class="tier-top">
-                    <span class="tier-pill">Mainline</span>
-                    <p class="tier-sku">GUTE — 001 — R &amp; BB</p>
-                    <h3 class="tier-name">Dark Chocolate<br>+ <em>Blueberry</em></h3>
-                    <p class="tier-oneliner">The everyday bar. Quality dark chocolate over a blueberry-dusted ancient grain core. Cleaner than anything next to it — and it doesn't need to announce it.</p>
+                    <span class="tier-pill">Belgium</span>
+                    <p class="tier-sku">GUTE Crunch — 001 — Belgium</p>
+                    <h3 class="tier-name">Belgium Dark<br><em>Chocolate</em></h3>
+                    <p class="tier-oneliner">The everyday crunch. Quality Belgium dark chocolate over a fruit-dusted ancient grain core. Three flavors — Lemon, Blueberry, Cranberry. Cleaner than anything next to it.</p>
                 </div>
                 <div class="tier-bottom">
                     <div class="tier-attrs">
-                        <div class="tier-attr"><div class="adot"></div><span class="atext">Dark Chocolate Shell</span></div>
-                        <div class="tier-attr"><div class="adot"></div><span class="atext">Whole Blueberry Powder Coat</span></div>
-                        <div class="tier-attr"><div class="adot"></div><span class="atext">Five Ancient Grains + Dual Plant Protein</span></div>
-                        <div class="tier-attr"><div class="adot"></div><span class="atext">Triple Prebiotic Fiber</span></div>
-                        <div class="tier-attr"><div class="adot"></div><span class="atext">No Artificial Flavors or Colors</span></div>
+                        <div class="tier-attr"><div class="adot"></div><span class="atext">Belgium Dark Chocolate Shell</span></div>
+                        <div class="tier-attr"><div class="adot"></div><span class="atext">Lemon · Blueberry · Cranberry</span></div>
+                        <div class="tier-attr"><div class="adot"></div><span class="atext">10g Fiber · 6g Protein · 7 Grains &amp; Seeds</span></div>
+                        <div class="tier-attr"><div class="adot"></div><span class="atext">Gluten Free · Vegan · Low-FODMAP</span></div>
+                        <div class="tier-attr"><div class="adot"></div><span class="atext">No Artificial Flavors, Colors, or Preservatives</span></div>
                     </div>
                 </div>
             </div>
             <div class="tier-card prem reveal d1">
                 <div class="tier-top">
                     <span class="tier-pill">Premium</span>
-                    <p class="tier-sku">GUTE — 001 — D &amp; BB</p>
-                    <h3 class="tier-name">Date Chocolate<br>+ <em>Blueberry</em></h3>
+                    <p class="tier-sku">GUTE Crunch — 001 — Premium</p>
+                    <h3 class="tier-name">Date Sweetened<br><em>Dark Chocolate</em></h3>
                     <p class="tier-oneliner">No refined sugar. Anywhere in the bar. Date-sweetened dark chocolate is richer, more complex, and takes cane sugar completely out of the picture — core to coat.</p>
                 </div>
                 <div class="tier-bottom">
                     <div class="tier-attrs">
-                        <div class="tier-attr"><div class="adot"></div><span class="atext">Date-Sweetened Chocolate Shell</span></div>
-                        <div class="tier-attr"><div class="adot"></div><span class="atext">Zero Refined Sugar — Entire Bar</span></div>
-                        <div class="tier-attr"><div class="adot"></div><span class="atext">Whole Blueberry Powder Coat</span></div>
-                        <div class="tier-attr"><div class="adot"></div><span class="atext">Same Ancient Grain Core</span></div>
+                        <div class="tier-attr"><div class="adot"></div><span class="atext">Date-Sweetened Chocolate — No Refined Sugar</span></div>
+                        <div class="tier-attr"><div class="adot"></div><span class="atext">Allergen Free · No Sugar Added</span></div>
+                        <div class="tier-attr"><div class="adot"></div><span class="atext">Keto Friendly · GLP-1 Friendly</span></div>
+                        <div class="tier-attr"><div class="adot"></div><span class="atext">Same 10g Fiber · 6g Protein Core</span></div>
                         <div class="tier-attr"><div class="adot"></div><span class="atext">Cane Sugar Free — Core to Coat</span></div>
                     </div>
                 </div>
@@ -403,18 +427,28 @@ permalink: /index.html
             </div>
             <div class="form-group"><label for="email">Email Address</label><input type="email" id="email" name="email" placeholder="you@email.com" required></div>
             <div class="form-group">
-                <label>Which would you try first?</label>
+                <label>Chocolate variety?</label>
                 <div class="radio-grid c2">
-                    <div class="ropt"><input type="radio" name="variant" id="v-r" value="R&BB — Dark Chocolate" checked><label for="v-r">Dark Chocolate<br><span style="font-size:0.5rem;opacity:0.55;">R &amp; BB — Mainline</span></label></div>
-                    <div class="ropt gold"><input type="radio" name="variant" id="v-d" value="D&BB — Date Chocolate"><label for="v-d">Date Chocolate<br><span style="font-size:0.5rem;opacity:0.55;">D &amp; BB — No Refined Sugar</span></label></div>
+                    <div class="ropt"><input type="radio" name="variant" id="v-r" value="Belgium Dark Chocolate" checked><label for="v-r">Belgium<br><span style="font-size:0.5rem;opacity:0.55;">Dark Chocolate</span></label></div>
+                    <div class="ropt gold"><input type="radio" name="variant" id="v-d" value="Premium Date Sweetened"><label for="v-d">Premium<br><span style="font-size:0.5rem;opacity:0.55;">Date Sweetened</span></label></div>
                 </div>
             </div>
             <div class="form-group">
-                <label>Format interest?</label>
+                <label>Which flavors interest you? <span style="opacity:0.4;font-size:0.5rem;">(select all that appeal)</span></label>
                 <div class="radio-grid c3">
-                    <div class="ropt"><input type="radio" name="format" id="f-bar" value="The Bar" checked><label for="f-bar">The Bar</label></div>
-                    <div class="ropt"><input type="radio" name="format" id="f-pow" value="Mix Powder"><label for="f-pow">Mix Powder</label></div>
-                    <div class="ropt"><input type="radio" name="format" id="f-both" value="Both"><label for="f-both">Both</label></div>
+                    <div class="ropt"><input type="checkbox" name="flavor" id="fl-lemon" value="Lemon"><label for="fl-lemon">Lemon</label></div>
+                    <div class="ropt"><input type="checkbox" name="flavor" id="fl-blueberry" value="Blueberry"><label for="fl-blueberry">Blueberry</label></div>
+                    <div class="ropt"><input type="checkbox" name="flavor" id="fl-cranberry" value="Cranberry"><label for="fl-cranberry">Cranberry</label></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Merch interest? <span style="opacity:0.4;font-size:0.5rem;">(select all that apply)</span></label>
+                <div class="radio-grid c3">
+                    <div class="ropt"><input type="checkbox" name="merch" id="m-hat-choc" value="Hat — Chocolate"><label for="m-hat-choc">Hat<br><span style="font-size:0.5rem;opacity:0.55;">Chocolate</span></label></div>
+                    <div class="ropt"><input type="checkbox" name="merch" id="m-hat-cream" value="Hat — Cream"><label for="m-hat-cream">Hat<br><span style="font-size:0.5rem;opacity:0.55;">Cream</span></label></div>
+                    <div class="ropt"><input type="checkbox" name="merch" id="m-hat-white" value="Hat — White"><label for="m-hat-white">Hat<br><span style="font-size:0.5rem;opacity:0.55;">White</span></label></div>
+                    <div class="ropt"><input type="checkbox" name="merch" id="m-tshirt" value="T-Shirt"><label for="m-tshirt">T-Shirt</label></div>
+                    <div class="ropt"><input type="checkbox" name="merch" id="m-sticker" value="Sticker"><label for="m-sticker">Sticker</label></div>
                 </div>
             </div>
             <div class="form-group">
