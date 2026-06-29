@@ -72,6 +72,8 @@ nav {
     text-decoration: none;
     transition: color 0.4s;
 }
+.nav-umlaut { color: var(--berry-pink); }
+.footer-umlaut { color: var(--berry-pink); }
 .nav-links {
     display: flex;
     align-items: center;

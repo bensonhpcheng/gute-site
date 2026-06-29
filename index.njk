@@ -41,15 +41,97 @@ permalink: /index.html
     }
     .hero-title {
         font-family: 'Cormorant Garamond', serif;
-        font-size: clamp(6rem, 20vw, 18rem);
+        font-size: clamp(5rem, 16vw, 14rem);
         font-weight: 300;
         color: var(--parchment);
-        line-height: 0.82;
-        letter-spacing: -0.02em;
+        line-height: 0.85;
+        letter-spacing: 0.08em;
+        font-style: normal;
         position: relative;
         animation: fadeUp 0.9s ease 0.1s both;
     }
-    .hero-title .accent { font-style: italic; color: var(--berry-pink); }
+    .hero-title .hero-umlaut { color: var(--berry-pink); font-style: normal; }
+
+    /* ─── CORE COLLAGE ─── */
+    .hero-core-wrap { margin: 2.5rem auto 0; animation: fadeUp 0.9s ease 0.25s both; position: relative; display: inline-block; }
+    .hero-core-choco {
+        display: inline-block;
+        border-radius: 120px;
+        padding: 10px;
+        background: var(--choc-shell);
+        box-shadow: 0 40px 100px rgba(0,0,0,0.65), 0 0 0 1px rgba(200,164,106,0.18), inset 0 1px 0 rgba(255,255,255,0.05);
+    }
+    .hero-core-berry {
+        display: inline-block;
+        border-radius: 110px;
+        padding: 7px;
+        background: linear-gradient(130deg, #7A2858 0%, #C86898 45%, #9B3EA8 80%, #7A2858 100%);
+    }
+    .hero-core-mosaic {
+        width: 540px;
+        height: 196px;
+        border-radius: 98px;
+        overflow: hidden;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 2px;
+        background: #A87030;
+    }
+    .cm-cell {
+        background-size: cover;
+        background-position: center;
+        background-color: #C09040;
+        position: relative;
+    }
+    .cm-cell::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, rgba(160,112,40,0.15), rgba(80,45,10,0.1));
+    }
+    .hero-core-label {
+        font-family: 'Courier Prime', monospace;
+        font-size: 0.5rem;
+        letter-spacing: 0.32em;
+        text-transform: uppercase;
+        color: var(--grain);
+        opacity: 0.55;
+        margin-top: 1.1rem;
+        text-align: center;
+    }
+
+    /* ─── INGREDIENT STRIP ─── */
+    .ing-strip {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        height: 220px;
+        overflow: hidden;
+    }
+    .ing-strip-cell {
+        background-size: cover;
+        background-position: center;
+        background-color: var(--dark);
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.6s ease;
+    }
+    .ing-strip-cell:hover { transform: scale(1.04); z-index: 1; }
+    .ing-strip-cell::after {
+        content: attr(data-label);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 0.5rem 0.6rem;
+        background: linear-gradient(to top, rgba(22,10,4,0.85), transparent);
+        font-family: 'Courier Prime', monospace;
+        font-size: 0.44rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--grain-light);
+        opacity: 0.85;
+    }
     .hero-divider {
         width: 1px;
         height: 38px;
@@ -245,6 +327,10 @@ permalink: /index.html
 
     /* ─── RESPONSIVE ─── */
     @media (max-width:900px) {
+        .hero-core-mosaic { width: 360px; height: 132px; border-radius: 66px; }
+        .hero-core-berry { border-radius: 74px; }
+        .hero-core-choco { border-radius: 84px; }
+        .ing-strip { grid-template-columns: repeat(3, 1fr); height: 160px; }
         .product-inner { grid-template-columns:1fr; gap:3.5rem; }
         .bar-wrap { justify-content:center; }
         .bar-art { width:120px; height:375px; border-radius:21px; }
@@ -266,15 +352,43 @@ permalink: /index.html
 <!-- HERO -->
 <section class="hero">
     <p class="hero-eyebrow">Batch N°001 — Est. 2026 — Small Batch</p>
-    <h1 class="hero-title">GU<span class="accent">TE</span></h1>
+    <h1 class="hero-title">G<span class="hero-umlaut">Ü</span>TE</h1>
+
+    <!-- Core collage — grain photos sliced into bar cross-section shape -->
+    <div class="hero-core-wrap">
+        <div class="hero-core-choco">
+            <div class="hero-core-berry">
+                <div class="hero-core-mosaic">
+                    <div class="cm-cell" style="background-image:url('/images/ingredients/oat-flour.jpg');background-color:#D4B870;"></div>
+                    <div class="cm-cell" style="background-image:url('/images/ingredients/blueberry-powder.jpg');background-color:#3A1860;"></div>
+                    <div class="cm-cell" style="background-image:url('/images/ingredients/chia-seeds.jpg');background-color:#2A1C0A;"></div>
+                    <div class="cm-cell" style="background-image:url('/images/ingredients/quinoa-flour.jpg');background-color:#C8A050;"></div>
+                    <div class="cm-cell" style="background-image:url('/images/ingredients/green-banana-flour.jpg');background-color:#4A5A20;"></div>
+                    <div class="cm-cell" style="background-image:url('/images/ingredients/flaxseed-meal.jpg');background-color:#8A5C28;"></div>
+                </div>
+            </div>
+        </div>
+        <p class="hero-core-label">10g Fiber · 6g Protein · 7 Ancient Grains · Real Fruit</p>
+    </div>
+
     <div class="hero-divider"></div>
     <p class="hero-sub">Built for people who flip it over.<br>Ancient grains. Real fruit. Dark chocolate.</p>
-    <p class="hero-batch">GUTE Crunch — Lemon · Blueberry · Cranberry — Belgium or Premium — Hand-Stamped</p>
+    <p class="hero-batch">GÜTE Crunch — Lemon · Blueberry · Cranberry — Belgium or Premium — Hand-Stamped</p>
     <div class="scroll-indicator">
         <span>Scroll</span>
         <div class="scroll-line"></div>
     </div>
 </section>
+
+<!-- INGREDIENT PHOTO STRIP -->
+<div class="ing-strip">
+    <div class="ing-strip-cell" data-label="Oat Bran" style="background-image:url('/images/ingredients/oat-bran-fiber.jpg');background-color:#C8A050;"></div>
+    <div class="ing-strip-cell" data-label="Blueberry" style="background-image:url('/images/ingredients/blueberry-powder.jpg');background-color:#2A1050;"></div>
+    <div class="ing-strip-cell" data-label="Green Banana" style="background-image:url('/images/ingredients/green-banana-flour.jpg');background-color:#3A4A18;"></div>
+    <div class="ing-strip-cell" data-label="Chia Seeds" style="background-image:url('/images/ingredients/chia-seeds.jpg');background-color:#1A1208;"></div>
+    <div class="ing-strip-cell" data-label="Cranberry" style="background-image:url('/images/ingredients/cranberry-powder.jpg');background-color:#5A0A18;"></div>
+    <div class="ing-strip-cell" data-label="Olive Oil" style="background-image:url('/images/ingredients/olive-oil.jpg');background-color:#6A7820;"></div>
+</div>
 
 <!-- MARQUEE -->
 <div class="banner-strip" aria-hidden="true">
