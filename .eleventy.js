@@ -2,6 +2,7 @@ module.exports = function(eleventyConfig) {
   // Pass static assets through unchanged
   eleventyConfig.addPassthroughCopy("css");
   eleventyConfig.addPassthroughCopy("js");
+  eleventyConfig.addPassthroughCopy("images");
   eleventyConfig.addPassthroughCopy("google-apps-script");
   eleventyConfig.addPassthroughCopy("CNAME"); // Required for GitHub Pages custom domain
 
