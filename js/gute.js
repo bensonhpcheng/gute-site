@@ -18,36 +18,19 @@ document
   .querySelectorAll(".reveal")
   .forEach((el) => revealObserver.observe(el));
 
-// ─── NAV COLOR SHIFT ON SCROLL ───────────
+// ─── NAV SCROLL STATE ────────────────────
+// Once the page scrolls, drop in a translucent dark bar so the nav stays
+// legible over every section — light, dark, or coloured — rather than
+// guessing the background colour beneath it.
 (function initNavScroll() {
-  const logo = document.getElementById("navLogo");
-  const cta = document.getElementById("navCta");
-  const link1 = document.getElementById("navLink1");
-  const link2 = document.getElementById("navLink2");
-
-  // Some pages start on a light background — detect hero presence
-  const hasHero = !!document.querySelector(".hero, .page-hero");
+  const nav = document.querySelector("nav");
+  if (!nav) return;
 
   function updateNav() {
-    // On pages without a dark hero, nav is always light-on-parchment
-    const threshold = hasHero ? window.innerHeight * 0.82 : 0;
-    const past = window.scrollY > threshold;
-
-    const textColor = past ? "var(--dark)" : "var(--parchment)";
-    const borderColor = past ? "rgba(22,10,4,0.2)" : "rgba(240,230,208,0.4)";
-
-    if (logo) logo.style.color = textColor;
-    if (cta) {
-      cta.style.color = textColor;
-      cta.style.borderColor = borderColor;
-    }
-    if (link1) link1.style.color = textColor;
-    if (link2) link2.style.color = textColor;
+    nav.classList.toggle("nav-scrolled", window.scrollY > 24);
   }
 
-  // Pages without a dark hero start with dark nav text
-  if (!hasHero) updateNav();
-
+  updateNav();
   window.addEventListener("scroll", updateNav, { passive: true });
 })();
 

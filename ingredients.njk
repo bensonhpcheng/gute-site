@@ -1,5 +1,5 @@
 ---
-title: Ingredients — GUTE Food Co.
+title: Ingredients — GÜTE Food Co.
 activePage: ingredients
 permalink: /ingredients.html
 ---
@@ -49,8 +49,9 @@ permalink: /ingredients.html
     .ing-toggle { font-family: 'Courier Prime', monospace; font-size: 0.65rem; color: var(--text-ghost); transition: transform 0.3s; flex-shrink: 0; margin-top: 0.2rem; }
     .ing-card.open .ing-toggle { transform: rotate(45deg); }
 
-    .ing-expand { max-height: 0; overflow: hidden; transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1); }
-    .ing-card.open .ing-expand { max-height: 700px; }
+    .ing-expand { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+    /* JS sets an exact inline max-height on open; this generous value is a no-JS fallback so sources are never clipped */
+    .ing-card.open .ing-expand { max-height: 2600px; }
     .ing-expand-inner { border-top: 1px solid var(--border); }
     .ing-photo { width: 100%; height: 220px; object-fit: cover; display: block; background: var(--border); }
     .ing-photo-placeholder { width: 100%; height: 220px; background: linear-gradient(135deg, var(--chocolate) 0%, var(--blueberry) 100%); display: flex; align-items: center; justify-content: center; }
@@ -100,14 +101,14 @@ permalink: /ingredients.html
     .glp-ref-text em { font-style: italic; color: var(--text-soft); }
 
     /* ─── INGREDIENT REFERENCES ─── */
-    .ing-refs { margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--border); }
-    .ing-refs-label { font-family: 'Courier Prime', monospace; font-size: 0.46rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--text-ghost); margin-bottom: 0.55rem; }
-    .ing-ref-item { display: grid; grid-template-columns: 1.2rem 1fr; gap: 0.3rem; margin-bottom: 0.45rem; }
-    .ing-ref-num { font-family: 'Courier Prime', monospace; font-size: 0.65rem; color: var(--glp-green); font-weight: 700; line-height: 1.55; }
-    .ing-ref-cite { font-size: 0.7rem; color: var(--text-ghost); line-height: 1.55; }
-    .ing-ref-cite a { color: var(--text-soft); border-bottom: 1px solid rgba(138,100,72,0.22); text-decoration: none; }
-    .ing-ref-cite a:hover { color: var(--dark); border-bottom-color: var(--text-soft); }
+    .ing-refs { margin-top: 1.6rem; padding: 1.25rem 1.25rem 0.4rem; border-top: 1px solid var(--border); background: rgba(42,92,58,0.03); border-radius: 0 0 4px 4px; }
+    .ing-refs-label { font-family: 'Courier Prime', monospace; font-size: 0.52rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--text-soft); margin-bottom: 0.9rem; }
+    .ing-ref-item { display: grid; grid-template-columns: 1.5rem 1fr; gap: 0.55rem; margin-bottom: 0.85rem; align-items: start; }
+    .ing-ref-num { font-family: 'Courier Prime', monospace; font-size: 0.78rem; color: var(--glp-green); font-weight: 700; line-height: 1.6; }
+    .ing-ref-cite { font-size: 0.82rem; color: var(--text-mid); line-height: 1.65; }
     .ing-ref-cite em { font-style: italic; }
+    .ing-ref-cite a { display: inline-block; color: var(--glp-green); font-weight: 600; text-decoration: none; border-bottom: 1px solid rgba(42,92,58,0.45); padding: 2px 0; margin-top: 1px; white-space: nowrap; }
+    .ing-ref-cite a:hover { color: #1E4429; border-bottom-color: var(--glp-green); }
 
     /* ─── CTA ─── */
     .ingredients-cta { background: var(--dark); border-radius: 4px; padding: 4rem 3rem; text-align: center; }
@@ -168,7 +169,7 @@ permalink: /ingredients.html
                         <img class="ing-photo" src="/images/ingredients/oat-flour.jpg" alt="Oats" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
                         <div class="ing-photo-placeholder" style="display:none"><span>Add oat-flour.jpg to images/ingredients/</span></div>
                         <div class="ing-body">
-                            <p>Oat flour contributes the grain backbone of GUTE Crunch — mild flavor, gentle binding, and a soluble fiber called <strong>beta-glucan</strong> that the FDA has authorized a specific health claim for: reducing the risk of coronary heart disease.<sup class="cite"><a href="https://www.ecfr.gov/current/title-21/chapter-I/subchapter-B/part-101/subpart-E/section-101.81" target="_blank" rel="noopener">[1]</a></sup> That's one of only two fibers in the entire U.S. food supply with that status.</p>
+                            <p>Oat flour contributes the grain backbone of GÜTE Crunch — mild flavor, gentle binding, and a soluble fiber called <strong>beta-glucan</strong> that the FDA has authorized a specific health claim for: reducing the risk of coronary heart disease.<sup class="cite"><a href="https://www.ecfr.gov/current/title-21/chapter-I/subchapter-B/part-101/subpart-E/section-101.81" target="_blank" rel="noopener">[1]</a></sup> That's one of only two fibers in the entire U.S. food supply with that status.</p>
                             <p>Beta-glucan forms a viscous gel in the digestive tract that has been shown in clinical studies to slow gastric emptying and support healthy LDL cholesterol levels.<sup class="cite"><a href="https://academic.oup.com/nutritionreviews/article/78/Supplement_1/78/5877743" target="_blank" rel="noopener">[2]</a></sup> The mechanism is well-documented: the gel binds to cholesterol-containing bile acids in the small intestine, reducing their reabsorption.</p>
                             <span class="ing-tag">FDA Authorized Health Claim — Beta-Glucan / Heart Disease</span>
                             <div class="ing-refs">
@@ -196,7 +197,7 @@ permalink: /ingredients.html
                         <div class="ing-photo-placeholder" style="display:none"><span>Add millet-flour.jpg to images/ingredients/</span></div>
                         <div class="ing-body">
                             <p>Millet is one of the oldest cultivated grains, grown across Africa and Asia for thousands of years. Naturally gluten-free, it has a lighter texture than denser grain flours like sorghum — which contributes to the lift and crumb structure of the baked core without making it heavy.</p>
-                            <p>Rich in <strong>magnesium, phosphorus, and antioxidant polyphenols</strong> — including phenolic acids, flavonoids, and catechins — millet also contributes insoluble fiber that supports gut transit.<sup class="cite"><a href="https://pubmed.ncbi.nlm.nih.gov/39434598/" target="_blank" rel="noopener">[1]</a></sup> It often gets overlooked in favor of trendier grains, but it quietly does a lot of structural work inside every GUTE Crunch.</p>
+                            <p>Rich in <strong>magnesium, phosphorus, and antioxidant polyphenols</strong> — including phenolic acids, flavonoids, and catechins — millet also contributes insoluble fiber that supports gut transit.<sup class="cite"><a href="https://pubmed.ncbi.nlm.nih.gov/39434598/" target="_blank" rel="noopener">[1]</a></sup> It often gets overlooked in favor of trendier grains, but it quietly does a lot of structural work inside every GÜTE Crunch.</p>
                             <div class="ing-refs">
                                 <p class="ing-refs-label">Sources</p>
                                 <div class="ing-ref-item"><span class="ing-ref-num">[1]</span><p class="ing-ref-cite">Gupta et al. (2024). <em>Harnessing the nutritional profile and health benefits of millets.</em> PubMed. <a href="https://pubmed.ncbi.nlm.nih.gov/39434598/" target="_blank" rel="noopener">pubmed.ncbi.nlm.nih.gov →</a></p></div>
@@ -222,7 +223,7 @@ permalink: /ingredients.html
                         <div class="ing-photo-placeholder" style="display:none"><span>Add sorghum-flour.jpg to images/ingredients/</span></div>
                         <div class="ing-body">
                             <p>Sorghum has been cultivated for over 8,000 years and remains a staple grain across sub-Saharan Africa and South Asia. Naturally gluten-free, it is particularly <strong>high in phenolic compounds</strong> — a class of antioxidants including 3-deoxyanthocyanidins, tannins, and flavonoids that has been the subject of ongoing nutritional research for its potential role in reducing oxidative stress.<sup class="cite"><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6100422/" target="_blank" rel="noopener">[1]</a></sup> Among major cereals, sorghum has among the most abundant phenolic content by weight.<sup class="cite"><a href="https://link.springer.com/article/10.1007/s42976-020-00118-w" target="_blank" rel="noopener">[2]</a></sup></p>
-                            <p>In GUTE Crunch, sorghum flour contributes both soluble and insoluble fiber fractions, a slightly nutty depth of flavor, and a structural density that helps create the bar's characteristic crunch. It bakes well and performs reliably in a gluten-free formula without additives.</p>
+                            <p>In GÜTE Crunch, sorghum flour contributes both soluble and insoluble fiber fractions, a slightly nutty depth of flavor, and a structural density that helps create the bar's characteristic crunch. It bakes well and performs reliably in a gluten-free formula without additives.</p>
                             <div class="ing-refs">
                                 <p class="ing-refs-label">Sources</p>
                                 <div class="ing-ref-item"><span class="ing-ref-num">[1]</span><p class="ing-ref-cite">Dykes & Rooney (2018). <em>Phenolic Compositions and Antioxidant Activities Differ Significantly among Sorghum Grains with Different Applications.</em> PMC. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6100422/" target="_blank" rel="noopener">pmc.ncbi.nlm.nih.gov →</a></p></div>
@@ -248,7 +249,7 @@ permalink: /ingredients.html
                         <div class="ing-photo-placeholder" style="display:none"><span>Add quinoa-flour.jpg to images/ingredients/</span></div>
                         <div class="ing-body">
                             <p>Technically a seed, quinoa is one of the few plant foods that contains all nine essential amino acids — making it a notable protein source in a vegan formula.<sup class="cite"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7434868/" target="_blank" rel="noopener">[1]</a></sup> In flour form it contributes protein alongside the dedicated pea and rice protein blend, with a mild, slightly earthy flavor that doesn't compete with the chocolate coat.</p>
-                            <p>Quinoa also contains <strong>quercetin and kaempferol</strong> — flavonoid antioxidants present in higher concentrations than in many other plant foods that have been studied in nutritional research for antioxidant and anti-inflammatory activity.<sup class="cite"><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6651730/" target="_blank" rel="noopener">[2]</a></sup> As with all ingredients in GUTE Crunch, it's here because it contributes something meaningful to the formula, not to round out a marketing claim.</p>
+                            <p>Quinoa also contains <strong>quercetin and kaempferol</strong> — flavonoid antioxidants present in higher concentrations than in many other plant foods that have been studied in nutritional research for antioxidant and anti-inflammatory activity.<sup class="cite"><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6651730/" target="_blank" rel="noopener">[2]</a></sup> As with all ingredients in GÜTE Crunch, it's here because it contributes something meaningful to the formula, not to round out a marketing claim.</p>
                             <div class="ing-refs">
                                 <p class="ing-refs-label">Sources</p>
                                 <div class="ing-ref-item"><span class="ing-ref-num">[1]</span><p class="ing-ref-cite">Kambur et al. (2020). <em>Seed Composition and Amino Acid Profiles for Quinoa Grown in Washington State.</em> PMC. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7434868/" target="_blank" rel="noopener">pmc.ncbi.nlm.nih.gov →</a></p></div>
@@ -359,7 +360,7 @@ permalink: /ingredients.html
                         <img class="ing-photo" src="/images/ingredients/oat-bran-fiber.jpg" alt="Oat bran" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
                         <div class="ing-photo-placeholder" style="display:none"><span>Add oat-bran-fiber.jpg to images/ingredients/</span></div>
                         <div class="ing-body">
-                            <p>Oat bran is the fiber-concentrated outer layer of the oat kernel — higher in beta-glucan than oat flour, with a fine texture that dissolves into the core without affecting chew. It's the primary contributor to GUTE Crunch's 10g fiber count, and it carries the same <strong>FDA-authorized health claim</strong> as the beta-glucan in oat flour: reducing the risk of coronary heart disease.<sup class="cite"><a href="https://www.ecfr.gov/current/title-21/chapter-I/subchapter-B/part-101/subpart-E/section-101.81" target="_blank" rel="noopener">[1]</a></sup></p>
+                            <p>Oat bran is the fiber-concentrated outer layer of the oat kernel — higher in beta-glucan than oat flour, with a fine texture that dissolves into the core without affecting chew. It's the primary contributor to GÜTE Crunch's 10g fiber count, and it carries the same <strong>FDA-authorized health claim</strong> as the beta-glucan in oat flour: reducing the risk of coronary heart disease.<sup class="cite"><a href="https://www.ecfr.gov/current/title-21/chapter-I/subchapter-B/part-101/subpart-E/section-101.81" target="_blank" rel="noopener">[1]</a></sup></p>
                             <p>Beta-glucan in the digestive tract forms a gel that slows glucose absorption and binds to cholesterol-containing bile acids. This is the documented mechanism the FDA reviewed before authorizing the claim — not a marketing interpretation of loosely related research.</p>
                             <span class="ing-tag">FDA Authorized Health Claim — Beta-Glucan / Heart Disease Risk Reduction</span>
                             <div class="ing-refs">
@@ -386,7 +387,7 @@ permalink: /ingredients.html
                         <div class="ing-photo-placeholder" style="display:none"><span>Add green-banana-flour.jpg to images/ingredients/</span></div>
                         <div class="ing-body">
                             <p>Unripe bananas are harvested before their resistant starches convert to sugars, then dried and milled into flour. The result is naturally rich in <strong>Type 2 Resistant Starch (RS2)</strong> — a fiber that resists digestion in the small intestine and passes intact to the colon, where gut bacteria ferment it into short-chain fatty acids including butyrate.<sup class="cite"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9559413/" target="_blank" rel="noopener">[1]</a></sup> The RS2 content drops significantly as bananas ripen, which is why the ingredient requires unripe fruit.</p>
-                            <p>RS2 is recognized by the FDA under the high amylose starch category. A 2022 randomized clinical trial found that resistant starch blends including banana RS specifically increased populations of Bifidobacterium and Akkermansia — bacteria positively correlated with GLP-1 production.<sup class="cite"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9559413/" target="_blank" rel="noopener">[1]</a></sup> In finished form inside GUTE Crunch, green banana flour is <strong>completely flavorless</strong>.</p>
+                            <p>RS2 is recognized by the FDA under the high amylose starch category. A 2022 randomized clinical trial found that resistant starch blends including banana RS specifically increased populations of Bifidobacterium and Akkermansia — bacteria positively correlated with GLP-1 production.<sup class="cite"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9559413/" target="_blank" rel="noopener">[1]</a></sup> In finished form inside GÜTE Crunch, green banana flour is <strong>completely flavorless</strong>.</p>
                             <span class="ing-tag">FDA Recognized — High Amylose Starch (RS2)</span>
                             <div class="ing-refs">
                                 <p class="ing-refs-label">Sources</p>
@@ -412,7 +413,7 @@ permalink: /ingredients.html
                         <div class="ing-photo-placeholder" style="display:none"><span>Add tapioca-fiber.jpg to images/ingredients/</span></div>
                         <div class="ing-body">
                             <p>Soluble tapioca fiber is a <strong>resistant dextrin derived from cassava starch</strong> — not to be confused with regular tapioca starch, which is a fully digestible carbohydrate. The resistant dextrin form is processed to introduce α-(1→2) and α-(1→3) glycosidic bonds that resist human digestive enzymes, allowing it to travel intact to the colon as a prebiotic substrate. The FDA reviewed this ingredient under GRAS Notice GRN 1045.<sup class="cite"><a href="https://www.fda.gov/media/161882/download" target="_blank" rel="noopener">[1]</a></sup></p>
-                            <p>It was selected for GUTE Crunch primarily because of its <strong>heat stability during baking</strong>. Resistant dextrin from tapioca is stable to heat, pH, and processing stresses — meaning the fiber content on the label reflects what's actually in the finished bar, not pre-bake measurements.</p>
+                            <p>It was selected for GÜTE Crunch primarily because of its <strong>heat stability during baking</strong>. Resistant dextrin from tapioca is stable to heat, pH, and processing stresses — meaning the fiber content on the label reflects what's actually in the finished bar, not pre-bake measurements.</p>
                             <span class="ing-tag">FDA GRAS Notice GRN 1045 — Resistant Dextrin from Tapioca</span>
                             <div class="ing-refs">
                                 <p class="ing-refs-label">Sources</p>
@@ -438,7 +439,7 @@ permalink: /ingredients.html
                         <div class="ing-photo-placeholder" style="display:none"><span>Add psyllium-husk.jpg to images/ingredients/</span></div>
                         <div class="ing-body">
                             <p>Psyllium husk comes from the seed husks of Plantago ovata. Its soluble fiber absorbs water and forms a viscous gel in the digestive tract. The FDA authorized a health claim for psyllium in 1998 specifically for reducing the risk of coronary heart disease — based on clinical evidence showing 7g per day reduces LDL cholesterol approximately 5–10%.<sup class="cite"><a href="https://www.ecfr.gov/current/title-21/chapter-I/subchapter-B/part-101/subpart-E/section-101.81" target="_blank" rel="noopener">[1]</a></sup> The mechanism: psyllium's gel binds bile acids in the intestinal lumen, reducing their reabsorption and forcing the liver to draw on circulating cholesterol to synthesize replacements.</p>
-                            <p>In GUTE Crunch's baked core, psyllium also plays a functional structural role: the gel network improves cohesion and holds the grain and fiber matrix together — without any binders derived from dairy or eggs. It's doing two jobs at once.</p>
+                            <p>In GÜTE Crunch's baked core, psyllium also plays a functional structural role: the gel network improves cohesion and holds the grain and fiber matrix together — without any binders derived from dairy or eggs. It's doing two jobs at once.</p>
                             <span class="ing-tag">FDA Authorized Health Claim — Psyllium / Heart Disease Risk Reduction (21 CFR 101.81)</span>
                             <div class="ing-refs">
                                 <p class="ing-refs-label">Sources</p>
@@ -462,7 +463,7 @@ permalink: /ingredients.html
                     <div>
                         <span class="ing-badge badge-protein">Plant Protein</span>
                         <h3 class="ing-name">Pea Protein</h3>
-                        <p class="ing-teaser">High in BCAAs. Allergen-free. Pairs with rice protein to complete the amino acid profile.</p>
+                        <p class="ing-teaser">High in BCAAs. Not a major allergen. Pairs with rice protein to complete the amino acid profile.</p>
                     </div>
                     <span class="ing-toggle">+</span>
                 </div>
@@ -472,7 +473,7 @@ permalink: /ingredients.html
                         <div class="ing-photo-placeholder" style="display:none"><span>Add pea-protein.jpg to images/ingredients/</span></div>
                         <div class="ing-body">
                             <p>Isolated from yellow split peas, pea protein is high in <strong>branched-chain amino acids (BCAAs)</strong> — particularly leucine. By itself, pea protein has a DIAAS (Digestible Indispensable Amino Acid Score) of approximately 0.82, limited by its lower methionine and cysteine content. That gap is filled by rice protein, which is why the two are used together rather than pea protein alone at a higher dose.<sup class="cite"><a href="https://www.jacn.org/comparing-rice-and-pea-protein-vs-whey-for-muscle-building/" target="_blank" rel="noopener">[1]</a></sup></p>
-                            <p>Pea protein is hypoallergenic and contains no FDA major allergens — unlike whey (dairy) or soy, both of which appear on the allergen list. In the Premium variety of GUTE Crunch, no ingredient in the entire bar is a major allergen. That's a meaningful distinction in a category where most protein sources carry allergen baggage.</p>
+                            <p>Pea protein is hypoallergenic and contains no FDA major allergens — unlike whey (dairy) or soy, both of which appear on the allergen list. In the Premium variety of GÜTE Crunch, no ingredient in the entire bar is a major allergen. That's a meaningful distinction in a category where most protein sources carry allergen baggage.</p>
                             <div class="ing-refs">
                                 <p class="ing-refs-label">Sources</p>
                                 <div class="ing-ref-item"><span class="ing-ref-num">[1]</span><p class="ing-ref-cite">Journal of the American Center for Nutrition. <em>Comparing Rice and Pea Protein vs. Whey for Muscle Building.</em> <a href="https://www.jacn.org/comparing-rice-and-pea-protein-vs-whey-for-muscle-building/" target="_blank" rel="noopener">jacn.org →</a></p></div>
@@ -693,12 +694,12 @@ permalink: /ingredients.html
             <div class="glp-card">
                 <p class="glp-card-label">Beta-Glucan (Oat) + GLP-1</p>
                 <h3 class="glp-card-title">Direct clinical evidence in humans</h3>
-                <p class="glp-card-text">A 2024 randomized crossover trial in healthy adults found that beta-glucan-enriched oat bread significantly affected gastric emptying rate and GLP-1 response compared to a control bread.<sup class="cite"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10949669/" target="_blank" rel="noopener">[3]</a></sup> A separate trial in subjects with type 2 diabetes showed that 5g of oat beta-glucan daily for 12 weeks produced significantly higher GLP-1 and PYY levels in the treatment group vs. control (p&lt;0.01).<sup class="cite"><a href="https://www.sciencedirect.com/science/article/pii/S1756464620305351" target="_blank" rel="noopener">[4]</a></sup> GUTE Crunch contains <strong>both oat flour and oat bran</strong> — the two richest sources of beta-glucan in the formula.</p>
+                <p class="glp-card-text">A 2024 randomized crossover trial in healthy adults found that beta-glucan-enriched oat bread significantly affected gastric emptying rate and GLP-1 response compared to a control bread.<sup class="cite"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10949669/" target="_blank" rel="noopener">[3]</a></sup> A separate trial in subjects with type 2 diabetes showed that 5g of oat beta-glucan daily for 12 weeks produced significantly higher GLP-1 and PYY levels in the treatment group vs. control (p&lt;0.01).<sup class="cite"><a href="https://www.sciencedirect.com/science/article/pii/S1756464620305351" target="_blank" rel="noopener">[4]</a></sup> GÜTE Crunch contains <strong>both oat flour and oat bran</strong> — the two richest sources of beta-glucan in the formula.</p>
             </div>
             <div class="glp-card">
                 <p class="glp-card-label">Resistant Starch RS2 + Microbiome</p>
                 <h3 class="glp-card-title">Feeds bacteria linked to higher GLP-1</h3>
-                <p class="glp-card-text">A 2022 randomized clinical trial found that a resistant starch blend (including banana-source RS) significantly increased butyrate production and shifted gut bacteria populations — with higher proportions of Bifidobacterium and Akkermansia positively correlated with GLP-1 levels.<sup class="cite"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9559413/" target="_blank" rel="noopener">[5]</a></sup> GUTE Crunch uses <strong>green banana flour</strong> as its RS2 source — unripe banana specifically, before the starch converts to sugar.</p>
+                <p class="glp-card-text">A 2022 randomized clinical trial found that a resistant starch blend (including banana-source RS) significantly increased butyrate production and shifted gut bacteria populations — with higher proportions of Bifidobacterium and Akkermansia positively correlated with GLP-1 levels.<sup class="cite"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9559413/" target="_blank" rel="noopener">[5]</a></sup> GÜTE Crunch uses <strong>green banana flour</strong> as its RS2 source — unripe banana specifically, before the starch converts to sugar.</p>
             </div>
         </div>
 
@@ -706,7 +707,7 @@ permalink: /ingredients.html
         <div class="glp-plain" style="margin-top:0;">
             <h3 class="glp-plain-title">Why fiber diversity matters</h3>
             <p>A 2026 scoping review in <em>Frontiers in Endocrinology</em> analyzing 49 publications found that <strong>not all fibers affect GLP-1 equally</strong> — fiber type, molecular weight, fermentation rate, and individual microbiome composition all influence the response.<sup class="cite"><a href="https://www.frontiersin.org/journals/endocrinology/articles/10.3389/fendo.2026.1880500/abstract" target="_blank" rel="noopener">[1]</a></sup> The review identified soluble dextrins and beta-glucan among the fibers with the most consistent evidence for GLP-1 and satiety effects.</p>
-            <p>This is why GUTE Crunch uses <strong>five distinct fiber types</strong> rather than a high dose of a single source. Different bacteria specialize in different substrates. A diverse fiber stack means more of your microbiome is active — and more consistent SCFA production across the range of bacterial populations present in any given person's gut. A single fiber at a high dose feeds fewer populations, and individual response varies significantly depending on which bacteria you have.<sup class="cite"><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9559413/" target="_blank" rel="noopener">[5]</a></sup></p>
+            <p>This is why GÜTE Crunch uses <strong>five distinct fiber types</strong> rather than a high dose of a single source. Different bacteria specialize in different substrates. A diverse fiber stack means more of your microbiome is active — and more consistent SCFA production across the range of bacterial populations present in any given person's gut. A single fiber at a high dose feeds fewer populations, and individual response varies significantly depending on which bacteria you have.<sup class="cite"><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9559413/" target="_blank" rel="noopener">[5]</a></sup></p>
         </div>
 
         <!-- References -->
@@ -734,7 +735,7 @@ permalink: /ingredients.html
             </div>
         </div>
 
-        <p class="glp-disclaimer">These statements have not been evaluated by the Food and Drug Administration. GUTE Crunch is not intended to diagnose, treat, cure, or prevent any disease. The citations above reflect peer-reviewed nutritional research; individual response to dietary fiber varies based on gut microbiome composition, overall diet, and other factors.</p>
+        <p class="glp-disclaimer">These statements have not been evaluated by the Food and Drug Administration. GÜTE Crunch is not intended to diagnose, treat, cure, or prevent any disease. The citations above reflect peer-reviewed nutritional research; individual response to dietary fiber varies based on gut microbiome composition, overall diet, and other factors.</p>
     </div>
 
     <div class="ingredients-cta reveal">
@@ -747,9 +748,30 @@ permalink: /ingredients.html
 
 <script>
     document.querySelectorAll('[data-ing]').forEach(card => {
-        card.querySelector('.ing-header').addEventListener('click', () => {
-            card.classList.toggle('open');
+        const header = card.querySelector('.ing-header');
+        const expand = card.querySelector('.ing-expand');
+
+        // Size the panel to its actual content so long source lists never get clipped.
+        const fit = () => {
+            if (card.classList.contains('open')) {
+                expand.style.maxHeight = expand.scrollHeight + 'px';
+            }
+        };
+
+        header.addEventListener('click', () => {
+            const isOpen = card.classList.toggle('open');
+            if (isOpen) {
+                expand.style.maxHeight = expand.scrollHeight + 'px';
+                // The photo loads lazily on open — re-measure once it arrives.
+                const img = expand.querySelector('img');
+                if (img && !img.complete) img.addEventListener('load', fit, { once: true });
+            } else {
+                expand.style.maxHeight = null;
+            }
         });
+
+        // Keep an open panel correctly sized if the window is resized.
+        window.addEventListener('resize', fit, { passive: true });
     });
 </script>
 {% endblock %}

@@ -1,5 +1,5 @@
 ---
-title: GUTE — Good Food. No Filler.
+title: GÜTE — Good Food. No Filler.
 activePage: home
 permalink: /index.html
 ---
@@ -52,86 +52,6 @@ permalink: /index.html
     }
     .hero-title .hero-umlaut { color: var(--berry-pink); font-style: normal; }
 
-    /* ─── CORE COLLAGE ─── */
-    .hero-core-wrap { margin: 2.5rem auto 0; animation: fadeUp 0.9s ease 0.25s both; position: relative; display: inline-block; }
-    .hero-core-choco {
-        display: inline-block;
-        border-radius: 120px;
-        padding: 10px;
-        background: var(--choc-shell);
-        box-shadow: 0 40px 100px rgba(0,0,0,0.65), 0 0 0 1px rgba(200,164,106,0.18), inset 0 1px 0 rgba(255,255,255,0.05);
-    }
-    .hero-core-berry {
-        display: inline-block;
-        border-radius: 110px;
-        padding: 7px;
-        background: linear-gradient(130deg, #7A2858 0%, #C86898 45%, #9B3EA8 80%, #7A2858 100%);
-    }
-    .hero-core-mosaic {
-        width: 540px;
-        height: 196px;
-        border-radius: 98px;
-        overflow: hidden;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-        gap: 2px;
-        background: #A87030;
-    }
-    .cm-cell {
-        background-size: cover;
-        background-position: center;
-        background-color: #C09040;
-        position: relative;
-    }
-    .cm-cell::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(135deg, rgba(160,112,40,0.15), rgba(80,45,10,0.1));
-    }
-    .hero-core-label {
-        font-family: 'Courier Prime', monospace;
-        font-size: 0.5rem;
-        letter-spacing: 0.32em;
-        text-transform: uppercase;
-        color: var(--grain);
-        opacity: 0.55;
-        margin-top: 1.1rem;
-        text-align: center;
-    }
-
-    /* ─── INGREDIENT STRIP ─── */
-    .ing-strip {
-        display: grid;
-        grid-template-columns: repeat(6, 1fr);
-        height: 220px;
-        overflow: hidden;
-    }
-    .ing-strip-cell {
-        background-size: cover;
-        background-position: center;
-        background-color: var(--dark);
-        position: relative;
-        overflow: hidden;
-        transition: transform 0.6s ease;
-    }
-    .ing-strip-cell:hover { transform: scale(1.04); z-index: 1; }
-    .ing-strip-cell::after {
-        content: attr(data-label);
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        padding: 0.5rem 0.6rem;
-        background: linear-gradient(to top, rgba(22,10,4,0.85), transparent);
-        font-family: 'Courier Prime', monospace;
-        font-size: 0.44rem;
-        letter-spacing: 0.22em;
-        text-transform: uppercase;
-        color: var(--grain-light);
-        opacity: 0.85;
-    }
     .hero-divider {
         width: 1px;
         height: 38px;
@@ -312,9 +232,6 @@ permalink: /index.html
     .ropt input:checked + label { border-color: var(--stamp); color: var(--parchment); background: rgba(176,32,32,0.1); }
     .ropt label:hover { border-color: rgba(240,230,208,0.22); color: rgba(240,230,208,0.65); }
     .ropt.gold input:checked + label { border-color: var(--date-warm); color: var(--grain-light); background: rgba(158,107,26,0.12); }
-    .claims-grid { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 1.6rem; }
-    .claim { font-family: 'Courier Prime', monospace; font-size: 0.5rem; letter-spacing: 0.14em; text-transform: uppercase; padding: 0.32rem 0.65rem; border: 1px solid rgba(22,10,4,0.15); border-radius: 2px; color: var(--text-mid); background: rgba(22,10,4,0.04); white-space: nowrap; }
-    .claim.prem { border-color: rgba(158,107,26,0.35); color: #8C6010; background: rgba(158,107,26,0.07); }
     .submit-btn { width: 100%; padding: 1.2rem; background: var(--stamp); color: var(--parchment); border: none; border-radius: 2px; font-family: 'Courier Prime', monospace; font-size: 0.7rem; letter-spacing: 0.32em; text-transform: uppercase; cursor: pointer; margin-top: 2rem; transition: background 0.28s; }
     .submit-btn:hover { background: #8C1818; }
     .submit-btn:disabled { opacity: 0.38; cursor: not-allowed; }
@@ -327,10 +244,6 @@ permalink: /index.html
 
     /* ─── RESPONSIVE ─── */
     @media (max-width:900px) {
-        .hero-core-mosaic { width: 360px; height: 132px; border-radius: 66px; }
-        .hero-core-berry { border-radius: 74px; }
-        .hero-core-choco { border-radius: 84px; }
-        .ing-strip { grid-template-columns: repeat(3, 1fr); height: 160px; }
         .product-inner { grid-template-columns:1fr; gap:3.5rem; }
         .bar-wrap { justify-content:center; }
         .bar-art { width:120px; height:375px; border-radius:21px; }
@@ -351,25 +264,8 @@ permalink: /index.html
 {% block content %}
 <!-- HERO -->
 <section class="hero">
-    <p class="hero-eyebrow">Batch N°001 — Est. 2026 — Small Batch</p>
+    <p class="hero-eyebrow">Est. 2026 — Small Batch — Hand-Stamped</p>
     <h1 class="hero-title">G<span class="hero-umlaut">Ü</span>TE</h1>
-
-    <!-- Core collage — grain photos sliced into bar cross-section shape -->
-    <div class="hero-core-wrap">
-        <div class="hero-core-choco">
-            <div class="hero-core-berry">
-                <div class="hero-core-mosaic">
-                    <div class="cm-cell" style="background-image:url('/images/ingredients/oat-flour.jpg');background-color:#D4B870;"></div>
-                    <div class="cm-cell" style="background-image:url('/images/ingredients/blueberry-powder.jpg');background-color:#3A1860;"></div>
-                    <div class="cm-cell" style="background-image:url('/images/ingredients/chia-seeds.jpg');background-color:#2A1C0A;"></div>
-                    <div class="cm-cell" style="background-image:url('/images/ingredients/quinoa-flour.jpg');background-color:#C8A050;"></div>
-                    <div class="cm-cell" style="background-image:url('/images/ingredients/green-banana-flour.jpg');background-color:#4A5A20;"></div>
-                    <div class="cm-cell" style="background-image:url('/images/ingredients/flaxseed-meal.jpg');background-color:#8A5C28;"></div>
-                </div>
-            </div>
-        </div>
-        <p class="hero-core-label">10g Fiber · 6g Protein · 7 Ancient Grains · Real Fruit</p>
-    </div>
 
     <div class="hero-divider"></div>
     <p class="hero-sub">Built for people who flip it over.<br>Ancient grains. Real fruit. Dark chocolate.</p>
@@ -379,16 +275,6 @@ permalink: /index.html
         <div class="scroll-line"></div>
     </div>
 </section>
-
-<!-- INGREDIENT PHOTO STRIP -->
-<div class="ing-strip">
-    <div class="ing-strip-cell" data-label="Oat Bran" style="background-image:url('/images/ingredients/oat-bran-fiber.jpg');background-color:#C8A050;"></div>
-    <div class="ing-strip-cell" data-label="Blueberry" style="background-image:url('/images/ingredients/blueberry-powder.jpg');background-color:#2A1050;"></div>
-    <div class="ing-strip-cell" data-label="Green Banana" style="background-image:url('/images/ingredients/green-banana-flour.jpg');background-color:#3A4A18;"></div>
-    <div class="ing-strip-cell" data-label="Chia Seeds" style="background-image:url('/images/ingredients/chia-seeds.jpg');background-color:#1A1208;"></div>
-    <div class="ing-strip-cell" data-label="Cranberry" style="background-image:url('/images/ingredients/cranberry-powder.jpg');background-color:#5A0A18;"></div>
-    <div class="ing-strip-cell" data-label="Olive Oil" style="background-image:url('/images/ingredients/olive-oil.jpg');background-color:#6A7820;"></div>
-</div>
 
 <!-- MARQUEE -->
 <div class="banner-strip" aria-hidden="true">
@@ -441,8 +327,8 @@ permalink: /index.html
                     <div class="legend-detail">Dark chocolate enrobe.<br>Two varieties.</div>
                 </div>
                 <div class="legend-item">
-                    <div class="legend-dot-row"><div class="ldot ldot-berry"></div><span class="legend-label">Blueberry Coat</span></div>
-                    <div class="legend-detail">Whole blueberry<br>powder — real fruit.</div>
+                    <div class="legend-dot-row"><div class="ldot ldot-berry"></div><span class="legend-label">Fruit Coat</span></div>
+                    <div class="legend-detail">Lemon, Blueberry,<br>Cranberry — real fruit.</div>
                 </div>
                 <div class="legend-item">
                     <div class="legend-dot-row"><div class="ldot ldot-grain"></div><span class="legend-label">Ancient Grain Core</span></div>
@@ -451,31 +337,17 @@ permalink: /index.html
             </div>
         </div>
         <div class="reveal d1">
-            <p class="product-sku">GUTE Crunch — 001 / Lemon · Blueberry · Cranberry</p>
+            <p class="product-sku">GÜTE Crunch / Lemon · Blueberry · Cranberry</p>
             <h2 class="product-headline">Flip it over.<br><em>Read every word.</em></h2>
-            <p class="product-hook">Most bars don't survive that test. Every ingredient in GUTE 001 is there because it pulls its weight — not because it's cheap, and not to pad the label.</p>
+            <p class="product-hook">Most bars don't survive that test. Every ingredient in GÜTE Crunch is there because it pulls its weight — not because it's cheap, and not to pad the label.</p>
             <div class="selling-points">
-                <div class="sp-row"><span class="sp-tag">10g Fiber</span><span class="sp-text"><strong>Five fiber types</strong> — Oat Bran, Green Banana, Tapioca, Psyllium, Flaxseed. <span class="aside">Most bars give you 3g from one source.</span></span></div>
+                <div class="sp-row"><span class="sp-tag">10g Fiber</span><span class="sp-text"><strong>Five fiber types</strong> — Oat Bran, Green Banana, Tapioca, Psyllium, Acacia. <span class="aside">Most bars give you 3g from one source.</span></span></div>
                 <div class="sp-row"><span class="sp-tag">6g Protein</span><span class="sp-text"><strong>Pea + Rice protein</strong> together — a more complete amino acid profile than either alone. <span class="aside">Not a single isolated powder.</span></span></div>
                 <div class="sp-row"><span class="sp-tag">7 Grains</span><span class="sp-text"><strong>Seven ancient grains &amp; seeds</strong> — Oat, Millet, Sorghum, Quinoa, Teff, Chia, Flax. <span class="aside">Most bars pick one. We use seven.</span></span></div>
-                <div class="sp-row"><span class="sp-tag">Real Fruit</span><span class="sp-text"><strong>Freeze-dried blueberry powder</strong> dusted on the core before enrobing. <span class="aside">Not flavoring. Not extract. Actual blueberry.</span></span></div>
-                <div class="sp-row"><span class="sp-tag">RS2 Starch</span><span class="sp-text"><strong>Green Banana Flour</strong> — naturally rich in resistant starch. <span class="aside">The ingredient you've never seen in a bar before.</span></span></div>
+                <div class="sp-row"><span class="sp-tag">Real Fruit</span><span class="sp-text"><strong>Freeze-dried fruit</strong> — Lemon, Blueberry, Cranberry — dusted on the core before enrobing. <span class="aside">Not flavoring. Not extract. Actual fruit.</span></span></div>
+                <div class="sp-row"><span class="sp-tag">Prebiotic</span><span class="sp-text"><strong>Three prebiotic fibers</strong> — Inulin, Acacia, Tapioca. <span class="aside">Three substrates, three different gut populations fed.</span></span></div>
             </div>
-            <div class="claims-grid">
-                <span class="claim">Gluten Free</span>
-                <span class="claim">Organic Ingredients</span>
-                <span class="claim">Vegan</span>
-                <span class="claim">Baked Not Fried</span>
-                <span class="claim">Low-FODMAP</span>
-                <span class="claim">GLP-1 Friendly</span>
-                <span class="claim">Keto Friendly</span>
-                <span class="claim">No Artificial Flavors</span>
-                <span class="claim">No Artificial Colors</span>
-                <span class="claim">No Artificial Preservatives</span>
-                <span class="claim prem">No Sugar Added — Premium</span>
-                <span class="claim prem">Allergen Free — Premium</span>
-            </div>
-            <p class="product-serving">2 sticks per serving &nbsp;·&nbsp; approx. 40g &nbsp;·&nbsp; every ingredient earns its spot</p>
+            <p class="product-serving">2 sticks per serving &nbsp;·&nbsp; approx. 42g &nbsp;·&nbsp; every ingredient earns its spot</p>
         </div>
     </div>
 </section>
@@ -484,14 +356,14 @@ permalink: /index.html
 <section class="tiers-section">
     <div class="tiers-inner">
         <div class="reveal">
-            <p class="tiers-eyebrow">The Lineup / GUTE Crunch 001</p>
+            <p class="tiers-eyebrow">The Lineup / GÜTE Crunch</p>
             <h2 class="tiers-title">Same core.<br><em>Two chocolates.</em></h2>
         </div>
         <div class="tiers-grid">
             <div class="tier-card main reveal">
                 <div class="tier-top">
                     <span class="tier-pill">Belgium</span>
-                    <p class="tier-sku">GUTE Crunch — 001 — Belgium</p>
+                    <p class="tier-sku">GÜTE CRUNCH — R · LEM / BLU / CRN</p>
                     <h3 class="tier-name">Belgium Dark<br><em>Chocolate</em></h3>
                     <p class="tier-oneliner">The everyday crunch. Quality Belgium dark chocolate over a fruit-dusted ancient grain core. Three flavors — Lemon, Blueberry, Cranberry. Cleaner than anything next to it.</p>
                 </div>
@@ -508,17 +380,17 @@ permalink: /index.html
             <div class="tier-card prem reveal d1">
                 <div class="tier-top">
                     <span class="tier-pill">Premium</span>
-                    <p class="tier-sku">GUTE Crunch — 001 — Premium</p>
+                    <p class="tier-sku">GÜTE CRUNCH — D · LEM / BLU / CRN</p>
                     <h3 class="tier-name">Date Sweetened<br><em>Dark Chocolate</em></h3>
-                    <p class="tier-oneliner">No refined sugar. Anywhere in the bar. Date-sweetened dark chocolate is richer, more complex, and takes cane sugar completely out of the picture — core to coat.</p>
+                    <p class="tier-oneliner">No sugar added at all. The shell is Just Date dark chocolate — sweetened entirely by dates, never cane sugar — so it's richer, more complex, and clean from core to coat.</p>
                 </div>
                 <div class="tier-bottom">
                     <div class="tier-attrs">
-                        <div class="tier-attr"><div class="adot"></div><span class="atext">Date-Sweetened Chocolate — No Refined Sugar</span></div>
-                        <div class="tier-attr"><div class="adot"></div><span class="atext">Allergen Free · No Sugar Added</span></div>
+                        <div class="tier-attr"><div class="adot"></div><span class="atext">Just Date Dark Chocolate Shell</span></div>
+                        <div class="tier-attr"><div class="adot"></div><span class="atext">Formulated Without Major Allergens</span></div>
                         <div class="tier-attr"><div class="adot"></div><span class="atext">Keto Friendly · GLP-1 Friendly</span></div>
                         <div class="tier-attr"><div class="adot"></div><span class="atext">Same 10g Fiber · 6g Protein Core</span></div>
-                        <div class="tier-attr"><div class="adot"></div><span class="atext">Cane Sugar Free — Core to Coat</span></div>
+                        <div class="tier-attr"><div class="adot"></div><span class="atext">Vegan · Gluten Free · Low-FODMAP</span></div>
                     </div>
                 </div>
             </div>
@@ -532,7 +404,7 @@ permalink: /index.html
         <div class="reveal">
             <p class="form-eyebrow">Reserve / First Batch</p>
             <h2 class="form-title">Get in<br><em>early.</em></h2>
-            <p class="form-sub">GUTE 001 is in development. Join the waitlist — first access, farmers market locations, and your pre-order window before we go wide.</p>
+            <p class="form-sub">GÜTE Crunch is in development. Join the waitlist — first access, farmers market locations, and your pre-order window before we go wide.</p>
         </div>
         <form id="guteForm" class="reveal d1" novalidate>
             <div class="form-row">
@@ -543,8 +415,8 @@ permalink: /index.html
             <div class="form-group">
                 <label>Chocolate variety?</label>
                 <div class="radio-grid c2">
-                    <div class="ropt"><input type="radio" name="variant" id="v-r" value="Belgium Dark Chocolate" checked><label for="v-r">Belgium<br><span style="font-size:0.5rem;opacity:0.55;">Dark Chocolate</span></label></div>
-                    <div class="ropt gold"><input type="radio" name="variant" id="v-d" value="Premium Date Sweetened"><label for="v-d">Premium<br><span style="font-size:0.5rem;opacity:0.55;">Date Sweetened</span></label></div>
+                    <div class="ropt"><input type="radio" name="variant" id="v-r" value="R — Belgium Dark Chocolate" checked><label for="v-r">Belgium<br><span style="font-size:0.5rem;opacity:0.55;">Dark Chocolate</span></label></div>
+                    <div class="ropt gold"><input type="radio" name="variant" id="v-d" value="D — Premium Date Sweetened"><label for="v-d">Premium<br><span style="font-size:0.5rem;opacity:0.55;">Date Sweetened</span></label></div>
                 </div>
             </div>
             <div class="form-group">
