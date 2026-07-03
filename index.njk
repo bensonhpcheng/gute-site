@@ -69,15 +69,6 @@ permalink: /index.html
         animation: fadeUp 0.9s ease 0.3s both;
         line-height: 1.55;
     }
-    .hero-batch {
-        font-family: 'Courier Prime', monospace;
-        font-size: 0.58rem;
-        letter-spacing: 0.35em;
-        color: var(--stamp);
-        margin-top: 2.5rem;
-        position: relative;
-        animation: fadeUp 0.9s ease 0.45s both;
-    }
     .scroll-indicator {
         position: absolute;
         bottom: 2.5rem;
@@ -133,14 +124,8 @@ permalink: /index.html
     }
     .bar-core {
         position: absolute; left: 24px; right: 24px; top: 24px; bottom: 24px; border-radius: 8px;
-        background: linear-gradient(168deg, #EDD8A8 0%, #D4A85C 28%, #C09040 55%, #A87030 78%, #906020 100%);
-        box-shadow: inset 0 3px 12px rgba(0,0,0,0.18), inset 0 -2px 8px rgba(0,0,0,0.12);
-    }
-    .bar-grain-lines {
-        position: absolute; left: 24px; right: 24px; top: 24px; bottom: 24px; border-radius: 8px;
-        background-image:
-            repeating-linear-gradient(0deg, transparent, transparent 9px, rgba(80,45,10,0.1) 9px, rgba(80,45,10,0.1) 10px),
-            repeating-linear-gradient(90deg, transparent, transparent 18px, rgba(80,45,10,0.04) 18px, rgba(80,45,10,0.04) 19px);
+        background: #C09040 url('/images/core-grains.jpg') center / cover;
+        box-shadow: inset 0 3px 12px rgba(0,0,0,0.28), inset 0 -2px 8px rgba(0,0,0,0.2);
     }
     .bar-shine {
         position: absolute; top: 0; left: 8%; width: 16%; height: 100%;
@@ -249,7 +234,6 @@ permalink: /index.html
         .bar-art { width:120px; height:375px; border-radius:21px; }
         .bar-berry-layer { inset:12px; border-radius:10px; }
         .bar-core { left:18px; right:18px; top:18px; bottom:18px; border-radius:6px; }
-        .bar-grain-lines { left:18px; right:18px; top:18px; bottom:18px; border-radius:6px; }
         .product-section, .tiers-section, .form-section { padding:5rem 1.5rem; }
         .tiers-grid { grid-template-columns:1fr; }
         .form-row { grid-template-columns:1fr; }
@@ -264,12 +248,11 @@ permalink: /index.html
 {% block content %}
 <!-- HERO -->
 <section class="hero">
-    <p class="hero-eyebrow">Est. 2026 — Small Batch — Hand-Stamped</p>
+    <p class="hero-eyebrow">Est. 2026 — Small Batch — Artisanal</p>
     <h1 class="hero-title">G<span class="hero-umlaut">Ü</span>TE</h1>
 
     <div class="hero-divider"></div>
     <p class="hero-sub">Built for people who flip it over.<br>Ancient grains. Real fruit. Dark chocolate.</p>
-    <p class="hero-batch">GÜTE Crunch — Lemon · Blueberry · Cranberry — Belgium or Premium — Hand-Stamped</p>
     <div class="scroll-indicator">
         <span>Scroll</span>
         <div class="scroll-line"></div>
@@ -291,7 +274,7 @@ permalink: /index.html
         <span class="banner-item">Baked Not Fried</span><span class="banner-item">•</span>
         <span class="banner-item">No Artificial Anything</span><span class="banner-item">•</span>
         <span class="banner-item">No Refined Sugar Option</span><span class="banner-item">•</span>
-        <span class="banner-item">Hand-Stamped</span><span class="banner-item">•</span>
+        <span class="banner-item">Artisanal</span><span class="banner-item">•</span>
         <span class="banner-item">Small Batch</span><span class="banner-item">•</span>
         <span class="banner-item">10g Fiber</span><span class="banner-item">•</span>
         <span class="banner-item">6g Plant Protein</span><span class="banner-item">•</span>
@@ -305,7 +288,7 @@ permalink: /index.html
         <span class="banner-item">Baked Not Fried</span><span class="banner-item">•</span>
         <span class="banner-item">No Artificial Anything</span><span class="banner-item">•</span>
         <span class="banner-item">No Refined Sugar Option</span><span class="banner-item">•</span>
-        <span class="banner-item">Hand-Stamped</span><span class="banner-item">•</span>
+        <span class="banner-item">Artisanal</span><span class="banner-item">•</span>
         <span class="banner-item">Small Batch</span><span class="banner-item">•</span>
     </div>
 </div>
@@ -317,7 +300,6 @@ permalink: /index.html
             <div class="bar-art">
                 <div class="bar-berry-layer"></div>
                 <div class="bar-core"></div>
-                <div class="bar-grain-lines"></div>
                 <div class="bar-shine"></div>
                 <div class="bar-edge-gloss"></div>
             </div>
@@ -331,8 +313,8 @@ permalink: /index.html
                     <div class="legend-detail">Lemon, Blueberry,<br>Cranberry — real fruit.</div>
                 </div>
                 <div class="legend-item">
-                    <div class="legend-dot-row"><div class="ldot ldot-grain"></div><span class="legend-label">Ancient Grain Core</span></div>
-                    <div class="legend-detail">Oat, Millet, Sorghum,<br>Quinoa, Teff.</div>
+                    <div class="legend-dot-row"><div class="ldot ldot-grain"></div><span class="legend-label">Crunchy Core</span></div>
+                    <div class="legend-detail">Oat, Millet, Sorghum, Quinoa,<br>Teff, Chia &amp; Flax.<br>Pea + rice protein.<br>Green banana, cassava, acacia,<br>oat bran &amp; psyllium fiber.</div>
                 </div>
             </div>
         </div>
@@ -341,11 +323,11 @@ permalink: /index.html
             <h2 class="product-headline">Flip it over.<br><em>Read every word.</em></h2>
             <p class="product-hook">Most bars don't survive that test. Every ingredient in GÜTE Crunch is there because it pulls its weight — not because it's cheap, and not to pad the label.</p>
             <div class="selling-points">
-                <div class="sp-row"><span class="sp-tag">10g Fiber</span><span class="sp-text"><strong>Five fiber types</strong> — Oat Bran, Green Banana, Tapioca, Psyllium, Acacia. <span class="aside">Most bars give you 3g from one source.</span></span></div>
+                <div class="sp-row"><span class="sp-tag">10g Fiber</span><span class="sp-text"><strong>Five fiber types</strong> — Oat Bran, Green Banana, Cassava, Psyllium, Acacia. <span class="aside">Most bars give you 3g from one source.</span></span></div>
                 <div class="sp-row"><span class="sp-tag">6g Protein</span><span class="sp-text"><strong>Pea + Rice protein</strong> together — a more complete amino acid profile than either alone. <span class="aside">Not a single isolated powder.</span></span></div>
                 <div class="sp-row"><span class="sp-tag">7 Grains</span><span class="sp-text"><strong>Seven ancient grains &amp; seeds</strong> — Oat, Millet, Sorghum, Quinoa, Teff, Chia, Flax. <span class="aside">Most bars pick one. We use seven.</span></span></div>
                 <div class="sp-row"><span class="sp-tag">Real Fruit</span><span class="sp-text"><strong>Freeze-dried fruit</strong> — Lemon, Blueberry, Cranberry — dusted on the core before enrobing. <span class="aside">Not flavoring. Not extract. Actual fruit.</span></span></div>
-                <div class="sp-row"><span class="sp-tag">Prebiotic</span><span class="sp-text"><strong>Three prebiotic fibers</strong> — Inulin, Acacia, Tapioca. <span class="aside">Three substrates, three different gut populations fed.</span></span></div>
+                <div class="sp-row"><span class="sp-tag">Fermentable</span><span class="sp-text"><strong>Fermentable fibers</strong> — Acacia, Cassava, Psyllium. <span class="aside">Your gut ferments them into short-chain fatty acids — the fuel behind the GLP-1 response.</span></span></div>
             </div>
             <p class="product-serving">2 sticks per serving &nbsp;·&nbsp; approx. 42g &nbsp;·&nbsp; every ingredient earns its spot</p>
         </div>
@@ -365,11 +347,11 @@ permalink: /index.html
                     <span class="tier-pill">Belgium</span>
                     <p class="tier-sku">GÜTE CRUNCH — R · LEM / BLU / CRN</p>
                     <h3 class="tier-name">Belgium Dark<br><em>Chocolate</em></h3>
-                    <p class="tier-oneliner">The everyday crunch. Quality Belgium dark chocolate over a fruit-dusted ancient grain core. Three flavors — Lemon, Blueberry, Cranberry. Cleaner than anything next to it.</p>
+                    <p class="tier-oneliner">The everyday crunch. 72% Belgian dark chocolate over a fruit-dusted ancient grain core. Three flavors — Lemon, Blueberry, Cranberry. Cleaner than anything next to it.</p>
                 </div>
                 <div class="tier-bottom">
                     <div class="tier-attrs">
-                        <div class="tier-attr"><div class="adot"></div><span class="atext">Belgium Dark Chocolate Shell</span></div>
+                        <div class="tier-attr"><div class="adot"></div><span class="atext">72% Belgian Dark Chocolate Shell</span></div>
                         <div class="tier-attr"><div class="adot"></div><span class="atext">Lemon · Blueberry · Cranberry</span></div>
                         <div class="tier-attr"><div class="adot"></div><span class="atext">10g Fiber · 6g Protein · 7 Grains &amp; Seeds</span></div>
                         <div class="tier-attr"><div class="adot"></div><span class="atext">Gluten Free · Vegan · Low-FODMAP</span></div>
@@ -382,11 +364,11 @@ permalink: /index.html
                     <span class="tier-pill">Premium</span>
                     <p class="tier-sku">GÜTE CRUNCH — D · LEM / BLU / CRN</p>
                     <h3 class="tier-name">Date Sweetened<br><em>Dark Chocolate</em></h3>
-                    <p class="tier-oneliner">No sugar added at all. The shell is Just Date dark chocolate — sweetened entirely by dates, never cane sugar — so it's richer, more complex, and clean from core to coat.</p>
+                    <p class="tier-oneliner">No sugar added at all. The shell is 70% Just Date dark chocolate — sweetened entirely by dates, never cane sugar — so it's richer, more complex, and clean from core to coat.</p>
                 </div>
                 <div class="tier-bottom">
                     <div class="tier-attrs">
-                        <div class="tier-attr"><div class="adot"></div><span class="atext">Just Date Dark Chocolate Shell</span></div>
+                        <div class="tier-attr"><div class="adot"></div><span class="atext">70% Just Date Dark Chocolate Shell</span></div>
                         <div class="tier-attr"><div class="adot"></div><span class="atext">Formulated Without Major Allergens</span></div>
                         <div class="tier-attr"><div class="adot"></div><span class="atext">Keto Friendly · GLP-1 Friendly</span></div>
                         <div class="tier-attr"><div class="adot"></div><span class="atext">Same 10g Fiber · 6g Protein Core</span></div>
