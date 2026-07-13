@@ -4,9 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
+    <meta name="description" content="{{ description or 'GÜTE Crunch is a functional dark-chocolate snack bar with 10g fiber, 6g plant protein, seven ancient grains and seeds, and real fruit. Gut-friendly, gluten-free, and vegan.' }}">
+    <link rel="canonical" href="https://thegutecompany.com{{ page.url }}">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#2C1208">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="GÜTE">
+    <meta property="og:title" content="{{ title }}">
+    <meta property="og:description" content="{{ description or 'GÜTE Crunch — a gut-friendly dark-chocolate snack bar. 10g fiber, 6g plant protein, real fruit.' }}">
+    <meta property="og:url" content="https://thegutecompany.com{{ page.url }}">
+    <meta property="og:image" content="https://thegutecompany.com/images/gute-og.jpg">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ title }}">
+    <meta name="twitter:description" content="{{ description or 'GÜTE Crunch — a gut-friendly dark-chocolate snack bar. 10g fiber, 6g plant protein, real fruit.' }}">
+    <meta name="twitter:image" content="https://thegutecompany.com/images/gute-og.jpg">
+
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Courier+Prime:wght@400;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/gute.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "GÜTE",
+      "legalName": "The Gute Company",
+      "url": "https://thegutecompany.com",
+      "logo": "https://thegutecompany.com/images/gute-og.jpg",
+      "description": "Maker of GÜTE Crunch — a functional dark-chocolate snack bar built for gut health.",
+      "slogan": "Good food. No filler."
+    }
+    </script>
+
     {% block styles %}{% endblock %}
 </head>
 <body>
