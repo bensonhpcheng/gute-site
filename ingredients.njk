@@ -12,7 +12,7 @@ permalink: /ingredients.html
     .nav-link.active { opacity: 1; border-bottom: 1px solid rgba(240,230,208,0.5); padding-bottom: 2px; }
 
     /* ─── HERO ─── */
-    .page-hero { min-height: 62vh; background: var(--blueberry); display: flex; flex-direction: column; justify-content: flex-end; padding: 8rem 3rem 5rem; position: relative; overflow: hidden; }
+    .page-hero { min-height: 62vh; background: linear-gradient(to top, rgba(12,26,18,0.92) 0%, rgba(12,26,18,0.5) 45%, rgba(14,32,20,0.25) 100%), url('/images/pageHeaders/7435.jpg') center center / cover no-repeat, var(--glp-green); display: flex; flex-direction: column; justify-content: flex-end; padding: 8rem 3rem 5rem; position: relative; overflow: hidden; }
     .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 55% 55% at 8% 85%, rgba(107,48,128,0.28) 0%, transparent 65%), radial-gradient(ellipse 40% 35% at 92% 12%, rgba(42,92,58,0.2) 0%, transparent 55%); }
     .page-hero-inner { max-width: 900px; position: relative; }
     .page-eyebrow { font-family: 'Courier Prime', monospace; font-size: 0.6rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--grain); opacity: 0.65; margin-bottom: 1.5rem; animation: fadeUp 0.8s ease both; }
@@ -178,6 +178,91 @@ permalink: /ingredients.html
         <div class="stat-cell"><div class="stat-num">10g</div><div class="stat-label">Dietary Fiber</div></div>
         <div class="stat-cell"><div class="stat-num">6g</div><div class="stat-label">Plant Protein</div></div>
         <div class="stat-cell"><div class="stat-num">17</div><div class="stat-label">Total Ingredients</div></div>
+    </div>
+
+    <!-- NUTRITION FACTS -->
+    <div class="ing-section reveal">
+        <p class="section-stamp">Nutrition Facts / Nothing Hidden</p>
+        <div class="ing-grid">
+            <div class="ing-card full-width" data-ing>
+                <div class="ing-header">
+                    <div>
+                        <span class="ing-badge badge-base">The Full Panel</span>
+                        <h3 class="ing-name">Nutrition Facts</h3>
+                        <p class="ing-teaser">The actual FDA label — both varieties. Flip it over; we show the whole thing.</p>
+                    </div>
+                    <span class="ing-toggle">+</span>
+                </div>
+                <div class="ing-expand">
+                    <div class="ing-expand-inner">
+                        <div class="ing-body">
+                            <div class="nfp-wrap">
+                                <input type="radio" name="nfpvar" id="nfp-r">
+                                <input type="radio" name="nfpvar" id="nfp-d" checked>
+                                <div class="nfp-toggle">
+                                    <label for="nfp-d">Date · Premium</label>
+                                    <label for="nfp-r">Belgium</label>
+                                </div>
+
+                                <div class="nfp-label nfp-label-r">
+                                    <div class="nfp-title">Nutrition Facts</div>
+                                    <div class="nfp-line">1 serving per container</div>
+                                    <div class="nfp-serv"><span>Serving size</span><span>42g</span></div>
+                                    <div class="nfp-rule8"></div>
+                                    <div class="nfp-cap">Amount per serving</div>
+                                    <div class="nfp-cal"><span class="l">Calories</span><span class="n">230</span></div>
+                                    <div class="nfp-dv">% Daily Value*</div>
+                                    <div class="nfp-row"><span class="l">Total Fat 16g</span><span class="v">21%</span></div>
+                                    <div class="nfp-row i"><span class="l">Saturated Fat 9g</span><span class="v">45%</span></div>
+                                    <div class="nfp-row i"><span class="l">Trans Fat 0g</span><span class="v"></span></div>
+                                    <div class="nfp-row"><span class="l">Cholesterol 0mg</span><span class="v">0%</span></div>
+                                    <div class="nfp-row"><span class="l">Sodium 95mg</span><span class="v">4%</span></div>
+                                    <div class="nfp-row"><span class="l">Total Carbohydrate 20g</span><span class="v">7%</span></div>
+                                    <div class="nfp-row i"><span class="l">Dietary Fiber 10g</span><span class="v">36%</span></div>
+                                    <div class="nfp-row i"><span class="l">Total Sugars 9g</span><span class="v"></span></div>
+                                    <div class="nfp-row i2"><span class="l">Includes 7g Added Sugars</span><span class="v">14%</span></div>
+                                    <div class="nfp-row"><span class="l">Protein 6g</span><span class="v">12%</span></div>
+                                    <div class="nfp-rule8"></div>
+                                    <div class="nfp-row micro" style="border-top:none;"><span class="l">Vitamin D 0mcg</span><span class="v">0%</span></div>
+                                    <div class="nfp-row micro"><span class="l">Calcium 40mg</span><span class="v">4%</span></div>
+                                    <div class="nfp-row micro"><span class="l">Iron 3mg</span><span class="v">15%</span></div>
+                                    <div class="nfp-row micro"><span class="l">Potassium 220mg</span><span class="v">4%</span></div>
+                                    <div class="nfp-foot">* The % Daily Value (DV) tells you how much a nutrient in a serving of food contributes to a daily diet. 2,000 calories a day is used for general nutrition advice.</div>
+                                </div>
+
+                                <div class="nfp-label nfp-label-d">
+                                    <div class="nfp-title">Nutrition Facts</div>
+                                    <div class="nfp-line">1 serving per container</div>
+                                    <div class="nfp-serv"><span>Serving size</span><span>42g</span></div>
+                                    <div class="nfp-rule8"></div>
+                                    <div class="nfp-cap">Amount per serving</div>
+                                    <div class="nfp-cal"><span class="l">Calories</span><span class="n">220</span></div>
+                                    <div class="nfp-dv">% Daily Value*</div>
+                                    <div class="nfp-row"><span class="l">Total Fat 15g</span><span class="v">19%</span></div>
+                                    <div class="nfp-row i"><span class="l">Saturated Fat 8g</span><span class="v">40%</span></div>
+                                    <div class="nfp-row i"><span class="l">Trans Fat 0g</span><span class="v"></span></div>
+                                    <div class="nfp-row"><span class="l">Cholesterol 0mg</span><span class="v">0%</span></div>
+                                    <div class="nfp-row"><span class="l">Sodium 90mg</span><span class="v">4%</span></div>
+                                    <div class="nfp-row"><span class="l">Total Carbohydrate 21g</span><span class="v">8%</span></div>
+                                    <div class="nfp-row i"><span class="l">Dietary Fiber 10g</span><span class="v">36%</span></div>
+                                    <div class="nfp-row i"><span class="l">Total Sugars 7g</span><span class="v"></span></div>
+                                    <div class="nfp-row i2"><span class="l">Includes 0g Added Sugars</span><span class="v">0%</span></div>
+                                    <div class="nfp-row"><span class="l">Protein 6g</span><span class="v">12%</span></div>
+                                    <div class="nfp-rule8"></div>
+                                    <div class="nfp-row micro" style="border-top:none;"><span class="l">Vitamin D 0mcg</span><span class="v">0%</span></div>
+                                    <div class="nfp-row micro"><span class="l">Calcium 40mg</span><span class="v">4%</span></div>
+                                    <div class="nfp-row micro"><span class="l">Iron 2mg</span><span class="v">10%</span></div>
+                                    <div class="nfp-row micro"><span class="l">Potassium 180mg</span><span class="v">4%</span></div>
+                                    <div class="nfp-foot">* The % Daily Value (DV) tells you how much a nutrient in a serving of food contributes to a daily diet. 2,000 calories a day is used for general nutrition advice.</div>
+                                </div>
+                            </div>
+
+                            <p class="nfp-note"><strong>Both varieties, nothing hidden.</strong> The Premium (Date) bar has <strong>0g added sugars</strong> — its 7g total sugars come naturally from dates. The Belgium bar is sweetened with cane sugar in its dark chocolate. Both deliver the same <strong>10g fiber and 6g plant protein</strong>. Values are rounded per FDA rules; the final printed panel is confirmed at production.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- ANCIENT GRAINS & SEEDS -->
@@ -707,91 +792,6 @@ permalink: /ingredients.html
                 </div>
             </div>
 
-        </div>
-    </div>
-
-    <!-- NUTRITION FACTS -->
-    <div class="ing-section reveal">
-        <p class="section-stamp">Nutrition Facts / Nothing Hidden</p>
-        <div class="ing-grid">
-            <div class="ing-card full-width" data-ing>
-                <div class="ing-header">
-                    <div>
-                        <span class="ing-badge badge-base">The Full Panel</span>
-                        <h3 class="ing-name">Nutrition Facts</h3>
-                        <p class="ing-teaser">The actual FDA label — both varieties. Flip it over; we show the whole thing.</p>
-                    </div>
-                    <span class="ing-toggle">+</span>
-                </div>
-                <div class="ing-expand">
-                    <div class="ing-expand-inner">
-                        <div class="ing-body">
-                            <div class="nfp-wrap">
-                                <input type="radio" name="nfpvar" id="nfp-r">
-                                <input type="radio" name="nfpvar" id="nfp-d" checked>
-                                <div class="nfp-toggle">
-                                    <label for="nfp-d">Date · Premium</label>
-                                    <label for="nfp-r">Belgium</label>
-                                </div>
-
-                                <div class="nfp-label nfp-label-r">
-                                    <div class="nfp-title">Nutrition Facts</div>
-                                    <div class="nfp-line">1 serving per container</div>
-                                    <div class="nfp-serv"><span>Serving size</span><span>42g</span></div>
-                                    <div class="nfp-rule8"></div>
-                                    <div class="nfp-cap">Amount per serving</div>
-                                    <div class="nfp-cal"><span class="l">Calories</span><span class="n">230</span></div>
-                                    <div class="nfp-dv">% Daily Value*</div>
-                                    <div class="nfp-row"><span class="l">Total Fat 16g</span><span class="v">21%</span></div>
-                                    <div class="nfp-row i"><span class="l">Saturated Fat 9g</span><span class="v">45%</span></div>
-                                    <div class="nfp-row i"><span class="l">Trans Fat 0g</span><span class="v"></span></div>
-                                    <div class="nfp-row"><span class="l">Cholesterol 0mg</span><span class="v">0%</span></div>
-                                    <div class="nfp-row"><span class="l">Sodium 95mg</span><span class="v">4%</span></div>
-                                    <div class="nfp-row"><span class="l">Total Carbohydrate 20g</span><span class="v">7%</span></div>
-                                    <div class="nfp-row i"><span class="l">Dietary Fiber 10g</span><span class="v">36%</span></div>
-                                    <div class="nfp-row i"><span class="l">Total Sugars 9g</span><span class="v"></span></div>
-                                    <div class="nfp-row i2"><span class="l">Includes 7g Added Sugars</span><span class="v">14%</span></div>
-                                    <div class="nfp-row"><span class="l">Protein 6g</span><span class="v">12%</span></div>
-                                    <div class="nfp-rule8"></div>
-                                    <div class="nfp-row micro" style="border-top:none;"><span class="l">Vitamin D 0mcg</span><span class="v">0%</span></div>
-                                    <div class="nfp-row micro"><span class="l">Calcium 40mg</span><span class="v">4%</span></div>
-                                    <div class="nfp-row micro"><span class="l">Iron 3mg</span><span class="v">15%</span></div>
-                                    <div class="nfp-row micro"><span class="l">Potassium 220mg</span><span class="v">4%</span></div>
-                                    <div class="nfp-foot">* The % Daily Value (DV) tells you how much a nutrient in a serving of food contributes to a daily diet. 2,000 calories a day is used for general nutrition advice.</div>
-                                </div>
-
-                                <div class="nfp-label nfp-label-d">
-                                    <div class="nfp-title">Nutrition Facts</div>
-                                    <div class="nfp-line">1 serving per container</div>
-                                    <div class="nfp-serv"><span>Serving size</span><span>42g</span></div>
-                                    <div class="nfp-rule8"></div>
-                                    <div class="nfp-cap">Amount per serving</div>
-                                    <div class="nfp-cal"><span class="l">Calories</span><span class="n">220</span></div>
-                                    <div class="nfp-dv">% Daily Value*</div>
-                                    <div class="nfp-row"><span class="l">Total Fat 15g</span><span class="v">19%</span></div>
-                                    <div class="nfp-row i"><span class="l">Saturated Fat 8g</span><span class="v">40%</span></div>
-                                    <div class="nfp-row i"><span class="l">Trans Fat 0g</span><span class="v"></span></div>
-                                    <div class="nfp-row"><span class="l">Cholesterol 0mg</span><span class="v">0%</span></div>
-                                    <div class="nfp-row"><span class="l">Sodium 90mg</span><span class="v">4%</span></div>
-                                    <div class="nfp-row"><span class="l">Total Carbohydrate 21g</span><span class="v">8%</span></div>
-                                    <div class="nfp-row i"><span class="l">Dietary Fiber 10g</span><span class="v">36%</span></div>
-                                    <div class="nfp-row i"><span class="l">Total Sugars 7g</span><span class="v"></span></div>
-                                    <div class="nfp-row i2"><span class="l">Includes 0g Added Sugars</span><span class="v">0%</span></div>
-                                    <div class="nfp-row"><span class="l">Protein 6g</span><span class="v">12%</span></div>
-                                    <div class="nfp-rule8"></div>
-                                    <div class="nfp-row micro" style="border-top:none;"><span class="l">Vitamin D 0mcg</span><span class="v">0%</span></div>
-                                    <div class="nfp-row micro"><span class="l">Calcium 40mg</span><span class="v">4%</span></div>
-                                    <div class="nfp-row micro"><span class="l">Iron 2mg</span><span class="v">10%</span></div>
-                                    <div class="nfp-row micro"><span class="l">Potassium 180mg</span><span class="v">4%</span></div>
-                                    <div class="nfp-foot">* The % Daily Value (DV) tells you how much a nutrient in a serving of food contributes to a daily diet. 2,000 calories a day is used for general nutrition advice.</div>
-                                </div>
-                            </div>
-
-                            <p class="nfp-note"><strong>Both varieties, nothing hidden.</strong> The Premium (Date) bar has <strong>0g added sugars</strong> — its 7g total sugars come naturally from dates. The Belgium bar is sweetened with cane sugar in its dark chocolate. Both deliver the same <strong>10g fiber and 6g plant protein</strong>. Values are rounded per FDA rules; the final printed panel is confirmed at production.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 

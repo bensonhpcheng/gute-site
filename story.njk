@@ -11,7 +11,9 @@ permalink: /story.html
     nav { background: linear-gradient(to bottom, rgba(22,10,4,0.2), transparent); }
     .nav-link.active { opacity: 1; border-bottom: 1px solid rgba(240,230,208,0.5); padding-bottom: 2px; }
 
-    .page-hero { min-height: 68vh; background: var(--chocolate); display: flex; flex-direction: column; justify-content: flex-end; padding: 8rem 3rem 5rem; position: relative; overflow: hidden; }
+    .page-hero { min-height: 68vh; background: var(--chocolate); display: flex; flex-direction: row; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 2.5rem; padding: 8rem 3rem 5rem; position: relative; overflow: hidden; }
+    .hero-seal { flex: 0 0 auto; width: 168px; height: 168px; border-radius: 50%; background: url('/images/pageHeaders/gute-seal.jpg') center / cover; box-shadow: 0 10px 34px rgba(0,0,0,0.45); margin-bottom: 0.4rem; animation: fadeUp 0.9s ease 0.35s both; }
+    @media (max-width: 720px) { .hero-seal { width: 110px; height: 110px; } }
     .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 55% 60% at 10% 80%, rgba(107,48,128,0.22) 0%, transparent 65%), radial-gradient(ellipse 35% 40% at 90% 10%, rgba(176,32,32,0.1) 0%, transparent 55%); }
     .page-hero-inner { max-width: 820px; position: relative; }
     .page-eyebrow { font-family: 'Courier Prime', monospace; font-size: 0.6rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--grain); opacity: 0.68; margin-bottom: 1.75rem; animation: fadeUp 0.8s ease both; }
@@ -100,6 +102,7 @@ permalink: /story.html
         <h1 class="page-title">We're the ones who<br><em>flip it over.</em></h1>
         <p class="page-lead">Hard to pronounce ingredients. No time to look them up at the aisle. We felt that — and we also happened to know exactly what those ingredients were.</p>
     </div>
+    <div class="hero-seal" role="img" aria-label="GÜTE seal — good for your gut, good for our planet"></div>
 </section>
 
 <div class="content-wrap">
@@ -121,15 +124,15 @@ permalink: /story.html
                 <div class="founder-initial">L</div>
                 <h3 class="founder-name">Li</h3>
                 <p class="founder-role">Co-Founder</p>
-                <div class="founder-certs"><span class="cert">SQF Practitioner</span><span class="cert">HACCP Certified</span><span class="cert">PCQI</span><span class="cert">FSVP</span></div>
+                <div class="founder-certs"><span class="cert">SQF Practitioner</span><span class="cert">HACCP Certified</span><span class="cert">PCQI</span><span class="cert">FSVP</span><span class="cert">ASQ CMQ-OE</span></div>
                 <p class="founder-bio">Background in nutrition science, food science, and food safety. The combination that lets you see both sides of a label — what it says, and what it means. Passionate about food that's genuinely good for you, not just marketed that way.</p>
             </div>
             <div class="founder-card">
                 <div class="founder-initial">B</div>
                 <h3 class="founder-name">Benson</h3>
                 <p class="founder-role">Co-Founder</p>
-                <div class="founder-certs"><span class="cert">SQF Practitioner</span><span class="cert">HACCP Certified</span><span class="cert">PCQI</span><span class="cert">FSVP</span></div>
-                <p class="founder-bio">Studied environmental science, stumbled into food safety, and never left. The systems thinking that comes from environmental work maps perfectly onto food — traceability, upstream impact, what's actually in things and where it came from.</p>
+                <div class="founder-certs"><span class="cert">SQF Practitioner</span><span class="cert">HACCP Certified</span><span class="cert">PCQI</span><span class="cert">FSVP</span><span class="cert">ServSafe Manager</span></div>
+                <p class="founder-bio">Studied environmental science, stumbled into food safety, and never left. The systems thinking that comes from environmental work maps perfectly onto food — traceability, upstream impact, what's actually in things and where it came from. It's also why sustainability isn't an afterthought at GÜTE — from plant-based sourcing to recyclable paper packaging, lower impact is a design requirement, not a marketing line.</p>
             </div>
         </div>
         <div class="experience-bar">
@@ -167,10 +170,10 @@ permalink: /story.html
             <p>We're a small-batch, artisanal operation. That's not a constraint we're working around — it's how we keep the standard honest while we're getting started.</p>
         </div>
         <div class="good-grid">
-            <div class="good-cell"><div class="good-word">Good <em>ingredients.</em></div><p class="good-detail">Seven ancient grains &amp; seeds, dual plant-based protein, five dietary fibers. Every one verified by two people who read labels for a living.</p></div>
-            <div class="good-cell"><div class="good-word">Good for <em>your gut.</em></div><p class="good-detail">Natural fiber from fruits, grains &amp; seeds — plus green banana flour, cassava fiber, acacia fiber, oat bran fiber, and psyllium husk. A fiber stack that actually does something.</p></div>
-            <div class="good-cell"><div class="good-word">Plant-based <em>protein.</em></div><p class="good-detail">Pea and rice protein together — a more complete amino acid profile than either alone. No dairy, no whey, no isolate shortcuts.</p></div>
-            <div class="good-cell"><div class="good-word">Freeze-dried <em>fruit.</em></div><p class="good-detail">Whole lemon, blueberry, and cranberry — freeze-dried to a powder and dusted on before enrobing. Real fruit, not flavoring.</p></div>
+            <div class="good-cell" style="background-image: linear-gradient(rgba(250,245,236,0.58), rgba(250,245,236,0.72)), url('/images/Panel/good-ingredients.png'); background-size: cover; background-position: center;"><div class="good-word">Good <em>ingredients.</em></div><p class="good-detail">Seven ancient grains &amp; seeds, dual plant-based protein, five dietary fibers. Every one verified by two people who read labels for a living.</p></div>
+            <div class="good-cell" style="background-image: linear-gradient(rgba(250,245,236,0.58), rgba(250,245,236,0.72)), url('/images/Panel/good-gut.png'); background-size: cover; background-position: center;"><div class="good-word">Good for <em>your gut.</em></div><p class="good-detail">Natural fiber from fruits, grains &amp; seeds — plus green banana flour, cassava fiber, acacia fiber, oat bran fiber, and psyllium husk. A fiber stack that actually does something.</p></div>
+            <div class="good-cell" style="background-image: linear-gradient(rgba(250,245,236,0.58), rgba(250,245,236,0.72)), url('/images/Panel/plant-protein.png'); background-size: cover; background-position: center;"><div class="good-word">Plant-based <em>protein.</em></div><p class="good-detail">Pea and rice protein together — a more complete amino acid profile than either alone. No dairy, no whey, no isolate shortcuts.</p></div>
+            <div class="good-cell" style="background-image: linear-gradient(rgba(250,245,236,0.58), rgba(250,245,236,0.72)), url('/images/Panel/freeze-dried-fruit.png'); background-size: cover; background-position: center;"><div class="good-word">Freeze-dried <em>fruit.</em></div><p class="good-detail">Whole lemon, blueberry, and cranberry — freeze-dried to a powder and dusted on before enrobing. Real fruit, not flavoring.</p></div>
         </div>
         <div class="bridge">
             <div class="bridge-text">
@@ -179,6 +182,15 @@ permalink: /story.html
             </div>
             <a href="/ingredients.html" class="bridge-link">See the Ingredients →</a>
         </div>
+    </div>
+
+    <div class="cause-block reveal">
+        <p class="section-stamp">For a Good Cause / Sustainability</p>
+        <div class="prose">
+            <p>"Good for the planet" isn't a line we bolt on at the end — it's built into how we make GÜTE. We keep batches <strong>small and hand-stamped</strong>: less waste, tighter quality control, and no giant runs sitting in a warehouse. Every bar is plant-based, so its footprint starts lower than anything built on dairy or animal protein.</p>
+            <p>Our packaging is <strong>paper-based and recyclable</strong> — no mixed-material film that can't be recycled, no plastic clamshells. It's the same rule we apply to the ingredient list: if it doesn't earn its place, it doesn't go in.</p>
+        </div>
+        <div class="pull-line">Good ingredients, good process, <em>good for the planet.</em></div>
     </div>
 
     <div class="story-cta reveal">
