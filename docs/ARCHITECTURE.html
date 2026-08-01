@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GÜTE Site — Architecture Report</title>
+<style>
+  :root{
+    --parchment:#F0E6D0; --cream:#FAF5EC; --dark:#160A04; --chocolate:#2C1208;
+    --stamp:#B02020; --grain:#C8A46A; --berry:#6B3080; --green:#2A5C3A;
+    --text:#3D2010; --mid:#5C3820; --soft:#8A6448; --border:rgba(22,10,4,0.12);
+    --hi:#B02020; --med:#C4862A; --lo:#2A5C3A;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--parchment);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.6;padding:2.5rem 1.25rem 4rem}
+  .wrap{max-width:920px;margin:0 auto}
+  header{border-bottom:2px solid var(--dark);padding-bottom:1.5rem;margin-bottom:2rem}
+  .eyebrow{font-family:'Courier New',monospace;font-size:.7rem;letter-spacing:.35em;text-transform:uppercase;color:var(--stamp);margin-bottom:.6rem}
+  h1{font-family:Georgia,'Times New Roman',serif;font-weight:400;font-size:2.4rem;line-height:1.1;color:var(--dark)}
+  h1 em{color:var(--berry)}
+  .sub{color:var(--mid);margin-top:.6rem;max-width:640px}
+  .stats{display:flex;gap:.6rem;flex-wrap:wrap;margin:1.5rem 0 2.25rem}
+  .stat{background:var(--cream);border:1px solid var(--border);border-radius:6px;padding:.7rem 1.1rem;flex:1;min-width:120px}
+  .stat b{display:block;font-family:Georgia,serif;font-size:1.7rem;color:var(--dark);line-height:1}
+  .stat span{font-family:'Courier New',monospace;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--soft)}
+  .filters{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.5rem}
+  .filt{font-family:'Courier New',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;padding:.45rem .9rem;border:1px solid var(--border);border-radius:20px;background:var(--cream);color:var(--soft);cursor:pointer;transition:.15s}
+  .filt.on{background:var(--dark);color:var(--parchment);border-color:var(--dark)}
+  .card{background:var(--cream);border:1px solid var(--border);border-left:4px solid var(--soft);border-radius:6px;margin-bottom:.9rem;overflow:hidden;transition:.2s}
+  .card[data-sev="high"]{border-left-color:var(--hi)}
+  .card[data-sev="med"]{border-left-color:var(--med)}
+  .card[data-sev="low"]{border-left-color:var(--lo)}
+  .card.done{opacity:.62}
+  .chead{display:flex;align-items:center;gap:.9rem;padding:1.1rem 1.25rem;cursor:pointer;user-select:none}
+  .num{font-family:Georgia,serif;font-size:1.3rem;color:var(--soft);width:1.5rem;flex-shrink:0}
+  .ctitle{flex:1;font-weight:600;color:var(--dark)}
+  .ctitle small{display:block;font-weight:400;color:var(--soft);font-size:.8rem;font-family:'Courier New',monospace;margin-top:.15rem}
+  .sev{font-family:'Courier New',monospace;font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;padding:.25rem .6rem;border-radius:3px;color:#fff;flex-shrink:0}
+  .sev.high{background:var(--hi)} .sev.med{background:var(--med)} .sev.low{background:var(--lo)}
+  .tag-done{font-family:'Courier New',monospace;font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--green);border:1px solid rgba(42,92,58,.4);padding:.2rem .5rem;border-radius:3px;flex-shrink:0}
+  .toggle{color:var(--soft);font-size:1.1rem;transition:.2s;flex-shrink:0}
+  .card.open .toggle{transform:rotate(45deg)}
+  .body{max-height:0;overflow:hidden;transition:max-height .35s ease}
+  .card.open .body{max-height:520px}
+  .binner{padding:0 1.25rem 1.25rem 3.65rem;font-size:.92rem}
+  .binner p{margin-bottom:.6rem;color:var(--mid)}
+  .binner code{background:rgba(22,10,4,.06);padding:.1rem .35rem;border-radius:3px;font-size:.85em}
+  .fix{background:rgba(42,92,58,.06);border:1px solid rgba(42,92,58,.2);border-radius:4px;padding:.7rem .9rem;font-size:.86rem;color:var(--mid)}
+  .fix b{color:var(--green)}
+  footer{margin-top:2.5rem;font-family:'Courier New',monospace;font-size:.62rem;letter-spacing:.1em;color:var(--soft);border-top:1px solid var(--border);padding-top:1rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p class="eyebrow">Static Scan · Architecture Report</p>
+    <h1>GÜTE site — <em>structural friction</em></h1>
+    <p class="sub">Adversarial pass over the 11ty codebase for duplication, dual sources of truth, dead code, and layout decay. Click any hotspot to expand its remediation.</p>
+  </header>
+
+  <div class="stats">
+    <div class="stat"><b>6</b><span>Hotspots</span></div>
+    <div class="stat"><b>2</b><span>Resolved this pass</span></div>
+    <div class="stat"><b>1</b><span>High severity</span></div>
+    <div class="stat"><b>~44</b><span>Dead CSS lines removed</span></div>
+  </div>
+
+  <div class="filters">
+    <span class="filt on" data-f="all">All</span>
+    <span class="filt" data-f="high">High</span>
+    <span class="filt" data-f="med">Medium</span>
+    <span class="filt" data-f="low">Low</span>
+    <span class="filt" data-f="open">Open only</span>
+  </div>
+
+  <div id="cards">
+
+    <div class="card" data-sev="high" data-status="open">
+      <div class="chead"><span class="num">1</span><span class="ctitle">Duplicated expandable-card system<small>ingredients.njk ↔ function.njk</small></span><span class="sev high">High</span><span class="toggle">+</span></div>
+      <div class="body"><div class="binner">
+        <p>The accordion component — <code>.ing-card / .ing-header / .ing-expand / .ing-refs</code> CSS <b>and</b> the toggle <code>&lt;script&gt;</code> — is copy-pasted into both page templates. A change to card behavior or styling must be made in two places, and they've already drifted (<code>max-height</code> and <code>.ing-body</code> padding differ slightly).</p>
+        <div class="fix"><b>Fix:</b> Lift the shared card CSS into <code>css/gute.css</code> and the accordion logic into <code>js/gute.js</code> (guarded by <code>[data-ing]</code>, so it no-ops on pages without cards). Diff the two versions first and reconcile the max-height/padding deltas. Requires a local <code>npm run build</code> + visual check — highest payoff refactor.</p>
+      </div></div>
+    </div>
+
+    <div class="card" data-sev="med" data-status="open">
+      <div class="chead"><span class="num">2</span><span class="ctitle">Fat page templates / inline styles<small>index 600+, ingredients 800+ lines</small></span><span class="sev med">Medium</span><span class="toggle">+</span></div>
+      <div class="body"><div class="binner">
+        <p>Each page carries a large inline <code>{% block styles %}</code>. It keeps pages self-contained, but page-hero, section-stamp, and CTA patterns repeat across all four subpages. Grasping one visual concept means scrolling a long single file.</p>
+        <div class="fix"><b>Fix:</b> Promote the repeated hero/section/CTA patterns to <code>gute.css</code>; keep only genuinely page-unique rules inline. Do this alongside hotspot #1.</div>
+      </div></div>
+    </div>
+
+    <div class="card done" data-sev="low" data-status="done">
+      <div class="chead"><span class="num">3</span><span class="ctitle">Dead GLP styles in ingredients.njk<small>orphaned when GLP moved to Function</small></span><span class="tag-done">✓ Resolved</span><span class="toggle">+</span></div>
+      <div class="body"><div class="binner">
+        <p>When the GLP-1 section moved to <code>function.njk</code>, ~44 lines of <code>.glp-*</code> CSS were left behind in <code>ingredients.njk</code> with no markup using them.</p>
+        <div class="fix"><b>Done this pass:</b> Removed all dead <code>.glp-*</code> rules (kept <code>sup.cite</code>, which the citations still use).</div>
+      </div></div>
+    </div>
+
+    <div class="card" data-sev="med" data-status="open">
+      <div class="chead"><span class="num">4</span><span class="ctitle">Legacy .html files — dual source of truth<small>index.html, story.html, ingredients.html</small></span><span class="sev med">Medium</span><span class="toggle">+</span></div>
+      <div class="body"><div class="binner">
+        <p>The pre-11ty static HTML pages still sit in the repo. They're excluded via <code>.eleventyignore</code>, so they don't build — but they read as a second, stale source of truth and invite accidental edits to the wrong file.</p>
+        <div class="fix"><b>Fix:</b> <code>git rm index.html story.html ingredients.html</code>, then drop those three lines from <code>.eleventyignore</code>.</div>
+      </div></div>
+    </div>
+
+    <div class="card" data-sev="low" data-status="open">
+      <div class="chead"><span class="num">5</span><span class="ctitle">Image folder naming + remnants<small>ingredients/ · pageHeaders/ · Panel/</small></span><span class="sev low">Low</span><span class="toggle">+</span></div>
+      <div class="body"><div class="binner">
+        <p>Three casing conventions (<code>lowercase</code>, <code>camelCase</code>, <code>Capitalized</code>) coexist, and GitHub Pages is case-sensitive — a mismatch silently 404s. Old duplicates (<code>images/product/</code>, <code>images/stickers/</code>, <code>images/gute-seal.jpg</code>) still linger.</p>
+        <div class="fix"><b>Fix:</b> Pick one convention (e.g. all-lowercase, rename <code>Panel→panels</code>, update the 4 refs in <code>story.njk</code>), and <code>git rm -r images/product images/stickers images/gute-seal.jpg</code>.</div>
+      </div></div>
+    </div>
+
+    <div class="card done" data-sev="med" data-status="done">
+      <div class="chead"><span class="num">6</span><span class="ctitle">Docs & config drift<small>README, sitemap, Apps Script columns</small></span><span class="tag-done">✓ Partly</span><span class="toggle">+</span></div>
+      <div class="body"><div class="binner">
+        <p>README described the old product name, domain, structure, and form fields. Separately, the waitlist form gained <code>flavors[]</code>/<code>merch[]</code> — the <code>COLUMNS</code> array in <code>Code.gs</code> must match or sheet rows misalign.</p>
+        <div class="fix"><b>Done this pass:</b> README rewritten to current state; <code>README.md</code> + <code>docs/</code> added to <code>.eleventyignore</code> (they were publishing). <b>Still open:</b> verify <code>google-apps-script/Code.gs</code> COLUMNS vs the current payload.</div>
+      </div></div>
+    </div>
+
+  </div>
+
+  <footer>Generated by improve-codebase-architecture · GÜTE static scan · findings reflect the repo at report time.</footer>
+</div>
+
+<script>
+  document.querySelectorAll('.chead').forEach(h=>{
+    h.addEventListener('click',()=>h.parentElement.classList.toggle('open'));
+  });
+  document.querySelectorAll('.filt').forEach(f=>{
+    f.addEventListener('click',()=>{
+      document.querySelectorAll('.filt').forEach(x=>x.classList.remove('on'));
+      f.classList.add('on');
+      const v=f.dataset.f;
+      document.querySelectorAll('.card').forEach(c=>{
+        const show = v==='all' || (v==='open'? c.dataset.status==='open' : c.dataset.sev===v);
+        c.style.display = show?'':'none';
+      });
+    });
+  });
+</script>
+</body>
+</html>

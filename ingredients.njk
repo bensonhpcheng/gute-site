@@ -50,6 +50,15 @@ permalink: /ingredients.html
     .ing-toggle { font-family: 'Courier Prime', monospace; font-size: 0.65rem; color: var(--text-ghost); transition: transform 0.3s; flex-shrink: 0; margin-top: 0.2rem; }
     .ing-card.open .ing-toggle { transform: rotate(45deg); }
 
+    /* ─── Vibrant photo-backed headers (collapsed state) ─── */
+    .ing-header { position: relative; overflow: hidden; }
+    .ing-header.has-photo { min-height: 170px; align-items: end; background-size: cover; background-position: center; }
+    .ing-header.has-photo .ing-name { color: #FBF6EC; text-shadow: 0 1px 12px rgba(0,0,0,0.6); }
+    .ing-header.has-photo .ing-teaser { color: rgba(251,246,236,0.9); text-shadow: 0 1px 10px rgba(0,0,0,0.55); }
+    .ing-header.has-photo .ing-toggle { color: #FBF6EC; text-shadow: 0 1px 10px rgba(0,0,0,0.55); }
+    .ing-header.has-photo .ing-badge { color: #FBF6EC; background: rgba(0,0,0,0.4); border-color: rgba(251,246,236,0.35); }
+    .ing-photo, .ing-photo-placeholder { display: none; }
+
     .ing-expand { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
     /* JS sets an exact inline max-height on open; this generous value is a no-JS fallback so sources are never clipped */
     .ing-card.open .ing-expand { max-height: 2600px; }
@@ -63,43 +72,9 @@ permalink: /ingredients.html
     .ing-body strong { color: var(--dark); font-weight: 500; }
     .ing-tag { display: inline-block; margin-top: 1rem; font-family: 'Courier Prime', monospace; font-size: 0.46rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.2rem 0.55rem; border-radius: 2px; color: var(--stamp); border: 1px solid rgba(176,32,32,0.2); }
 
-    /* ─── GLP SECTION ─── */
-    .glp-section { margin-bottom: 6rem; }
-    .glp-hero { background: var(--glp-green); border-radius: 4px; padding: 3.5rem 3rem; margin-bottom: 1.25rem; position: relative; overflow: hidden; }
-    .glp-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 70% at 90% 50%, rgba(74,140,92,0.3) 0%, transparent 65%); }
-    .glp-tag { font-family: 'Courier Prime', monospace; font-size: 0.54rem; letter-spacing: 0.35em; text-transform: uppercase; color: rgba(232,245,236,0.58); margin-bottom: 1rem; position: relative; }
-    .glp-headline { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 300; color: #E8F5EC; line-height: 1.2; margin-bottom: 1.25rem; position: relative; }
-    .glp-headline em { font-style: italic; color: #A8DFB4; }
-    .glp-sub { font-size: 0.95rem; color: rgba(232,245,236,0.62); line-height: 1.75; max-width: 540px; position: relative; }
-    .glp-explainer { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 1.25rem; }
-    .glp-card { background: var(--cream); border: 1px solid var(--border); border-top: 2px solid var(--glp-light); border-radius: 0 0 4px 4px; padding: 2rem; }
-    .glp-card-label { font-family: 'Courier Prime', monospace; font-size: 0.52rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--glp-green); margin-bottom: 0.65rem; }
-    .glp-card-title { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400; color: var(--dark); margin-bottom: 0.65rem; }
-    .glp-card-text { font-size: 0.86rem; color: var(--text-mid); line-height: 1.72; }
-    .glp-card-text strong { color: var(--dark); font-weight: 500; }
-    .glp-disclaimer { font-family: 'Courier Prime', monospace; font-size: 0.5rem; letter-spacing: 0.12em; color: var(--text-ghost); line-height: 1.7; padding: 1rem 1.25rem; border: 1px solid var(--border); border-radius: 2px; }
-    .glp-plain { background: var(--cream); border: 1px solid var(--border); border-radius: 4px; padding: 2.5rem 3rem; margin-bottom: 1.25rem; }
-    .glp-plain-title { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 400; color: var(--dark); margin-bottom: 1.25rem; }
-    .glp-plain p { font-size: 0.95rem; color: var(--text-mid); line-height: 1.85; }
-    .glp-plain p + p { margin-top: 1rem; }
-    .glp-plain strong { color: var(--dark); font-weight: 500; }
-    .glp-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 1.25rem; }
-    .glp-step { background: var(--cream); padding: 2rem; }
-    .glp-step-num { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 300; color: var(--glp-green); opacity: 0.4; line-height: 1; margin-bottom: 0.6rem; }
-    .glp-step-title { font-family: 'Courier Prime', monospace; font-size: 0.56rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--dark); margin-bottom: 0.6rem; }
-    .glp-step-text { font-size: 0.84rem; color: var(--text-mid); line-height: 1.72; }
-    .glp-step-text strong { color: var(--dark); font-weight: 500; }
     sup.cite { font-size: 0.55rem; color: var(--glp-green); font-family: 'Courier Prime', monospace; vertical-align: super; line-height: 0; }
     sup.cite a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(42,92,58,0.3); }
     sup.cite a:hover { border-bottom-color: var(--glp-green); }
-    .glp-refs { background: var(--cream); border: 1px solid var(--border); border-radius: 4px; padding: 2rem 2.5rem; margin-bottom: 1.25rem; }
-    .glp-refs-label { font-family: 'Courier Prime', monospace; font-size: 0.52rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--text-soft); margin-bottom: 1.25rem; }
-    .glp-ref { display: grid; grid-template-columns: 1.5rem 1fr; gap: 0.5rem; margin-bottom: 0.85rem; }
-    .glp-ref-num { font-family: 'Courier Prime', monospace; font-size: 0.7rem; color: var(--glp-green); font-weight: 700; padding-top: 0.05rem; }
-    .glp-ref-text { font-size: 0.78rem; color: var(--text-mid); line-height: 1.65; }
-    .glp-ref-text a { color: var(--glp-green); text-decoration: none; border-bottom: 1px solid rgba(42,92,58,0.25); }
-    .glp-ref-text a:hover { border-bottom-color: var(--glp-green); }
-    .glp-ref-text em { font-style: italic; color: var(--text-soft); }
 
     /* ─── INGREDIENT REFERENCES ─── */
     .ing-refs { margin-top: 1.6rem; padding: 1.25rem 1.25rem 0.4rem; border-top: 1px solid var(--border); background: rgba(42,92,58,0.03); border-radius: 0 0 4px 4px; }
@@ -154,10 +129,6 @@ permalink: /ingredients.html
         .ing-grid { grid-template-columns: 1fr; }
         .ing-card.full-width { grid-column: 1; }
         .stats-strip { grid-template-columns: 1fr; }
-        .glp-explainer { grid-template-columns: 1fr; }
-        .glp-steps { grid-template-columns: 1fr; }
-        .glp-plain { padding: 2rem 1.5rem; }
-        .glp-refs { padding: 1.75rem 1.5rem; }
     }
 </style>
 {% endblock %}
@@ -807,6 +778,14 @@ permalink: /ingredients.html
     document.querySelectorAll('[data-ing]').forEach(card => {
         const header = card.querySelector('.ing-header');
         const expand = card.querySelector('.ing-expand');
+
+        // Use the ingredient photo as a vibrant header background (collapsed state).
+        const photo = card.querySelector('.ing-photo');
+        const photoSrc = photo && photo.getAttribute('src');
+        if (photoSrc) {
+            header.style.backgroundImage = "linear-gradient(to top, rgba(18,9,4,0.92) 0%, rgba(18,9,4,0.5) 52%, rgba(18,9,4,0.18) 100%), url('" + photoSrc + "')";
+            header.classList.add('has-photo');
+        }
 
         // Size the panel to its actual content so long source lists never get clipped.
         const fit = () => {

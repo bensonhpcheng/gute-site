@@ -6,3 +6,8 @@ ingredients.html
 # Ignore build output and dependencies
 _site/
 node_modules/
+
+# Ignore docs & readme (not part of the built site)
+README.md
+docs/
+.agents/
