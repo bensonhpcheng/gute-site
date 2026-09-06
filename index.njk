@@ -449,4 +449,54 @@ permalink: /index.html
         </div>
     </div>
 </section>
+
+<!-- FOLLOW ALONG / INSTAGRAM -->
+{#  ── INSTAGRAM CAROUSEL FEED ───────────────────────────────────────
+    Photos are read automatically from images/instagram/ (see the
+    README in that folder — drop iPhone HEIC files straight in).
+    Until you add any, it falls back to the brand photos below.
+    ──────────────────────────────────────────────────────────────── #}
+{% set igFallback = [
+    { img: "/images/pageHeaders/7435.jpg",            link: "https://www.instagram.com/gutefoods", alt: "GÜTE Crunch bar in the wild" },
+    { img: "/images/core-grains.jpg",                 link: "https://www.instagram.com/gutefoods", alt: "Ancient grains and seeds" },
+    { img: "/images/Panel/good-ingredients.png",      link: "https://www.instagram.com/gutefoods", alt: "Real, simple ingredients" },
+    { img: "/images/Panel/plant-protein.png",         link: "https://www.instagram.com/gutefoods", alt: "Plant protein blend" },
+    { img: "/images/Panel/freeze-dried-fruit.png",    link: "https://www.instagram.com/gutefoods", alt: "Real freeze-dried fruit" },
+    { img: "/images/Panel/good-gut.png",              link: "https://www.instagram.com/gutefoods", alt: "Built for your gut" }
+] %}
+{% set igPosts = instagram if instagram and instagram.length else igFallback %}
+<section class="social-band">
+    <div class="social-band-inner">
+        <p class="social-eyebrow">Follow along</p>
+        <h2 class="social-title">@gutefoods on <em>Instagram</em></h2>
+        <p class="social-sub">Batch days, farmers markets, and what we're testing next. Come say hi.</p>
+    </div>
+
+    <!-- Static auto-scrolling carousel (loops seamlessly; pauses on hover) -->
+    <div class="ig-carousel" role="list" aria-label="Recent Instagram posts">
+        <div class="ig-track">
+            {% for post in igPosts %}
+            <a class="ig-item" role="listitem" href="{{ post.link }}" target="_blank" rel="noopener" aria-label="{{ post.alt }} — view on Instagram">
+                <img src="{{ post.img }}" alt="{{ post.alt }}" loading="lazy">
+                <span class="ig-item-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></svg>
+                </span>
+            </a>
+            {% endfor %}
+            {# duplicate set for a seamless infinite loop #}
+            {% for post in igPosts %}
+            <a class="ig-item" role="listitem" href="{{ post.link }}" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+                <img src="{{ post.img }}" alt="" loading="lazy">
+                <span class="ig-item-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></svg>
+                </span>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="social-band-inner">
+        <a href="https://www.instagram.com/gutefoods" class="social-follow-btn" target="_blank" rel="noopener">Follow @gutefoods →</a>
+    </div>
+</section>
 {% endblock %}

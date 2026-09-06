@@ -11,3 +11,7 @@ node_modules/
 README.md
 docs/
 .agents/
+
+# Build scripts & folder READMEs (not site content)
+scripts/
+images/instagram/README.md

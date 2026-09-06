@@ -100,3 +100,117 @@ document
     }
   }
 })();
+
+// ─── EMAIL CAPTURE POPUP ─────────────────
+// Shows once per visitor after ~12s of browsing OR on exit-intent
+// (cursor leaving the top of the window), whichever comes first.
+// Submits to the same Google Sheet as the waitlist, tagged source
+// "Email Popup". Suppressed after it's shown, via localStorage.
+(function initPopup() {
+  const overlay = document.getElementById("gmOverlay");
+  if (!overlay) return;
+
+  const SHEETS_URL =
+    "https://script.google.com/macros/s/AKfycbwgTJzFmntUlEjXPv_T_JbAdCuCw-LJnR31Wqsx35fXEX9x4aoEBQuzh-Mlhkzn8c9-/exec";
+  const SEEN_KEY = "gute_popup_seen";
+  const DELAY_MS = 12000;
+
+  // Respect prior visits (localStorage may throw in some contexts — guard it).
+  let seen = false;
+  try {
+    seen = localStorage.getItem(SEEN_KEY) === "1";
+  } catch (e) {}
+  if (seen) return;
+
+  const modal = overlay.querySelector(".gm-modal");
+  const form = document.getElementById("gmForm");
+  const input = document.getElementById("gmEmail");
+  const btn = document.getElementById("gmBtn");
+  const closeBtn = document.getElementById("gmClose");
+
+  let opened = false;
+  let delayTimer = null;
+
+  function markSeen() {
+    try {
+      localStorage.setItem(SEEN_KEY, "1");
+    } catch (e) {}
+  }
+
+  function open() {
+    if (opened) return;
+    opened = true;
+    markSeen(); // once per visitor, whether or not they subscribe
+    overlay.classList.add("is-open");
+    overlay.setAttribute("aria-hidden", "false");
+    cleanupTriggers();
+    setTimeout(() => input && input.focus(), 420);
+  }
+
+  function close() {
+    overlay.classList.remove("is-open");
+    overlay.setAttribute("aria-hidden", "true");
+  }
+
+  // ── Triggers ──
+  function onExitIntent(e) {
+    // Cursor leaving through the top edge of the viewport.
+    if (e.clientY <= 0) open();
+  }
+  function cleanupTriggers() {
+    if (delayTimer) clearTimeout(delayTimer);
+    document.removeEventListener("mouseout", onExitIntent);
+  }
+  delayTimer = setTimeout(open, DELAY_MS);
+  document.addEventListener("mouseout", onExitIntent);
+
+  // ── Dismissal ──
+  closeBtn && closeBtn.addEventListener("click", close);
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) close();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && overlay.classList.contains("is-open")) close();
+  });
+
+  // ── Submit ──
+  form &&
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const email = (input.value || "").trim();
+      const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      if (!valid) {
+        input.classList.add("gm-invalid");
+        input.focus();
+        return;
+      }
+      input.classList.remove("gm-invalid");
+      btn.textContent = "Joining...";
+      btn.disabled = true;
+
+      const payload = {
+        timestamp: new Date().toISOString(),
+        firstName: "",
+        email: email,
+        zip: "",
+        variant: "",
+        flavors: "",
+        merch: "",
+        preorder: "",
+        source: "Email Popup",
+      };
+
+      try {
+        await fetch(SHEETS_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+      } catch (err) {
+        console.error("Popup submission error:", err);
+      }
+      markSeen();
+      modal.classList.add("is-done"); // swap to success state
+    });
+})();
