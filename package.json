@@ -3,13 +3,12 @@
   "version": "1.0.0",
   "description": "GUTE Food Co. — Good food. No filler.",
   "scripts": {
-    "convert:heic": "node scripts/convert-heic.js",
-    "build": "npm run convert:heic && eleventy",
-    "start": "npm run convert:heic && eleventy --serve",
-    "dev": "npm run convert:heic && eleventy --serve --incremental"
+    "convert:heic": "npm install --no-save --no-package-lock heic-convert && node scripts/convert-heic.js",
+    "build": "eleventy",
+    "start": "eleventy --serve",
+    "dev": "eleventy --serve --incremental"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^3.0.0",
-    "heic-convert": "^2.1.0"
+    "@11ty/eleventy": "^3.0.0"
   }
 }

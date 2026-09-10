@@ -5,9 +5,12 @@ Drop your Instagram photos in **this folder** and they'll appear in the
 
 ## How to add posts
 
-1. **Drop image files here.** Straight from your iPhone is fine — `.heic`
-   files are converted to web-friendly `.jpg` automatically on build.
-   `.jpg`, `.jpeg`, `.png`, and `.webp` also work as-is.
+1. **Drop image files here.** `.jpg`, `.jpeg`, `.png`, and `.webp` work
+   as-is. Straight-from-iPhone `.heic` files need one conversion step:
+   run **`npm run convert:heic`** and each `.heic` becomes a web-friendly
+   `.jpg` right here in this folder (browsers can't display HEIC directly).
+   That command installs its converter on the fly and does **not** touch
+   `package.json` / `package-lock.json`, so it never affects the deploy.
    Square images (~800×800) look best; the carousel crops to a square anyway.
 
 2. **Control the order** by prefixing filenames with numbers:
@@ -36,5 +39,6 @@ Drop your Instagram photos in **this folder** and they'll appear in the
 ## Notes
 
 - The carousel updates whenever you rebuild (`npm run dev` / `npm run build`).
+  Run `npm run convert:heic` first if you just added any `.heic` files.
 - Until you add photos here, the carousel falls back to existing brand images.
 - Keep files reasonably sized (a few hundred KB each) so the page stays fast.

@@ -3,7 +3,6 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("css");
   eleventyConfig.addPassthroughCopy("js");
   eleventyConfig.addPassthroughCopy("images");
-  eleventyConfig.addPassthroughCopy("google-apps-script");
   eleventyConfig.addPassthroughCopy("CNAME"); // Required for GitHub Pages custom domain
 
   // Watch CSS and JS for changes during dev

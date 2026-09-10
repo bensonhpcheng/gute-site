@@ -15,3 +15,6 @@ docs/
 # Build scripts & folder READMEs (not site content)
 scripts/
 images/instagram/README.md
+
+# Server-side script + its docs — never published to the public site
+google-apps-script/

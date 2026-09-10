@@ -21,7 +21,10 @@ const DIR = path.join(__dirname, "..", "images", "instagram");
   try {
     convert = require("heic-convert");
   } catch (e) {
-    console.warn("[heic] 'heic-convert' not installed. Run: npm install");
+    console.warn(
+      "[heic] 'heic-convert' not found. Run this via: npm run convert:heic\n" +
+      "       (that installs it locally without touching package.json/lock)."
+    );
     return;
   }
 
